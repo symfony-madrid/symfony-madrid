@@ -1,148 +1,108 @@
-Symfony Standard Edition
-========================
+Symfony Barcelona
+==============
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony2
-application that you can use as the skeleton for your new app. If you want
-to learn more about the features included, see the "What's Inside?" section.
-
-This document contains information on how to download and start using Symfony.
-For a more detailed explanation, see the
-[Installation chapter](http://symfony.com/doc/current/book/installation.html)
-of the Symfony Documentation.
-
-1) Download the Standard Edition
+1) Instalación
 --------------------------------
 
-If you've already downloaded the standard edition, and unpacked it somewhere
-within your web root directory, then move on to the "Installation" section.
+### Clonar el repositorio git
 
-To download the standard edition, you have two options:
+    git clone git@github.com:symfony-barcelona/symfony-barcelona.git
+	cd symfony-barcelona
 
-### Download an archive file (*recommended*)
+### Crear el archivo parameters.yml (sustituto de parameters.ini en las próximas versiones)
 
-The easiest way to get started is to download an archive of the standard edition
-(http://symfony.com/download). Unpack it somewhere under your web server root
-directory and you're done. The web root is wherever your web server (e.g. Apache)
-looks when you access `http://localhost` in a browser.
+	cp app/config/parameters.yml.dist app/config/parameters.yml
 
-### Clone the git Repository
+En el repositorio está commiteado el archivo parameters.ini para que no falle el bundle SensioDistributionBundle, usado por ejemplo para regenerar el bootstrap.php.cache en actualizaciones de Symfony2
 
-We highly recommend that you download the packaged version of this distribution.
-But if you still want to use Git, you are on your own.
+### Configurar la base de datos, los datos de correo, el locale y el token CSRF en el parameters.yml
 
-Run the following commands:
+    database_driver = pdo_mysql
+    database_host = localhost
+    database_port = 3306
+    database_name = symfony-barcelona
+    database_user = root
+    database_password = ~
 
-    git clone http://github.com/symfony/symfony-standard.git
-    cd symfony-standard
-    rm -rf .git
+    mailer_transport: smtp
+    mailer_host: localhost
+    mailer_user: ~
+    mailer_password: ~
 
-2) Installation
----------------
+    locale: es_ES
+    secret: "Symf0nyBCN-T0k3n!"
 
-Once you've downloaded the standard edition, installation is easy, and basically
-involves making sure your system is ready for Symfony.
+### Actualizar vendors y deployar los assets de los bundles que haya en los vendors
 
-### a) Check your System Configuration
+	php bin/vendors install
 
-Before you begin, make sure that your local system is properly configured
-for Symfony. To do this, execute the following:
+### Crear base de datos
 
-    php app/check.php
+	mysql -u [usuario] -p [password] -e "create database symfony-barcelona CHARACTER SET utf8 COLLATE utf8_general_ci"
 
-If you get any warnings or recommendations, fix these now before moving on.
+o
 
-### b) Install the Vendor Libraries
+	php app/console doctrine:database:create
 
-If you downloaded the archive "without vendors" or installed via git, then
-you need to download all of the necessary vendor libraries. If you're not
-sure if you need to do this, check to see if you have a ``vendor/`` directory.
-If you don't, or if that directory is empty, run the following:
+### Generar el modelo de datos
 
-    php bin/vendors install
+La primera vez
 
-Note that you **must** have git installed and be able to execute the `git`
-command to execute this script. If you don't have git available, either install
-it or download Symfony with the vendor libraries already included.
+	php app/console doctrine:schema:create
 
-### c) Access the Application via the Browser
+y para actualizar
 
-Congratulations! You're now ready to use Symfony. If you've unzipped Symfony
-in the web root of your computer, then you should be able to access the
-web version of the Symfony requirements check via:
+	php app/console doctrine:schema:update --force
 
-    http://localhost/Symfony/web/config.php
+### Cargar los datos de prueba
 
-If everything looks good, click the "Bypass configuration and go to the Welcome page"
-link to load up your first Symfony page.
+	php app/console doctrine:fixtures:load
 
-You can also use a web-based configurator by clicking on the "Configure your
-Symfony Application online" link of the ``config.php`` page.
+### Configurar Apache (Ubuntu)
 
-To see a real-live Symfony page in action, access the following page:
+Editar el archivo hosts:
 
-    web/app_dev.php/demo/hello/Fabien
+	$ sudo gedit /etc/hosts
 
-3) Learn about Symfony!
------------------------
+y añadir la línea siguiente:
 
-This distribution is meant to be the starting point for your application,
-but it also contains some sample code that you can learn from and play with.
+	127.0.0.1   www.symfony-barcelona.dev
 
-A great way to start learning Symfony is via the [Quick Tour](http://symfony.com/doc/current/quick_tour/the_big_picture.html),
-which will take you through all the basic features of Symfony2 and the test
-pages that are available in the standard edition.
+Configuramos un VirtualHost para el nuevo dominio, editando el archivo (nuevo) www.symfony-barcelona.dev del directorio sites-available de apache2:
 
-Once you're feeling good, you can move onto reading the official
-[Symfony2 book](http://symfony.com/doc/current/).
+	$ sudo gedit /etc/apache2/sites-available/www.symfony-barcelona.dev
 
-Using this Edition as the Base of your Application
---------------------------------------------------
+con el siguiente contenido:
 
-Since the standard edition is fully-configured and comes with some examples,
-you'll need to make a few changes before using it to build your application.
+	<VirtualHost *:80>
+		ServerName www.symfony-barcelona.dev
+		DocumentRoot /home/miusuario/www/symfony-barcelona/web
+		DirectoryIndex app.php
 
-The distribution is configured with the following defaults:
+		<Directory "/home/miusuario/www/symfony-barcelona/web">
+	  		AllowOverride All
+	  		Allow from All
+			</Directory>
+	</VirtualHost>
 
-* Twig is the only configured template engine;
-* Doctrine ORM/DBAL is configured;
-* Swiftmailer is configured;
-* Annotations for everything are enabled.
+Habilitamos el nuevo VirtualHost:
 
-A default bundle, ``AcmeDemoBundle``, shows you Symfony2 in action. After
-playing with it, you can remove it by following these steps:
+	$ sudo a2ensite www.symfony-barcelona.dev
 
-* delete the ``src/Acme`` directory;
-* remove the routing entries referencing AcmeBundle in ``app/config/routing_dev.yml``;
-* remove the AcmeBundle from the registered bundles in ``app/AppKernel.php``;
+Reiniciamos apache:
 
+	$ sudo /etc/init.d/apache2 restart
 
-What's inside?
----------------
-The Symfony Standard Edition comes pre-configured with the following bundles:
-	
-* **FrameworkBundle** - The core Symfony framework bundle
-* **SensioFrameworkExtraBundle** - Adds several enhancements, including template
-  and routing annotation capability ([documentation](http://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/index.html))
-* **DoctrineBundle** - Adds support for the Doctrine ORM
-  ([documentation](http://symfony.com/doc/current/book/doctrine.html))
-* **TwigBundle** - Adds support for the Twig templating engine
-  ([documentation](http://symfony.com/doc/current/book/templating.html))
-* **SecurityBundle** - Adds security by integrating Symfony's security component
-  ([documentation](http://symfony.com/doc/current/book/security.html))
-* **SwiftmailerBundle** - Adds support for Swiftmailer, a library for sending emails
-  ([documentation](http://symfony.com/doc/2.0/cookbook/email.html))
-* **MonologBundle** - Adds support for Monolog, a logging library
-  ([documentation](http://symfony.com/doc/2.0/cookbook/logging/monolog.html))
-* **AsseticBundle** - Adds support for Assetic, an asset processing library
-  ([documentation](http://symfony.com/doc/2.0/cookbook/assetic/asset_management.html))
-* **JMSSecurityExtraBundle** - Allows security to be added via annotations
-  ([documentation](http://symfony.com/doc/current/bundles/JMSSecurityExtraBundle/index.html))
-* **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-  the web debug toolbar
-* **SensioDistributionBundle** (in dev/test env) - Adds functionality for configuring
-  and working with Symfony distributions
-* **SensioGeneratorBundle** (in dev/test env) - Adds code generation capabilities
-  ([documentation](http://symfony.com/doc/current/bundles/SensioGeneratorBundle/index.html))
-* **AcmeDemoBundle** (in dev/test env) - A demo bundle with some example code
+### Configurar los permisos de app/cache y app/logs (Ubuntu)
 
-Enjoy!
+Para los permisos mucha gente recomienda instalar el paquete ACL.
+Sin embargo, nuestra recomendación es modificar el usuario con el cual se ejecuta Apache para que coincida con nuestro usuario del ordenador donde estemos trabajando.
+
+Para ello, hay que editar el archivo envvars de Apache
+
+    $ sudo vim /etc/apache/envvars
+
+Y modificar las líneas siguientes reemplazando www-data por nuestro usuario
+
+    $ export APACHE_RUN_USER=[usuario]
+    $ export APACHE_RUN_GROUP=[usuario]
