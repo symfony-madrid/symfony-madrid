@@ -1,3 +1,5 @@
+/web/css
+/web/js
 /web/bundles/
 /app/bootstrap*
 /app/cache/*
