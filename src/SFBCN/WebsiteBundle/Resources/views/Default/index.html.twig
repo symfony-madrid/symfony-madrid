@@ -1,1 +1,6 @@
-Hello {{ name }}!
+{# Default/index.html.twig #}
+{% extends 'SFBCNWebsiteBundle::layout.html.twig' %}
+
+{% block content %}
+{% trans %} messages.index.helloworld {% endtrans %}
+{% endblock %}

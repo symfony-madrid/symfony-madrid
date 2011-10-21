@@ -10,9 +10,10 @@ class DefaultController extends Controller
 {
     /**
      * @Route("/")
+     * @Template()
      */
     public function indexAction()
     {
-        return new \Symfony\Component\HttpFoundation\Response('<html><head></head><body>Hola Barcelona</body></html>');
+        return array();
     }
 }
