@@ -17,12 +17,12 @@ En el repositorio está commiteado el archivo parameters.ini para que no falle e
 
 ### Configurar la base de datos, los datos de correo, el locale y el token CSRF en el parameters.yml
 
-    database_driver = pdo_mysql
-    database_host = localhost
-    database_port = 3306
-    database_name = symfony-barcelona
-    database_user = root
-    database_password = ~
+    database_driver: pdo_mysql
+    database_host: localhost
+    database_port: 3306
+    database_name: symfony_barcelona
+    database_user: root
+    database_password: ~
 
     mailer_transport: smtp
     mailer_host: localhost
@@ -82,7 +82,7 @@ con el siguiente contenido:
 		<Directory "/home/miusuario/www/symfony-barcelona/web">
 	  		AllowOverride All
 	  		Allow from All
-			</Directory>
+		</Directory>
 	</VirtualHost>
 
 Habilitamos el nuevo VirtualHost:
