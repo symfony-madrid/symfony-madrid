@@ -38,7 +38,7 @@ En el repositorio está commiteado el archivo parameters.ini para que no falle e
 
 ### Crear base de datos
 
-	mysql -u [usuario] -p [password] -e "create database symfony-barcelona CHARACTER SET utf8 COLLATE utf8_general_ci"
+	mysql -u [usuario] -p [password] -e "create database symfony_barcelona CHARACTER SET utf8 COLLATE utf8_general_ci"
 
 o
 
@@ -46,13 +46,9 @@ o
 
 ### Generar el modelo de datos
 
-La primera vez
+Para crear la BBDD del proyecto o actualizarla en posteriores versiones
 
-	php app/console doctrine:schema:create
-
-y para actualizar
-
-	php app/console doctrine:schema:update --force
+	php app/console doctrine:migrations:migrate
 
 ### Cargar los datos de prueba
 

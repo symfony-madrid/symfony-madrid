@@ -2,7 +2,7 @@ parameters:
   database_driver: pdo_mysql
   database_host: localhost
   database_port: 3306
-  database_name: symfony-barcelona
+  database_name: symfony_barcelona
   database_user: root
   database_password: ~
 
