@@ -9,27 +9,43 @@
         <meta content="{% block keywords %}{% trans %} messages.head.keywords {% endtrans %}{% endblock %}" name="keywords"/>
         <meta content="7 days" name="revisit-after"/>
         <title>Symfony-Barcelona{% block title %}{% endblock %}</title>
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+         <![endif]-->
         {% block stylesheets %}
-            {% stylesheets '@SFBCNWebsiteBundle/Resources/public/css/01-reset.css' '@SFBCNWebsiteBundle/Resources/public/css/*-web-*.css' %}
+            {% stylesheets '@SFBCNWebsiteBundle/Resources/public/css/01-reset.css'
+                           '@SFBCNWebsiteBundle/Resources/public/css/*-web-*.css'
+                           %}
                 <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
             {% endstylesheets %}
         {% endblock %}
     </head>
     <body>
+    <div id="container">
         <header>
-            {% include 'SFBCNWebsiteBundle::menu.html.twig' %}
+           <!--start logo-->
+           <a href="#" id="logo">
+                {% image "@SFBCNWebsiteBundle/Resources/public/images/symfonybcn-logo.png" %}
+                    <img src="{{ asset_url }}" alt="{% trans %} Symfony Barcelona {% endtrans %}"/>
+                {% endimage %}
+           </a>
+           <!--end logo-->
+           {% include 'SFBCNWebsiteBundle::menu.html.twig' %}
+           {% include 'SFBCNWebsiteBundle::social.html.twig' %}
         </header>
+        <div class="clear"></div>
         <section>
             {% block content %}{% endblock %}
         </section>
-        <footer>
-            {% include 'SFBCNWebsiteBundle::footer.html.twig' %}
-        </footer>
-        {% block javascripts %}
-            {% javascripts '@SFBCNWebsiteBundle/Resources/public/js/*' %}
-                <script type="text/javascript" src="{{ asset_url }}"></script>
-            {% endjavascripts %}
-        {% endblock %}
+    </div>
+    <footer>
+        {% include 'SFBCNWebsiteBundle::footer.html.twig' %}
+    </footer>
+    {% block javascripts %}
+        {% javascripts '@SFBCNWebsiteBundle/Resources/public/js/*' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% endblock %}
     </body>
 </html>
 {% endspaceless %}

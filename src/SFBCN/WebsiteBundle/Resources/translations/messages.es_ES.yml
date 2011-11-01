@@ -2,5 +2,14 @@ messages:
   head:
     keywords: symfony, Symfony2, asociación, desarrolladores, Barcelona, Twig, Doctrine2, Assetic, PHP, PHP5.3
     description: Página web del grupo Symfony Barcelona
+    followtwitter: Síguenos en Twitter
+    forkgithub: Forkeanos en Github
   index:
     helloworld: Symfony Barcelona
+
+menu:
+  inicio: Inicio
+  noticias: Noticias
+  eventos: Eventos
+  quienessomos: Quiénes somos?
+  contacto: Contacto
