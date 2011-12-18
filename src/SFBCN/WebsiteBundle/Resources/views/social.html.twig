@@ -1,18 +1,9 @@
-<section class="social">
-    <ul>
-        <li>
-            <a href="http://twitter.com/#!/symfony_bcn" target="_blank">
-                {% image "@SFBCNWebsiteBundle/Resources/public/images/twitter-icon.png" %}
-                <img src="{{ asset_url }}" alt="{% trans %} messages.head.followtwitter {% endtrans %}"/>
-                {% endimage %}
-            </a>
-        </li>
-        <li>
-            <a href="https://github.com/symfony-barcelona" target="_blank">
-                {% image "@SFBCNWebsiteBundle/Resources/public/images/github-icon.png" %}
-                    <img src="{{ asset_url }}" alt="{% trans %} messages.head.forkgithub {% endtrans %}"/>
-                {% endimage %}
-            </a>
-        </li>
-    </ul>
-</section>
+{# social.html.twig #}
+<ul class="social-menu">
+    <li class="link-twitter">
+        <a title="{{ 'sfbcn.links.social.twitter'|trans|e }}" href="http://twitter.com/symfony_bcn">Twitter: @symfony_bcn</a>
+    </li>
+    <li class="link-github">
+        <a title="{{ 'sfbcn.links.social.github'|trans|e }}" href="http://github.com/symfony-barcelona">GitHub: @symfony-barcelona</a>
+    </li>
+</ul>

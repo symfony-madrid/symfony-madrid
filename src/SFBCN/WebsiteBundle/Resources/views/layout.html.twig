@@ -1,51 +1,41 @@
 {# layout.html.twig #}
 {% spaceless %}
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ app.session.locale }}">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <meta content="index,follow" name="robots"/>
-        <meta content="{% block description %}{% trans %} messages.head.description {% endtrans %}{% endblock %}" name="description"/>
-        <meta content="{% block keywords %}{% trans %} messages.head.keywords {% endtrans %}{% endblock %}" name="keywords"/>
-        <meta content="7 days" name="revisit-after"/>
-        <title>Symfony-Barcelona{% block title %}{% endblock %}</title>
-        <!--[if lt IE 9]>
-        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-         <![endif]-->
-        {% block stylesheets %}
-            {% stylesheets '@SFBCNWebsiteBundle/Resources/public/css/01-reset.css'
-                           '@SFBCNWebsiteBundle/Resources/public/css/*-web-*.css'
-                           %}
+        {% block head %}
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            <meta content="index,follow" name="robots" />
+            <meta content="{% block description 'sfbcn.meta.description'|trans %}" name="description"/>
+            <meta content="{% block keywords 'sfbcn.meta.keywords'|trans %}" name="keywords"/>
+            <meta content="7 days" name="revisit-after"/>
+            <title>{% block title 'sfbcn.meta.title'|trans %}</title>
+            {% stylesheets '@SFBCNWebsiteBundle/Resources/public/css/01-normalize.css'
+                           '@SFBCNWebsiteBundle/Resources/public/css/*-web-*.css' %}
                 <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
             {% endstylesheets %}
         {% endblock %}
+        <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     </head>
     <body>
-    <div id="container">
-        <header>
-           <!--start logo-->
-           <a href="#" id="logo">
-                {% image "@SFBCNWebsiteBundle/Resources/public/images/symfonybcn-logo.png" %}
-                    <img src="{{ asset_url }}" alt="{% trans %} Symfony Barcelona {% endtrans %}"/>
-                {% endimage %}
-           </a>
-           <!--end logo-->
-           {% include 'SFBCNWebsiteBundle::menu.html.twig' %}
-           {% include 'SFBCNWebsiteBundle::social.html.twig' %}
+        <header id="header">
+            <h1 class="title">{{ block('title') }}</h1>
+            <nav>
+                {% include 'SFBCNWebsiteBundle::menu.html.twig' %}
+                {% include 'SFBCNWebsiteBundle::social.html.twig' %}
+            </nav>
         </header>
-        <div class="clear"></div>
-        <section>
-            {% block content %}{% endblock %}
-        </section>
-    </div>
-    <footer>
-        {% include 'SFBCNWebsiteBundle::footer.html.twig' %}
-    </footer>
-    {% block javascripts %}
-        {% javascripts '@SFBCNWebsiteBundle/Resources/public/js/*' %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-    {% endblock %}
+        <div id="content">
+            {% block content '' %}
+        </div>
+        <footer id="footer">
+            {% include 'SFBCNWebsiteBundle::footer.html.twig' %}
+        </footer>
+        {% block scripts %}
+            {% javascripts '@SFBCNWebsiteBundle/Resources/public/js/*' %}
+                <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
     </body>
 </html>
 {% endspaceless %}

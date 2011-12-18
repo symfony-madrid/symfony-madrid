@@ -1,10 +1,8 @@
 {# menu.html.twig #}
-<nav>
-   <ul>
-       <li><a href="#" class="current">{% trans %} menu.inicio {% endtrans %}</a></li>
-       <li><a href="#">{% trans %} menu.noticias {% endtrans %}</a></li>
-       <li><a href="#">{% trans %} menu.eventos {% endtrans %}</a></li>
-       <li><a href="#">{% trans %} menu.quienessomos {% endtrans %}</a></li>
-       <li><a href="#">{% trans %} menu.contacto {% endtrans %}</a></li>
-   </ul>
-</nav>
+<ul class="main-menu">
+    <li class="link-home first current"><a href="#">{{ 'sfbcn.links.home'|trans }}</a></li>
+    <li class="link-news"><a href="#">{{ 'sfbcn.links.news'|trans }}</a></li>
+    <li class="link-events"><a href="#">{{ 'sfbcn.links.events'|trans }}</a></li>
+    <li class="link-about"><a href="#">{{ 'sfbcn.links.about'|trans }}</a></li>
+    <li class="link-contact last"><a href="#">{{ 'sfbcn.links.contact'|trans }}</a></li>
+</ul>
