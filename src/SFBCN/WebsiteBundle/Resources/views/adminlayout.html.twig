@@ -6,6 +6,9 @@
     <title>Symfony Barcelona - Admin área</title>
 </head>
 <body>
+{% block header %}
+    {% include 'SFBCNWebsiteBundle::adminmenu.html.twig' %}
+{% endblock %}
 {% block content %}{% endblock %}
 </body>
 </html>

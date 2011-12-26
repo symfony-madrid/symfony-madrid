@@ -7,6 +7,9 @@ security:
                 login_path: /admin/login
                 check_path: /admin/login_check
                 default_target_path: /admin/menu
+            logout:
+                path:   /admin/logout
+                target: /admin/login
     access_control:
         - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/login_check, roles: IS_AUTHENTICATED_ANONYMOUSLY }

@@ -6,6 +6,9 @@ SFBCNWebsiteBundle:
 login_check:
     pattern:   /admin/login_check
 
+admin_logout:
+    pattern:   /admin/logout
+
 # Internal routing configuration to handle ESI
 #_internal:
 #   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
