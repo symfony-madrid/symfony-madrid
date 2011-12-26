@@ -3,6 +3,9 @@ SFBCNWebsiteBundle:
     type:     annotation
     prefix:   /
 
+login_check:
+    pattern:   /admin/login_check
+
 # Internal routing configuration to handle ESI
 #_internal:
 #   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"

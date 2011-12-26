@@ -6,5 +6,6 @@
 /app/logs/*
 /vendor/
 /app/config/parameters.yml
+/app/config/security.yml
 /.idea
 /nbproject

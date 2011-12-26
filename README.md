@@ -32,6 +32,14 @@ En el repositorio está commiteado el archivo parameters.ini para que no falle e
     locale: es_ES
     secret: "Symf0nyBCN-T0k3n!"
 
+### Crear el archivo security.yml
+
+    cp app/config/security.yml.dist app/config/security.yml
+
+### Configurar los usuarios del backoffice
+
+    Editar la parte de providers -> in_memory -> users para crear tantos usuarios admin como se quiera
+
 ### Actualizar vendors y deployar los assets de los bundles que haya en los vendors
 
 	php bin/vendors install
