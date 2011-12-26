@@ -4,5 +4,11 @@
 {% block content %}
     <section class="page-content contact">
         This is our contact page
+        <form method="post" id="contact" action="{{ path('contact_post') }}">
+            <p>Nombre: <input type="text" name="nombre" /></p>
+            <p>E-mail: <input type="text" name="email" /></p>
+            <p>Mensaje: <textarea name="mensaje"></textarea></p>
+            <p><input type="submit" name="Enviar" value="Enviar"/></p>
+        </form>
     </section>
 {% endblock %}

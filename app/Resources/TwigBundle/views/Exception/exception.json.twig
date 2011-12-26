@@ -1,0 +1,2 @@
+{% set arr = { 'error': { 'code': status_code, 'message': exception.message | trans } } %}
+{{ arr | json_encode | raw }}
