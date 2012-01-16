@@ -26,7 +26,7 @@ class AdminEventController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entities = $em->getRepository('SFBCNWebsiteBundle:Event')->findAll();
+        $entities = $em->getRepository('SFBCNWebsiteBundle:Event')->findBy(array(), array('id' => 'DESC'));
 
         return array('entities' => $entities);
     }

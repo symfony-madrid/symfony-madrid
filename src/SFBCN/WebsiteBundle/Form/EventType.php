@@ -12,11 +12,9 @@ class EventType extends AbstractType
         $builder
             ->add('title')
             ->add('body')
-            ->add('date')
+            ->add('datetime')
             ->add('location')
-            ->add('photo')
-            ->add('file1')
-            ->add('file2')
+            ->add('gmaps')
         ;
     }
 

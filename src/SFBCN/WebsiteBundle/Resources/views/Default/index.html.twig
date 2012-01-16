@@ -8,8 +8,18 @@
             <p>Consectetur adipiscing elit. Praesent viverra volutpat neque a commodo. Curabitur eget massa quis odio consequat mollis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cum sociis natoque penatibus, et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse vehicula odio id mi blandit quis ornare urna luctus. Etiam justo augue, fringilla sit amet tincidunt nec, placerat vitae turpis. Quisque ac lectus non diam blandit viverra.</p>
         </article>
         <article>
-            <h1>Fusce et metus</h1>
-            <p>Iaculis dolor ultricies fermentum. Suspendisse ut massa vitae nulla cursus facilisis nec eu odio. In adipiscing congue enim sit amet feugiat. Vivamus vestibulum metus et libero fermentum eget molestie risus volutpat. Vivamus adipiscing suscipit urna quis luctus. Vivamus ac lectus ac sapien varius euismod in vitae dolor. Quisque vestibulum metus eget est fringilla dignissim. Morbi cursus dolor sed sapien dapibus nec viverra sapien egestas. </p>
+            <h1>Próximo Evento</h1>
+            {% if nextEvent == null %}
+                No hay previsto ningún evento en los próximos días
+            {% else %}
+                <h4>{{ nextEvent.title }}</h4>
+                Fecha y hora: {{ nextEvent.datetime|date('Y-M-d H:i') }}<br />
+                Lugar: {{ nextEvent.location }}<br />
+                <a href="{{ path('events_public_show', { 'id': nextEvent.id })  }}">+ info</a><br />
+                <iframe width="320" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="{{ nextEvent.gmaps }}&amp;output=embed"></iframe>
+                <br /><small><a href="{{ nextEvent.gmaps }}" style="color:#0000FF;text-align:left">Muestra un mapa más grande</a></small>
+
+            {% endif %}
         </article>
         <article id="twitterfeed">
             <script src="http://widgets.twimg.com/j/2/widget.js"></script>

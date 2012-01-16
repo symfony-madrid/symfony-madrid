@@ -12,4 +12,40 @@ use Doctrine\ORM\EntityRepository;
  */
 class EventRepository extends EntityRepository
 {
+    /**
+     * Gets past events
+     * @return array
+     */
+    public function getPastEvents()
+    {
+        return $this->_em->createQuery('SELECT e from SFBCNWebsiteBundle:Event e WHERE e.datetime < :datetime ORDER BY e.datetime DESC')
+                    ->setMaxResults(15)
+                    ->setParameter('datetime', new \DateTime())
+                    ->getResult();
+    }
+
+    /**
+     * Gets immediate next event
+     * @return mixed
+     */
+    public function getNextEvent()
+    {
+        return $this->_em->createQuery('SELECT e from SFBCNWebsiteBundle:Event e WHERE e.datetime > :datetime ORDER BY e.datetime ASC')
+                    ->setMaxResults(1)
+                    ->setParameter('datetime', new \DateTime())
+                    ->getSingleResult();
+    }
+
+    /**
+     * Gets future event excluding immediate next one
+     * @return array
+     */
+    public function getFutureEvents()
+    {
+        return $this->_em->createQuery('SELECT e from SFBCNWebsiteBundle:Event e WHERE e.datetime > :datetime ORDER BY e.datetime ASC')
+                    ->setFirstResult(1)
+                    ->setMaxResults(15)
+                    ->setParameter('datetime', new \DateTime())
+                    ->getResult();
+    }
 }

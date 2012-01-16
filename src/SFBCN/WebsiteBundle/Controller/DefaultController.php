@@ -25,8 +25,12 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
+        $em = $this->getDoctrine()->getEntityManager();
+        $nextEvent = $em->getRepository('SFBCNWebsiteBundle:Event')->getNextEvent();
+
         return array(
             'current' => 'home',
+            'nextEvent' => $nextEvent,
         );
     }
 

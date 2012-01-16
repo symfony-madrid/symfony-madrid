@@ -3,6 +3,7 @@
 namespace SFBCN\WebsiteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * SFBCN\WebsiteBundle\Entity\Event
@@ -25,6 +26,7 @@ class Event
      * @var string $title
      *
      * @ORM\Column(name="title", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $title;
 
@@ -32,44 +34,34 @@ class Event
      * @var text $body
      *
      * @ORM\Column(name="body", type="text")
+     * @Assert\NotBlank()
      */
     private $body;
 
     /**
      * @var date $date
      *
-     * @ORM\Column(name="date", type="date")
+     * @ORM\Column(name="datetime", type="datetime")
+     * @Assert\NotBlank()
      */
-    private $date;
+    private $datetime;
 
     /**
      * @var string $location
      *
      * @ORM\Column(name="location", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $location;
 
     /**
-     * @var string $photo
+     * @var string $gmaps
      *
-     * @ORM\Column(name="photo", type="string", length=255)
+     * @ORM\Column(name="gmaps", type="string", length=512)
+     * @Assert\NotBlank()
+     * @Assert\Url()
      */
-    private $photo;
-
-    /**
-     * @var string $file1
-     *
-     * @ORM\Column(name="file1", type="string", length=255)
-     */
-    private $file1;
-
-    /**
-     * @var string $file2
-     *
-     * @ORM\Column(name="file2", type="string", length=255)
-     */
-    private $file2;
-
+    private $gmaps;
 
     /**
      * Get id
@@ -122,23 +114,23 @@ class Event
     }
 
     /**
-     * Set date
+     * Set datetime
      *
-     * @param date $date
+     * @param datetime $datetime
      */
-    public function setDate($date)
+    public function setDatetime($datetime)
     {
-        $this->date = $date;
+        $this->datetime = $datetime;
     }
 
     /**
-     * Get date
+     * Get datetime
      *
-     * @return date 
+     * @return datetime
      */
-    public function getDate()
+    public function getDatetime()
     {
-        return $this->date;
+        return $this->datetime;
     }
 
     /**
@@ -162,62 +154,22 @@ class Event
     }
 
     /**
-     * Set photo
+     * Set Google Maps
      *
-     * @param string $photo
+     * @param string $gmaps
      */
-    public function setPhoto($photo)
+    public function setGmaps($gmaps)
     {
-        $this->photo = $photo;
+        $this->gmaps = $gmaps;
     }
 
     /**
-     * Get photo
+     * Get Google Maps
      *
      * @return string 
      */
-    public function getPhoto()
+    public function getGmaps()
     {
-        return $this->photo;
-    }
-
-    /**
-     * Set file1
-     *
-     * @param string $file1
-     */
-    public function setFile1($file1)
-    {
-        $this->file1 = $file1;
-    }
-
-    /**
-     * Get file1
-     *
-     * @return string 
-     */
-    public function getFile1()
-    {
-        return $this->file1;
-    }
-
-    /**
-     * Set file2
-     *
-     * @param string $file2
-     */
-    public function setFile2($file2)
-    {
-        $this->file2 = $file2;
-    }
-
-    /**
-     * Get file2
-     *
-     * @return string 
-     */
-    public function getFile2()
-    {
-        return $this->file2;
+        return $this->gmaps;
     }
 }

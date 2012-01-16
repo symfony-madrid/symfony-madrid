@@ -1,0 +1,14 @@
+{# Events/index.html.twig #}
+{% extends 'SFBCNWebsiteBundle::layout.html.twig' %}
+
+{% block content %}
+    <section class="page-content events">
+        <h1>Detalle de evento</h1>
+        <h4>{{ event.title }}</h4>
+        Fecha y hora: {{ event.datetime|date('Y-M-d H:i') }}<br />
+        Lugar: {{ event.location }}<br />
+        Resumen: {{ event.body }} <br /><br />
+        <iframe width="640" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="{{ event.gmaps }}&amp;output=embed"></iframe>
+        <br /><small><a href="{{ event.gmaps }}" style="color:#0000FF;text-align:left">Muestra un mapa más grande</a></small>
+    </section>
+{% endblock %}
