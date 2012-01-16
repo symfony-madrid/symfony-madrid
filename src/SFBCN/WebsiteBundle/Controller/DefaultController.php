@@ -75,6 +75,28 @@ class DefaultController extends Controller
            'mensaje' => $this->getRequest()->get('mensaje'),
         );
 
+        $this->validateContactData($contactData);
+        $mailTo = $this->container->getParameter('contactmail');
+
+        $message =\Swift_Message::newInstance()
+                    ->setSubject('Mensaje recibido desde la web Symfony-Barcelona')
+                    ->setFrom(array($contactData['email'] => $contactData['nombre']))
+                    ->setTo($mailTo)
+                    ->setBody($contactData['mensaje']);
+
+        $this->container->get('mailer')->send($message);
+
+        return new Response(json_encode(array('message' => 'Mail enviado correctamente. En breve contactaremos contigo')));
+    }
+
+    /**
+     * Validates contact data and throws exception if anything goes wrong
+     *
+     * @param array $contactData
+     * @throws \Symfony\Component\HttpKernel\Exception\HttpException
+     */
+    private function validateContactData(array $contactData)
+    {
         $collectionConstraint = new Collection(array(
             'nombre' => array(
                 new NotBlank()
@@ -92,17 +114,5 @@ class DefaultController extends Controller
         if (count($errors) !== 0) {
             throw new HttpException(400, $errors[0]->getPropertyPath() . ':' . $this->container->get('translator')->trans($errors[0]->getMessage(), array(), 'validators'));
         }
-
-        $message =\Swift_Message::newInstance()
-                    ->setSubject('Mensaje recibido desde la web Symfony-Barcelona')
-                    ->setFrom(array($contactData['email'] => $contactData['nombre']))
-                    /**
-                     * @todo Change this to a global config variable
-                     */
-                    ->setTo('ricard.clau@gmail.com')
-                    ->setBody($contactData['mensaje']);
-        $this->container->get('mailer')->send($message);
-
-        return new Response(json_encode(array('message' => 'Mail enviado correctamente. En breve contactaremos contigo')));
     }
 }
