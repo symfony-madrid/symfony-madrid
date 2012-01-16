@@ -230,7 +230,8 @@ form {
 
 label {
     color: #737373;
-    display: block;
+    cursor: pointer;
+    display: inline;
     font-family: Helvetica,Arial,sans-serif;
     font-size: 13px;
 }

@@ -7,15 +7,15 @@
         <form method="post" id="contact" action="{{ path('contact_post') }}">
             <fieldset class="contact-name">
                 <label for="nombre">Nombre</label>
-                <input type="text" name="nombre" />
+                <input id="nombre" type="text" name="nombre" />
             </fieldset>
             <fieldset class="contact-email">
                 <label for="email">E-mail</label>
-                <input type="text" name="email" />
+                <input id="email" type="text" name="email" />
             </fieldset>
             <fieldset class="contact-message">
                 <label for="mensaje">Mensaje</label>
-                <textarea name="mensaje"></textarea>
+                <textarea id="mensaje" name="mensaje"></textarea>
             </fieldset>
             <input type="submit" name="Enviar" value="Enviar"/>
         </form>
