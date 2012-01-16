@@ -274,3 +274,70 @@ input[type=submit]:hover {
 .contact-message {
     margin: 1em 0;
 }
+
+#content .social {
+    left: 0;
+    margin-left: 50%;
+    position: absolute;
+    top: 0;
+    width: 50%;
+}
+
+#content .social p {
+    margin: 1em;
+}
+
+#content .social ul {
+    font-size: 14px;
+    list-style: none;
+    margin: 0 -1em 0 0;
+    padding: 0 1em;
+}
+
+#content .social li {
+    background-color: #F7F8F7;
+    float: left;
+    margin: 0 1em 1em 0;
+    width: 220px;
+}
+
+#content .social a {
+    color: #08C;
+    border-radius: 6px;
+    display: block;
+    font-size: 14px;
+    padding: 1em;
+    text-align: center;
+    text-decoration: none;
+}
+
+#content .social a:hover {
+    background: #08C;
+    color: #FFF;
+    text-decoration: underline;
+}
+
+#content .social a:before {
+    background: url("/bundles/sfbcnwebsite/images/menu.png") no-repeat -336px 0;
+    content: "";
+    display: block;
+    width: 64px;
+    margin: 0 auto;
+    height: 64px;
+}
+
+#content .social .social-github:before {
+    background-position: -400px 0;
+}
+
+#content .social .social-groups:before {
+    background-position: -464px 0;
+}
+
+#content .social .social-sensio:before {
+    background-position: -530px 0;
+}
+
+#content .social .service {
+    font-weight: bold;
+}
