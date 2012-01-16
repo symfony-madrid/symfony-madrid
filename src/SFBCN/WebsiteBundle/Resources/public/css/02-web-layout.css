@@ -90,7 +90,7 @@ body {
 .main-menu .link-news    a:before { background-position: -144px 0; }
 .main-menu .link-events  a:before { background-position: -192px 0; }
 
-.main-menu .current a, .main-menu a:hover {
+.main-menu .current a, .main-menu a:hover, input[type=submit] {
 	background-image:-moz-linear-gradient(#A9DB3A, #6A9211);
 	background-image:-webkit-gradient(#A9DB3A, #6A9211);
 	background-image:-webkit-linear-gradient(#A9DB3A, #6A9211);
@@ -216,4 +216,60 @@ aside.related p {
 .home article {
     float: left;
     width: 33%;
+}
+
+#content .contact {
+    width: 50%;
+}
+
+form {
+    background-color: #EAEAEA;
+    border-radius: 4px;
+    padding: 1em 1.5em;
+}
+
+label {
+    color: #737373;
+    display: block;
+    font-family: Helvetica,Arial,sans-serif;
+    font-size: 13px;
+}
+
+input[type=submit] {
+    border: 0 none;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 8px 13px 7px;
+}
+
+input[type=submit]:hover {
+    text-decoration: underline;
+}
+
+#contact p {
+    margin: 1em;
+}
+
+#contact fieldset input {
+    width: 100%;
+}
+
+#contact textarea {
+    min-height: 8em;
+    resize: vertical;
+    width: 100%;
+}
+
+.contact-name, .contact-email {
+    float: left;
+    width: 47.5%;
+}
+
+.contact-email {
+    margin: 0 0 .75em 5%;
+}
+
+.contact-message {
+    margin: 1em 0;
 }
