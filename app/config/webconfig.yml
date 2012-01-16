@@ -1,2 +1,3 @@
 sfbcn_website:
     contactmail: "symfony.barcelona@gmail.com"
+    symfonyrssurl: http://feeds.feedburner.com/symfony/blog

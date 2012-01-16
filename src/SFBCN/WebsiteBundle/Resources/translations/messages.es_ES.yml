@@ -17,5 +17,7 @@ sfbcn:
   footer:
     disclaimer: Aquí es donde pedimos disculpas por usar el mejor framework
     rights: Aquí es donde declaramos nuestro derecho a conquistar el mundo
+  news:
+    empty: No se han encontrado noticias en el RSS de www.symfony.com
 
 'Bad credentials': Login/Password incorrecto
