@@ -3,6 +3,12 @@
 
 {% block content %}
     <section class="page-content news">
-        This is our news page
+        {% for rssnew in rssnews %}
+            <h3><a href="{{ rssnew.link }}" target="_blank">{{ rssnew.title }}</a></h3>
+            {# Re-enabling HTML, not really clean though #}
+            {# <p>{{ rssnew.description | replace({'&lt;':'<', '&gt;':'>'}) | raw }}</p> #}
+        {% else %}
+            {{ 'sfbcn.news.empty'|trans|raw }}
+        {% endfor %}
     </section>
 {% endblock %}

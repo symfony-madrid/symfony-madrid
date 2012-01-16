@@ -11,9 +11,35 @@
             <h1>Fusce et metus</h1>
             <p>Iaculis dolor ultricies fermentum. Suspendisse ut massa vitae nulla cursus facilisis nec eu odio. In adipiscing congue enim sit amet feugiat. Vivamus vestibulum metus et libero fermentum eget molestie risus volutpat. Vivamus adipiscing suscipit urna quis luctus. Vivamus ac lectus ac sapien varius euismod in vitae dolor. Quisque vestibulum metus eget est fringilla dignissim. Morbi cursus dolor sed sapien dapibus nec viverra sapien egestas. </p>
         </article>
-        <article>
-            <h1>Nullam interdum, ante a congue</h1>
-            <p>Elementum, massa urna aliquet leo, a egestas purus nulla vitae mauris. Aliquam et nunc nisi, nec tincidunt lorem. In accumsan suscipit leo nec congue. Aenean volutpat, sapien eu porta facilisis, purus leo ultrices tellus, in semper risus elit at eros. Vivamus sed leo ut lectus condimentum viverra in et lectus. Proin fermentum massa a ante viverra rutrum. Cras nunc risus, sagittis a dignissim at, vehicula sed arcu.</p>
+        <article id="twitterfeed">
+            <script src="http://widgets.twimg.com/j/2/widget.js"></script>
+            <script>
+            new TWTR.Widget({
+              version: 2,
+              type: 'profile',
+              rpp: 10,
+              interval: 30000,
+              width: 'auto',
+              height: 300,
+              theme: {
+                shell: {
+                  background: '#333333',
+                  color: '#eaeaea'
+                },
+                tweets: {
+                  background: '#eaeaea',
+                  color: '#222222',
+                  links: '#759E1A'
+                }
+              },
+              features: {
+                scrollbar: true,
+                loop: false,
+                live: true,
+                behavior: 'all'
+              }
+            }).render().setUser('symfony_bcn').start();
+            </script>
         </article>
     </section>
     <aside class="related">

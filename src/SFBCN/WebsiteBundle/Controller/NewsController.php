@@ -20,7 +20,10 @@ class NewsController extends Controller
      */
     public function indexAction()
     {
+        $rssNews = $this->get('symfony_rss')->parseRss();
+
         return array(
+            'rssnews' => $rssNews,
             'current' => 'news',
         );
     }

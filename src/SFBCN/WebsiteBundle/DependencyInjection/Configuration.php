@@ -28,6 +28,9 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->scalarNode('contactmail')->end()
             ->end()
+            ->children()
+                ->scalarNode('symfonyrssurl')->end()
+            ->end()
             ;
 
         return $treeBuilder;
