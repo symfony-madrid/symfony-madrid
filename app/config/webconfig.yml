@@ -1,3 +1,5 @@
 sfbcn_website:
     contactmail: "symfony.barcelona@gmail.com"
-    symfonyrssurl: http://feeds.feedburner.com/symfony/blog
+    feeds:
+      symfonyrssurl: http://feeds.feedburner.com/symfony/blog
+      feed2 : http://www.meneame.net/rss2.php

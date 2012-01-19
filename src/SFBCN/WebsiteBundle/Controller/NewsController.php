@@ -20,10 +20,18 @@ class NewsController extends Controller
      */
     public function indexAction()
     {
-        $rssNews = $this->get('symfony_rss')->parseRss();
+        $rssNewsArray = array();
+        $RSSrenderService = $this->get('symfony_rss');
+        $feedsRss = $RSSrenderService->getFeedsRss();
+
+        foreach($feedsRss As $key=>$value){
+            $RSSrenderService->setUrlResource($value);
+            $rssNewsArray[] = $RSSrenderService->parseRss();
+//            ladybug_dump_die($RSSrenderService->parseRss());
+        }
 
         return array(
-            'rssnews' => $rssNews,
+            'rssnewsArray' => $rssNewsArray,
             'current' => 'news',
         );
     }

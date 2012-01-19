@@ -2,4 +2,5 @@ services:
     symfony_rss:
         class: SFBCN\WebsiteBundle\Service\RssReaderService
         calls:
-            - [setUrlResource, [%symfonyrssurl%]]
+            - [setFeedsRss, [%feeds%]]
+

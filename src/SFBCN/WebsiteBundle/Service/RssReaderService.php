@@ -4,8 +4,19 @@ namespace SFBCN\WebsiteBundle\Service;
 
 class RssReaderService
 {
+    protected $feedsRss;
     private $urlResource;
+    
 
+    public function setFeedsRss($feeds)
+    {
+        $this->feedsRss = $feeds;
+    }
+    
+    public function getFeedsRss()
+    {
+        return $this->feedsRss;
+    }
     /**
      * Sets url resource, string is passed via services.yml
      * @param $url
