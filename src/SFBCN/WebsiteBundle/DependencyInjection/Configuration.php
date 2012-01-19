@@ -37,8 +37,7 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('feed2')->end()                                
                     ->end()                                          
                 ->end()
-            ->end()
-            ->children()                
+            ->end()             
             ;
             
         return $treeBuilder;
