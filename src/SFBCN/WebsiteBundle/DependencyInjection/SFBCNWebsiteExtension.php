@@ -22,8 +22,8 @@ class SFBCNWebsiteExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $container->setParameter('contactmail', $config['contactmail']);
-        $container->setParameter('feeds', $config['feeds']);
+        $container->setParameter('contactmail', $configs[0]['contactmail']);
+        $container->setParameter('feeds', $configs[0]['feeds']);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');

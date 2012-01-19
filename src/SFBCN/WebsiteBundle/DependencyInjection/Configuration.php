@@ -30,16 +30,11 @@ class Configuration implements ConfigurationInterface
             ->end()
             ->children()
                 ->arrayNode('feeds')
-                    ->children()
-                        ->scalarNode('symfonyrssurl')->end()                                
-                    ->end()     
-                    ->children()
-                        ->scalarNode('feed2')->end()                                
-                    ->end()                                          
+                    ->ignoreExtraKeys()                                         
                 ->end()
             ->end()             
             ;
-            
+        
         return $treeBuilder;
     }
 }
