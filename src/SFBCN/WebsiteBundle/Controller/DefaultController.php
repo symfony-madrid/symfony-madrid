@@ -43,8 +43,27 @@ class DefaultController extends Controller
      */
     public function aboutAction()
     {
+        $members = array(
+          array(
+            'name' => 'Ricard Clau',
+            'email' => 'ricard.clau@gmail.com',
+            'foto' => 'https://secure.gravatar.com/avatar/2d5aaa5bfc55afb812af6693826e382b?s=140&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png',
+            'github' => 'https://github.com/',
+            'twitter' => 'ricardclau',
+          ),
+          array(
+            'name' => 'Marcos Quesada',
+          ),
+          array(
+            'name' => 'Berny Cantos',
+          )
+        );
+
+        usort($members, function($a, $b) { return ($a['name'] > $b['name']) ? 1 : -1; });
+
         return array(
             'current' => 'about',
+            'members' => $members,
         );
     }
 

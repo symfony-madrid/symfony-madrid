@@ -3,6 +3,19 @@
 
 {% block content %}
     <section class="page-content about">
-        This is our about page
+        <p>Aquí podéis ver a los miembros de Symfony Barcelona</p>
+        {% for member in members %}
+            <p>
+               {% if member.foto is defined %}
+                 <img src="{{ member.foto }}" alt="{{ member.name }}"/>
+               {% else %}
+                <img src="https://a248.e.akamai.net/assets.github.com/images/gravatars/gravatar-140.png"  alt="{{ member.name }}"/>
+               {% endif %}
+            </p>
+            <p>{{ member.name }}</p>
+            <p>{% if member.email is defined %}{{ member.email }}{% endif %}</p>
+            <p>{% if member.github is defined %}{{ member.github }}{% endif %}</p>
+            <p>{% if member.twitter is defined %}<a href="http://twitter.com/#!/{{ member.twitter }}">{{ member.twitter }}</a>{% endif %}</p>
+        {% endfor %}
     </section>
 {% endblock %}
