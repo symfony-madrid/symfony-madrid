@@ -48,7 +48,7 @@ class DefaultController extends Controller
             'name' => 'Ricard Clau',
             'email' => 'ricard.clau@gmail.com',
             'foto' => 'https://secure.gravatar.com/avatar/2d5aaa5bfc55afb812af6693826e382b?s=140&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png',
-            'github' => 'https://github.com/',
+            'github' => 'https://github.com/ricardclau',
             'twitter' => 'ricardclau',
           ),
           array(
