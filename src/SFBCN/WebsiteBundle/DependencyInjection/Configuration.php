@@ -29,10 +29,13 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('contactmail')->end()
             ->end()
             ->children()
-                ->scalarNode('symfonyrssurl')->end()
-            ->end()
+                ->arrayNode('feeds')
+                    ->useAttributeAsKey('id')
+                    ->prototype('scalar')                                                       
+                ->end()
+            ->end()             
             ;
-
+        
         return $treeBuilder;
     }
 }

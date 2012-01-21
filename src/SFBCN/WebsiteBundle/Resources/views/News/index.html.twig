@@ -3,12 +3,14 @@
 
 {% block content %}
     <section class="page-content news">
-        {% for rssnew in rssnews %}
-            <h3><a href="{{ rssnew.link }}" target="_blank">{{ rssnew.title }}</a></h3>
-            {# Re-enabling HTML, not really clean though #}
-            {# <p>{{ rssnew.description | replace({'&lt;':'<', '&gt;':'>'}) | raw }}</p> #}
-        {% else %}
-            {{ 'sfbcn.news.empty'|trans|raw }}
+        {% for rssnews in rssnewsArray %}
+            {% for rssnew in rssnews %}
+                <h3 style="display:inline"><a href="{{ rssnew.link }}" target="_blank">{{ rssnew.title }}</a></h3><small>&nbsp; {{ rssnew.pubDate }}</small>
+                {# Re-enabling HTML, not really clean though #}
+               <p>{{ rssnew.description | striptags | truncate(420)| replace({'&lt;':'<', '&gt;':'>'}) | raw }}</p> 
+            {% else %}
+                {{ 'sfbcn.news.empty'|trans|raw }}
+            {% endfor %}
         {% endfor %}
     </section>
 {% endblock %}
