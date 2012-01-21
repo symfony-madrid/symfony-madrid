@@ -3,20 +3,20 @@
 
 {% block content %}
     <section class="page-content home">
-        <article>
-            <h1>Lorem ipsum dolor sit amet</h1>
-            <p>Consectetur adipiscing elit. Praesent viverra volutpat neque a commodo. Curabitur eget massa quis odio consequat mollis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cum sociis natoque penatibus, et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse vehicula odio id mi blandit quis ornare urna luctus. Etiam justo augue, fringilla sit amet tincidunt nec, placerat vitae turpis. Quisque ac lectus non diam blandit viverra.</p>
+        <article id="home-left">
+            <h2>{{ 'sfbcn.index.whoweare'|trans }}</h2>
+            <p>{{ 'sfbcn.index.whowearelong'|trans|raw }}</p>
         </article>
-        <article>
-            <h1>Próximo Evento</h1>
+        <article id="home-center">
+            <h2>Próximo Evento</h2>
             {% if nextEvent == null %}
                 No hay previsto ningún evento en los próximos días
             {% else %}
                 <h4>{{ nextEvent.title }}</h4>
-                Fecha y hora: {{ nextEvent.datetime|date('Y-M-d H:i') }}<br />
+                Fecha y hora: {{ nextEvent.datetime|date('d/M/Y H:i') }}<br />
                 Lugar: {{ nextEvent.location }}<br />
                 <a href="{{ path('events_public_show', { 'id': nextEvent.id })  }}">+ info</a><br />
-                <iframe width="320" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="{{ nextEvent.gmaps }}&amp;output=embed"></iframe>
+                <iframe width="320" height="280" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="{{ nextEvent.gmaps }}&amp;output=embed"></iframe>
                 <br /><small><a href="{{ nextEvent.gmaps }}" style="color:#0000FF;text-align:left">Muestra un mapa más grande</a></small>
 
             {% endif %}
@@ -30,7 +30,7 @@
               rpp: 10,
               interval: 30000,
               width: 'auto',
-              height: 300,
+              height: 400,
               theme: {
                 shell: {
                   background: '#333333',
@@ -52,6 +52,7 @@
             </script>
         </article>
     </section>
+ {#
     <aside class="related">
         <article>
             <h1>{{ 'sfbcn.index.helloworld'|trans }}</h1>
@@ -66,4 +67,5 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis ornare laoreet. Phasellus interdum tincidunt mi, ut faucibus libero eleifend non. Nam pulvinar, mi eget porttitor feugiat, elit mauris tempor tellus, dictum blandit tellus tellus sed est. Nunc sagittis, justo sed fringilla luctus, velit elit faucibus orci, eu vestibulum augue purus scelerisque libero. Vivamus in lacus nibh, sit amet auctor quam. Aliquam erat volutpat. Ut tincidunt nunc pellentesque leo pulvinar adipiscing. </p>
         </article>
     </aside>
+#}
 {% endblock %}

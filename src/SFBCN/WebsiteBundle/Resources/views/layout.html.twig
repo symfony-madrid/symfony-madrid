@@ -19,7 +19,10 @@
     </head>
     <body>
         <header id="header">
-            <h1 class="title">{{ block('title') }}</h1>
+            {% image output="images/cabecera.png"
+                           "@SFBCNWebsiteBundle/Resources/public/images/sfbcn-logo.png" %}
+                <img src="{{ asset_url }}" alt="{{ block('title') }}"/>
+            {% endimage %}
             <nav>
                 {% include 'SFBCNWebsiteBundle::menu.html.twig' %}
                 {% include 'SFBCNWebsiteBundle::social.html.twig' %}

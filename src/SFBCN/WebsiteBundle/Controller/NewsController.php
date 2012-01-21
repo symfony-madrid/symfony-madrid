@@ -24,10 +24,9 @@ class NewsController extends Controller
         $RSSrenderService = $this->get('symfony_rss');
         $feedsRss = $RSSrenderService->getFeedsRss();
 
-        foreach($feedsRss As $key=>$value){
+        foreach ($feedsRss as $key => $value) {
             $RSSrenderService->setUrlResource($value);
             $rssNewsArray[] = $RSSrenderService->parseRss();
-//            ladybug_dump_die($RSSrenderService->parseRss());
         }
 
         return array(

@@ -14,9 +14,11 @@ sfbcn:
       twitter: Síguenos en Twitter
   index:
     helloworld: Hola, Symfony Barcelona
+    whoweare: ¿Quiénes somos?
+    whowearelong: Symfony Barcelona es un grupo de personas interesadas en todo lo que rodea al framework de PHP Symfony y que se reune periódicamente para charlar, hacer networking, realizar talleres o simplemente tomar unas cervezas a la salude de Fabien Potencier<br /><br />Estate atento a esta página para saber dónde y cuándo será nuestro próximo evento!
   footer:
-    disclaimer: Aquí es donde pedimos disculpas por usar el mejor framework
-    rights: Aquí es donde declaramos nuestro derecho a conquistar el mundo
+    disclaimer: Esta página pretende dar a conocer el grupo Symfony-Barcelona así com servir de ejemplo de proyecto realizado en Symfony2
+    thanks: Este proyecto está dedicado a Fabien Potencier y a toda la comunidad que con su trabajo han creado el que a día de hoy es posiblemente el mejor framework PHP del mundo
   news:
     empty: No se han encontrado noticias en el RSS de www.symfony.com
 
