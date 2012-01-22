@@ -2,41 +2,47 @@
 {% extends 'SFBCNWebsiteBundle::layout.html.twig' %}
 
 {% block content %}
-    <section class="page-content nextevent">
-        <h2>Próximo evento</h2>
-        {% if nextEvent == null %}
-            No hay previsto ningún evento en los próximos días
-        {% else %}
-            <h4>{{ nextEvent.title }}</h4>
-            Fecha y hora: {{ nextEvent.datetime|date('Y-M-d H:i') }}<br />
-            Lugar: {{ nextEvent.location }}<br />
-            <a href="{{ path('events_public_show', { 'id': nextEvent.id })  }}">+ info</a><br />
-            <iframe width="640" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="{{ nextEvent.gmaps }}&amp;output=embed"></iframe>
-            <br /><small><a href="{{ nextEvent.gmaps }}" style="color:#0000FF;text-align:left">Muestra un mapa más grande</a></small>
-        {% endif %}
-    </section>
+    <div class="page-content">
+        <h1>Eventos</h1>
+        <section id="next-event">
+            <h2>Próximo evento</h2>
+            {% if nextEvent == null %}
+                No hay previsto ningún evento en los próximos días
+            {% else %}
+                <h3><a href="{{ path('events_public_show', { 'id': nextEvent.id })  }}">{{ nextEvent.title }}</a></h3>
+                <p>
+                    <strong>¿Cuándo?</strong> {{ nextEvent.datetime|date('l, d F Y H:i') }}<br />
+                    <strong>¿Dónde?</strong> {{ nextEvent.location }}
+                </p>
+                <iframe width="640" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="{{ nextEvent.gmaps }}&amp;output=embed"></iframe>
+                <br /><small><a href="{{ nextEvent.gmaps }}" style="color:#0000FF;text-align:left">Muestra un mapa más grande</a></small>
+            {% endif %}
+        </section>
 
-    <section class="page-content futureEvents">
-        <h2>Eventos futuros</h2>
-        {% for event in futureEvents %}
-            <h4>{{ event.title }}</h4>
-            Fecha y hora: {{ event.datetime|date('Y-M-d H:i') }}<br />
-            Lugar: {{ event.location }}<br />
-            <a href="{{ path('events_public_show', { 'id': event.id })  }}">+ info</a><br />
-        {% else %}
-            No hay definidos eventos futuros
-        {% endfor %}
-    </section>
+        <section id="future-events">
+            <h2>Eventos futuros</h2>
+            {% for event in futureEvents %}
+                <h3><a href="{{ path('events_public_show', { 'id': event.id })  }}">{{ event.title }}</a></h3>
+                <p>
+                    <strong>¿Cuándo?</strong> {{ event.datetime|date('d/m/Y H:i') }}<br />
+                    <strong>¿Dónde?</strong> {{ event.location }}
+                </p>
+            {% else %}
+                No hay definidos eventos futuros
+            {% endfor %}
+        </section>
 
-    <section class="page-content pastEvents">
-        <h2>Eventos pasados</h2>
-        {% for event in pastEvents %}
-            <h4>{{ event.title }}</h4>
-            Fecha y hora: {{ event.datetime|date('Y-M-d H:i') }}<br />
-            Lugar: {{ event.location }}<br />
-            <a href="{{ path('events_public_show', { 'id': event.id })  }}">+ info</a><br />
-        {% else %}
-            No hay definidos eventos pasados
-        {% endfor %}
-    </section>
+        <section id="past-events">
+            <h2>Eventos pasados</h2>
+            {% for event in pastEvents %}
+                <h3><a href="{{ path('events_public_show', { 'id': event.id })  }}">{{ event.title }}</a></h3>
+                <p>
+                    <strong>¿Cuándo?</strong> {{ event.datetime|date('d/m/Y H:i') }}<br />
+                    <strong>¿Dónde?</strong> {{ event.location }}
+                </p>
+            {% else %}
+                No hay definidos eventos pasados
+            {% endfor %}
+        </section>
+    </div>
 {% endblock %}
