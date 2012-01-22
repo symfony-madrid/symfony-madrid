@@ -396,3 +396,25 @@ input[type=submit]:hover {
 #content .about .member .avatar {
     float: right;
 }
+
+#content .about .member ul { margin: 0; padding: 0; }
+#content .about .member ul li {
+    list-style: none;
+    float: left;
+    margin-right: 10px;
+    width: 32px;
+    height: 32px;
+}
+
+#content .about .member ul li a {
+    display: block;
+    text-indent: -9999px;
+    width: 32px;
+    height: 32px;
+}
+#content .about .member ul li.web a { background: url("/bundles/sfbcnwebsite/images/icons/wordpress_alt.png"); }
+#content .about .member ul li.email a { background: url("/bundles/sfbcnwebsite/images/icons/google.png"); }
+#content .about .member ul li.github a { background: url("/bundles/sfbcnwebsite/images/icons/github_alt.png"); }
+#content .about .member ul li.twitter a { background: url("/bundles/sfbcnwebsite/images/icons/twitter_alt.png"); }
+#content .about .member ul li.facebook a { background: url("/bundles/sfbcnwebsite/images/icons/facebook.png"); }
+#content .about .member ul li.linkedin a { background: url("/bundles/sfbcnwebsite/images/icons/linkedin.png"); }

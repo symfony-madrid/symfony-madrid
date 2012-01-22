@@ -46,6 +46,7 @@ class DefaultController extends Controller
         $members = array(
           array(
             'name' => 'Ricard Clau',
+            'description' => "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs.",
             'email' => 'ricard.clau[at]gmail[dot]com',
             'foto' => 'https://secure.gravatar.com/avatar/2d5aaa5bfc55afb812af6693826e382b?s=140&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png',
             'github' => 'ricardclau',
@@ -53,16 +54,20 @@ class DefaultController extends Controller
           ),
           array(
             'name' => 'Marcos Quesada',
+            'description' => "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs.",
           ),
           array(
             'name' => 'Berny Cantos',
+            'description' => "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs.",
           ),
           array(
             'name' => 'Adán Lobato',
+            'description' => "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs.",
             'email' => 'adan.lobato[at]gmail[dot]com',
             'foto' => 'http://1.gravatar.com/avatar/4295f5a4b169152d287fc4009d1afb19?size=140',
             'github' => 'adanlobato',
             'twitter' => 'adanlobato',
+            'linkedin' => 'adanlobato',
           ),
         );
 
