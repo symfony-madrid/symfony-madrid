@@ -4,7 +4,7 @@
 {% block content %}
     <div class="page-content">
         <h1>Eventos</h1>
-        <section id="nextEvent">
+        <section id="next-event">
             <h2>Próximo evento</h2>
             {% if nextEvent == null %}
                 No hay previsto ningún evento en los próximos días
@@ -19,7 +19,7 @@
             {% endif %}
         </section>
 
-        <section id="futureEvents">
+        <section id="future-events">
             <h2>Eventos futuros</h2>
             {% for event in futureEvents %}
                 <h3><a href="{{ path('events_public_show', { 'id': event.id })  }}">{{ event.title }}</a></h3>
@@ -32,7 +32,7 @@
             {% endfor %}
         </section>
 
-        <section id="pastEvents">
+        <section id="past-events">
             <h2>Eventos pasados</h2>
             {% for event in pastEvents %}
                 <h3><a href="{{ path('events_public_show', { 'id': event.id })  }}">{{ event.title }}</a></h3>
