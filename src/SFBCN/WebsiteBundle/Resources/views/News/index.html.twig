@@ -3,9 +3,13 @@
 
 {% block content %}
     <section class="page-content news">
+        <h1>Noticias</h1>
         {% for rssnews in rssnewsArray %}
             {% for rssnew in rssnews %}
-                <h3 style="display:inline"><a href="{{ rssnew.link }}" target="_blank">{{ rssnew.title }}</a></h3><small>&nbsp; {{ rssnew.pubDate }}</small>
+                <h2>
+                    <a href="{{ rssnew.link }}" target="_blank">{{ rssnew.title }}</a>
+                    <small>&nbsp; {{ rssnew.pubDate|date('d/m/Y H:i') }}</small>
+                </h2>
                 <p>{{ rssnew.description | replace({'&lt;':'<', '&gt;':'>'}) | striptags | truncate(420) | raw }}</p>
             {% else %}
                 {{ 'sfbcn.news.empty'|trans|raw }}

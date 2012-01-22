@@ -1,6 +1,18 @@
+.clear { clear: both; }
+
 body {
     background: url("/bundles/sfbcnwebsite/images/background.jpg") repeat-x;
 }
+
+h1, h2, h3 { font-family: 'Quicksand', sans-serif; letter-spacing: -0.05em; line-height: 1em; margin: 0 0 0.5em; }
+h1 { font-size: 40px; }
+h2 { font-size: 30px; }
+h3 { font-size: 20px; }
+
+a { color: #08C; }
+a:hover, a:visited { color: #2ae; }
+h1 a, h2 a, h3 a { text-decoration: none; }
+h1 a:hover, h2 a:hover, h3 a:hover { text-decoration: underline; }
 
 #header, #content, #footer section {
     margin: 0 auto;
@@ -200,13 +212,8 @@ aside.related p {
     overflow: hidden;
 }
 
-.page-content h1, .page-content p {
+.page-content p {
     margin: 1em 0;
-}
-
-.page-content h1 {
-    font: 40px/1em normal Georgia,"Times New Roman",Times,serif;
-    margin-top: 0;
 }
 
 .page-content p {
@@ -352,4 +359,22 @@ input[type=submit]:hover {
 
 #content .social .service {
     font-weight: bold;
+}
+
+/* EVENTS */
+#nextEvent { float: left; width: 640px; }
+#nextEvent h2 { font-size: 20px; line-height: 1em; margin: 0; }
+#nextEvent h3 { font-size: 35px; line-height: 1em; }
+
+#futureEvents, #pastEvents { float: right; width: 300px; }
+
+/* ABOUT */
+#content .about .member {
+    width: 48%;
+    float: left;
+    margin: 20px 1%;
+}
+
+#content .about .member .avatar {
+    float: right;
 }

@@ -56,7 +56,14 @@ class DefaultController extends Controller
           ),
           array(
             'name' => 'Berny Cantos',
-          )
+          ),
+          array(
+            'name' => 'Adán Lobato',
+            'email' => 'adan.lobato[at]gmail[dot]com',
+            'foto' => 'http://1.gravatar.com/avatar/4295f5a4b169152d287fc4009d1afb19?size=140',
+            'github' => 'https://github.com/adanlobato',
+            'twitter' => 'adanlobato',
+          ),
         );
 
         usort($members, function($a, $b) { return ($a['name'] > $b['name']) ? 1 : -1; });
