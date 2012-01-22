@@ -46,9 +46,9 @@ class DefaultController extends Controller
         $members = array(
           array(
             'name' => 'Ricard Clau',
-            'email' => 'ricard.clau@gmail.com',
+            'email' => 'ricard.clau[at]gmail[dot]com',
             'foto' => 'https://secure.gravatar.com/avatar/2d5aaa5bfc55afb812af6693826e382b?s=140&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png',
-            'github' => 'https://github.com/ricardclau',
+            'github' => 'ricardclau',
             'twitter' => 'ricardclau',
           ),
           array(
@@ -61,7 +61,7 @@ class DefaultController extends Controller
             'name' => 'Adán Lobato',
             'email' => 'adan.lobato[at]gmail[dot]com',
             'foto' => 'http://1.gravatar.com/avatar/4295f5a4b169152d287fc4009d1afb19?size=140',
-            'github' => 'https://github.com/adanlobato',
+            'github' => 'adanlobato',
             'twitter' => 'adanlobato',
           ),
         );

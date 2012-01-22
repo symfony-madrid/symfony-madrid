@@ -16,7 +16,7 @@
                 </div>
                 <h2>{{ member.name }}</h2>
                 <p>{% if member.email is defined %}{{ member.email }}{% endif %}</p>
-                <p>{% if member.github is defined %}{{ member.github }}{% endif %}</p>
+                <p>{% if member.github is defined %}<a href="https://github.com/{{ member.github }}">{{ member.github }}</a>{% endif %}</p>
                 <p>{% if member.twitter is defined %}<a href="http://twitter.com/#!/{{ member.twitter }}">{{ member.twitter }}</a>{% endif %}</p>
             </div>
             {% if loop.index is divisibleby(2) %}<div class="clear"></div>{% endif %}
