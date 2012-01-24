@@ -5,27 +5,22 @@
     <section class="page-content about">
         <h1>Miembros</h1>
         <p>Aquí podéis ver a los miembros de Symfony Barcelona</p>
-        {% for member in members %}
-            <div class="member">
-                <div class="avatar">
-                    {% if member.foto is defined %}
-                        <img src="{{ member.foto }}" alt="{{ member.name }}"/>
-                    {% else %}
-                        <img src="https://a248.e.akamai.net/assets.github.com/images/gravatars/gravatar-140.png"  alt="{{ member.name }}"/>
-                    {% endif %}
-                </div>
-                <h2>{{ member.name }}</h2>
-                <p>{% if member.description is defined %}{{ member.description }}{% endif %}</p>
-                <ul>
-                    {% if member.web is defined %}<li class="web"><a href="{{ member.web }}" title="{{ member.web }}">{{ member.web }}</a></li>{% endif %}
-                    {% if member.email is defined %}<li class="email"><a href="#" title="{{ member.email }}">{{ member.email }}</a></li>{% endif %}
-                    {% if member.github is defined %}<li class="github"><a href="https://github.com/{{ member.github }}" title="https://github.com/{{ member.github }}">{{ member.github }}</a></li>{% endif %}
-                    {% if member.twitter is defined %}<li class="twitter"><a href="http://twitter.com/#!/{{ member.twitter }}" title="http://twitter.com/#!/{{ member.twitter }}">{{ member.twitter }}</a></li>{% endif %}
-                    {% if member.facebook is defined %}<li class="facebook"><a href="http://facebook.com.com/{{ member.facebook }}" title="http://facebook.com/{{ member.facebook }}">{{ member.facebook }}</li>{% endif %}
-                    {% if member.linkedin is defined %}<li class="linkedin"><a href="http://es.linkedin.com/in/{{ member.linkedin }}" title="http://es.linkedin.com/in/{{ member.linkedin }}">{{ member.github }}</a></li>{% endif %}
-                </ul>
-            </div>
-            {% if loop.index is divisibleby(2) %}<div class="clear"></div>{% endif %}
-        {% endfor %}
+        <ul class="members">
+            {% for member in members %}
+                <li class="member">
+                    <h2>{{ member.name }}</h2>
+                    <img class="avatar" src="{{ member.foto|default('https://a248.e.akamai.net/assets.github.com/images/gravatars/gravatar-140.png') }}" alt="{{ member.name }}" />
+                    <p>{{ member.description|default('') }}</p>
+                    <ul class="links">
+                        {% if member.web is defined %}<li><a class="web" href="{{ member.web }}" title="{{ member.web }}">{{ member.web }}</a></li>{% endif %}
+                        {% if member.email is defined %}<li><a class="email" href="#" title="{{ member.email }}">{{ member.email }}</a></li>{% endif %}
+                        {% if member.github is defined %}<li><a class="github" href="https://github.com/{{ member.github }}" title="https://github.com/{{ member.github }}">{{ member.github }}</a></li>{% endif %}
+                        {% if member.twitter is defined %}<li><a class="twitter" href="http://twitter.com/#!/{{ member.twitter }}" title="http://twitter.com/#!/{{ member.twitter }}">{{ member.twitter }}</a></li>{% endif %}
+                        {% if member.facebook is defined %}<li><a class="facebook" href="http://facebook.com.com/{{ member.facebook }}" title="http://facebook.com/{{ member.facebook }}">{{ member.facebook }}</li>{% endif %}
+                        {% if member.linkedin is defined %}<li><a class="linkedin" href="http://es.linkedin.com/in/{{ member.linkedin }}" title="http://es.linkedin.com/in/{{ member.linkedin }}">{{ member.github }}</a></li>{% endif %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
     </section>
 {% endblock %}
