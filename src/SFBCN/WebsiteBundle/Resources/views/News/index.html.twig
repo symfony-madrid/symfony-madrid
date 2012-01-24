@@ -6,11 +6,13 @@
         <h1>Noticias</h1>
         {% for rssnews in rssnewsArray %}
             {% for rssnew in rssnews %}
-                <h2>
-                    <a href="{{ rssnew.link }}" target="_blank">{{ rssnew.title }}</a>
-                    <small>&nbsp; {{ rssnew.pubDate|date('d/m/Y H:i') }}</small>
-                </h2>
-                <p>{{ rssnew.description | replace({'&lt;':'<', '&gt;':'>'}) | striptags | truncate(420) | raw }}</p>
+                <article class="hentry">
+                    <h2 class="entry-title">
+                        <a href="{{ rssnew.link }}" target="_blank">{{ rssnew.title }}</a>
+                        <small class="date-header">{{ rssnew.pubDate|date('d/m/Y H:i') }}</small>
+                    </h2>
+                    <p class="entry-content">{{ rssnew.description | replace({'&lt;':'<', '&gt;':'>'}) | striptags | truncate(420) | raw }}</p>
+                </article>
             {% else %}
                 {{ 'sfbcn.news.empty'|trans|raw }}
             {% endfor %}

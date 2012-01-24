@@ -386,6 +386,9 @@ input[type=submit]:hover {
 .event-detail .event-info { float: left; width: 640px; }
 .event-detail .event-map { float: right; width: 300px; }
 
+/* NEWS */
+.news .date-header { margin-left: 1ex; }
+
 /* ABOUT */
 #content .about .member {
     width: 48%;
