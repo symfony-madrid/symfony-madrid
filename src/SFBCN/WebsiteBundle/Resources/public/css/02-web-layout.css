@@ -2,13 +2,16 @@ body {
     background: url("/bundles/sfbcnwebsite/images/background.jpg") repeat-x;
 }
 
-h1, h2, h3 { font-family: 'Quicksand', sans-serif; letter-spacing: -0.05em; line-height: 1em; margin: 0 0 0.5em; }
+h1, h2, h3 { font-family: 'Quicksand', sans-serif; line-height: 135%; margin: 0 0 0.5em; letter-spacing: -0.08em; font-weight: bold; }
+h2 + h3{margin:0px; line-height:120%;}
 h1 { font-size: 40px; }
 h2 { font-size: 30px; }
 h3 { font-size: 20px; }
 
-a { color: #08C; }
-a:hover, a:visited { color: #2ae; }
+#home-center iframe{padding:5px; background-color:#eee; border: 1px solid #DDD; width:310px;}
+
+a { color: #08C; text-decoration:none; }
+a:hover, a:visited { color: #2ae; text-decoration:underline; }
 h1 a, h2 a, h3 a { text-decoration: none; }
 h1 a:hover, h2 a:hover, h3 a:hover { text-decoration: underline; }
 
@@ -34,8 +37,14 @@ h1 a:hover, h2 a:hover, h3 a:hover { text-decoration: underline; }
     font-size: 11px;
     margin-top: 1em;
     padding: 1em;
+	background-image:url("http://aux.iconpedia.net/uploads/1657039719.png");
+	background-repeat:no-repeat;
 }
 
+#footer p{font-size:14px; font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;}
+
+.disclaimer{width:768px!important;}
+.rights{width:768px!important;}
 .main-menu {
     background: #FFF;
     background-image:-moz-linear-gradient(#FFF, #DADADA);
@@ -44,14 +53,14 @@ h1 a:hover, h2 a:hover, h3 a:hover { text-decoration: underline; }
     background-image:-o-linear-gradient(#FFF, #DADADA);
     background-image:-ms-linear-gradient(#FFF, #DADADA);
     background-image:linear-gradient(#FFF, #DADADA);
-    border: 1px solid #A8A8A8;
+    border: 1px solid #ddd;
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
     border-radius: 8px;
 }
 
 .main-menu li {
-    border-left: 1px solid #B9B9B9;
+    border-left: 1px solid #ddd;
     display: inline-block;
     font-family: "Lucida Sans Unicode","Lucida Grande",Verdana,Arial,Helvetica,sans-serif;
     font-size: 14px;
@@ -205,6 +214,9 @@ aside.related p {
 
 .page-content p {
     margin: 1em 0;
+	line-height:135%;
+	color:#999;
+	font-family: trebuchet ms, Arial,Helvetica,sans-serif;
 }
 
 .home article {
@@ -388,56 +400,80 @@ input[type=submit]:hover {
 .news .date-header { margin-left: 1ex; }
 
 /* ABOUT */
-.member {
+#founders { float: left; width: 68%; }
+#founders ul { margin: 0; padding: 0; }
+.founder {
     display: inline-block;
-    height: 15em;
-    margin: 1%;
-    width: 48%;
+    margin: 0 15px 15px 0;
+    width: 47%;
 }
 
-.member .avatar {
+.founder .avatar {
     float: left;
     margin-right: 1em;
+    padding: 3px;
+    border: 1px solid #ddd;
+    background: #eee;
+    width: 100px;
+    height: 100px;
 }
 
-.about ul {
+.founder p { font-size: 14px; }
+
+.founder ul {
     list-style: none;
     margin: 0;
     overflow: hidden;
     padding: 2px;
 }
 
-.member .links {
+.founder .links {
     display: inline-block;
     height: 32px;
 }
 
-.member .links li {
+.founder .links li {
     display: inline-block;
     margin-right: 10px;
 }
 
-.member a {
+.founder a {
     float: left;
     height: 32px;
     text-indent: -9999px;
     width: 32px;
 }
 
-.member .links a {
+.founder .links a {
     background-image: url("/bundles/sfbcnwebsite/images/sprites.png")
 }
 
-.member .twitter  { background-position:    0   -112px }
-.member .github   { background-position:  -32px -112px }
-.member .email    { background-position:  -64px -112px }
-.member .facebook { background-position:  -96px -112px }
-.member .web      { background-position: -128px -112px }
-.member .linkedin { background-position: -160px -112px }
+.founder .twitter  { background-position:    0   -112px }
+.founder .github   { background-position:  -32px -112px }
+.founder .email    { background-position:  -64px -112px }
+.founder .facebook { background-position:  -96px -112px }
+.founder .web      { background-position: -128px -112px }
+.founder .linkedin { background-position: -160px -112px }
 
-.member a:hover {
+.founder a:hover {
     background-color: #F6F6F6;
     border: 2px solid #08C;
     border-radius: 4px;
     margin: -2px;
 }
+
+#members,
+#badges{
+    width: 28%;
+    float: right;
+    padding: 15px;
+    background: #f6f6f6;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+#members ul,
+#badges ul { margin: 0; padding: 0; }
+#members .member,
+#badges .badge { display: inline-block; list-style: none; margin: 0 10px 10px 0; }

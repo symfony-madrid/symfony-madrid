@@ -2,25 +2,52 @@
 {% extends 'SFBCNWebsiteBundle::layout.html.twig' %}
 
 {% block content %}
-    <section class="page-content about">
-        <h1>Miembros</h1>
-        <p>Aquí podéis ver a los miembros de Symfony Barcelona</p>
-        <ul class="members">
-            {% for member in members %}
-                <li class="member">
-                    <h2>{{ member.name }}</h2>
-                    <img class="avatar" src="{{ member.foto|default('https://a248.e.akamai.net/assets.github.com/images/gravatars/gravatar-140.png') }}" alt="{{ member.name }}" />
-                    <p>{{ member.description|default('') }}</p>
-                    <ul class="links">
-                        {% if member.web is defined %}<li><a class="web" href="{{ member.web }}" title="{{ member.web }}">{{ member.web }}</a></li>{% endif %}
-                        {% if member.email is defined %}<li><a class="email" href="#" title="{{ member.email }}">{{ member.email }}</a></li>{% endif %}
-                        {% if member.github is defined %}<li><a class="github" href="https://github.com/{{ member.github }}" title="https://github.com/{{ member.github }}">{{ member.github }}</a></li>{% endif %}
-                        {% if member.twitter is defined %}<li><a class="twitter" href="http://twitter.com/#!/{{ member.twitter }}" title="http://twitter.com/#!/{{ member.twitter }}">{{ member.twitter }}</a></li>{% endif %}
-                        {% if member.facebook is defined %}<li><a class="facebook" href="http://facebook.com.com/{{ member.facebook }}" title="http://facebook.com/{{ member.facebook }}">{{ member.facebook }}</li>{% endif %}
-                        {% if member.linkedin is defined %}<li><a class="linkedin" href="http://es.linkedin.com/in/{{ member.linkedin }}" title="http://es.linkedin.com/in/{{ member.linkedin }}">{{ member.github }}</a></li>{% endif %}
-                    </ul>
-                </li>
-            {% endfor %}
-        </ul>
-    </section>
+    <div class="page-content about">
+        <section id="founders">
+            <h1>Fundadores</h1>
+            <p>Los fundadores de Symfony Barcelona, aquellos lunáticos que un día creyeron posible la creación de este grupo de desarrolladores.</p>
+            <ul>
+                {% for founder in founders %}
+                    <li class="founder">
+                        <h2>{{ founder.name }}</h2>
+                        <img class="avatar" src="{{ founder.foto|default('https://a248.e.akamai.net/assets.github.com/images/gravatars/gravatar-140.png') }}" alt="{{ founder.name }}" />
+                        <p>{{ founder.description|default('') }}</p>
+                        <ul class="links">
+                            {% if founder.web is defined %}<li><a class="web" href="{{ founder.web }}" title="{{ founder.web }}">{{ founder.web }}</a></li>{% endif %}
+                            {% if founder.email is defined %}<li><a class="email" href="#" title="{{ founder.email }}">{{ founder.email }}</a></li>{% endif %}
+                            {% if founder.github is defined %}<li><a class="github" href="https://github.com/{{ founder.github }}" title="https://github.com/{{ founder.github }}">{{ founder.github }}</a></li>{% endif %}
+                            {% if founder.twitter is defined %}<li><a class="twitter" href="http://twitter.com/#!/{{ founder.twitter }}" title="http://twitter.com/#!/{{ founder.twitter }}">{{ founder.twitter }}</a></li>{% endif %}
+                            {% if founder.facebook is defined %}<li><a class="facebook" href="http://facebook.com.com/{{ founder.facebook }}" title="http://facebook.com/{{ founder.facebook }}">{{ founder.facebook }}</li>{% endif %}
+                            {% if founder.linkedin is defined %}<li><a class="linkedin" href="http://es.linkedin.com/in/{{ founder.linkedin }}" title="http://es.linkedin.com/in/{{ founder.linkedin }}">{{ founder.github }}</a></li>{% endif %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section id="members">
+            <h1>Miembros</h1>
+            <p>He aquí todos los miembros pertenecientes al Club de Symfony Barcelona de Sensio Connect. ¿Aún no eres miembro? ¡Apúntate ya!</p>
+            <ul>
+                {% for member in members %}
+                    <li class="member">
+                        <a href="{{ member.url }}" title="{{ member.display_name }}">
+                            <img class="avatar" src="{{ member.picture_url }}" alt="{{ member.display_name }}" />
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section id="badges">
+            <h1>Badges acumulados</h1>
+            <ul>
+                {% for badge in badges %}
+                    <li class="badge">
+                        <a href="{{ badge.url }}" title="{{ badge.name }}">
+                            <img class="avatar" src="{{ badge.picture_url }}" alt="{{ badge.name }} (x{{ badge.count }})" />
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
 {% endblock %}
