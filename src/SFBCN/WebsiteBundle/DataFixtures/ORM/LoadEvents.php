@@ -4,6 +4,7 @@ namespace SFBCN\WebsiteBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
 use SFBCN\WebsiteBundle\Entity\Event;
 
 class LoadEvents extends AbstractFixture implements OrderedFixtureInterface
@@ -11,7 +12,7 @@ class LoadEvents extends AbstractFixture implements OrderedFixtureInterface
     /**
      * {@inheritDoc}
      */
-    public function load($manager)
+    public function load(ObjectManager $manager)
     {
         $ev = new Event();
         $ev->setTitle('Reunión inicial Symfony Barcelona');
