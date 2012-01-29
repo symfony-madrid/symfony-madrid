@@ -30,10 +30,14 @@ class EventRepository extends EntityRepository
      */
     public function getNextEvent()
     {
-        return $this->_em->createQuery('SELECT e from SFBCNWebsiteBundle:Event e WHERE e.datetime > :datetime ORDER BY e.datetime ASC')
-                    ->setMaxResults(1)
-                    ->setParameter('datetime', new \DateTime())
-                    ->getSingleResult();
+        try {
+            return $this->_em->createQuery('SELECT e from SFBCNWebsiteBundle:Event e WHERE e.datetime > :datetime ORDER BY e.datetime ASC')
+                        ->setMaxResults(1)
+                        ->setParameter('datetime', new \DateTime())
+                        ->getSingleResult();
+        } catch (\Doctrine\ORM\NoResultException $e) {
+            return null;
+        }
     }
 
     /**
