@@ -2,13 +2,13 @@ body {
     background: url("/bundles/sfbcnwebsite/images/background.jpg") repeat-x;
 }
 
-h1, h2, h3 { font-family: 'Quicksand', sans-serif; line-height: 135%; margin: 0 0 0.5em; letter-spacing: -0.08em; font-weight: bold; }
+h1, h2, h3 { font-family: 'Quicksand', sans-serif; line-height: 1.35em; margin: 0 0 0.5em; letter-spacing: -0.08em; font-weight: bold; }
 h2 + h3{margin:0px; line-height:120%;}
 h1 { font-size: 40px; }
 h2 { font-size: 30px; }
 h3 { font-size: 20px; }
 
-#home-center iframe{padding:5px; background-color:#eee; border: 1px solid #DDD; width:310px;}
+#home-center .map{padding:5px; background-color:#eee; border: 1px solid #ddd; width:310px;}
 
 a { color: #08C; text-decoration:none; }
 a:hover, a:visited { color: #2ae; text-decoration:underline; }
@@ -214,7 +214,7 @@ aside.related p {
 
 .page-content p {
     margin: 1em 0;
-	line-height:135%;
+	line-height:1.35em;
 	color:#999;
 	font-family: trebuchet ms, Arial,Helvetica,sans-serif;
 }
@@ -309,7 +309,7 @@ input[type=submit]:hover {
     left: 0;
     margin-left: 50%;
     position: absolute;
-    top: 44px;
+    top: 58px;
     width: 50%;
 }
 
@@ -381,6 +381,11 @@ input[type=submit]:hover {
 #next-event { float: left; width: 640px; }
 #next-event h2 { font-size: 20px; line-height: 1em; margin: 0; }
 #next-event h3 { font-size: 35px; line-height: 1em; }
+#next-event .map {
+    padding: 5px;
+    border: 1px solid #ddd;
+    background: #eee;
+}
 
 #future-events, #past-events {
     float: right;
@@ -394,7 +399,13 @@ input[type=submit]:hover {
 }
 
 .event-detail .event-info { float: left; width: 640px; }
-.event-detail .event-map { float: right; width: 300px; }
+.event-detail .event-map {
+    float: right;
+    width: 300px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    background: #eee;
+}
 
 /* NEWS */
 .news .date-header { margin-left: 1ex; }
@@ -411,7 +422,7 @@ input[type=submit]:hover {
 .founder .avatar {
     float: left;
     margin-right: 1em;
-    padding: 3px;
+    padding: 5px;
     border: 1px solid #ddd;
     background: #eee;
     width: 100px;
@@ -442,6 +453,7 @@ input[type=submit]:hover {
     height: 32px;
     text-indent: -9999px;
     width: 32px;
+    opacity: .8;
 }
 
 .founder .twitter  { background: url("/bundles/sfbcnwebsite/images/icons/twitter.png"); }
@@ -452,10 +464,7 @@ input[type=submit]:hover {
 .founder .linkedin { background: url("/bundles/sfbcnwebsite/images/icons/linkedin.png"); }
 
 .founder a:hover {
-    background-color: #F6F6F6;
-    border: 2px solid #08C;
-    border-radius: 4px;
-    margin: -2px;
+    opacity: 1;
 }
 
 #members,

@@ -67,7 +67,7 @@ class DefaultController extends Controller
             'foto' => 'http://1.gravatar.com/avatar/4295f5a4b169152d287fc4009d1afb19?size=140',
             'github' => 'adanlobato',
             'twitter' => 'adanlobato',
-            'linkedin' => 'adanlobato',
+            'linkedin' => 'http://es.linkedin.com/in/adanlobato',
           ),
         );
 

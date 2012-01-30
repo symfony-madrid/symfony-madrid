@@ -15,7 +15,7 @@
                         <ul class="links">
                             {% if founder.web is defined %}<li><a class="web" href="{{ founder.web }}" title="{{ founder.web }}">{{ founder.web }}</a></li>{% endif %}
                             {% if founder.email is defined %}<li><a class="email" href="#" title="{{ founder.email }}">{{ founder.email }}</a></li>{% endif %}
-                            {% if founder.github is defined %}<li><a class="github" href="https://github.com/{{ founder.github }}" title="https://github.com/{{ founder.github }}">{{ founder.github }}</a></li>{% endif %}
+                            {% if founder.github is defined %}<li><a class="github" href="{{ founder.github }}" title="{{ founder.github }}">{{ founder.github }}</a></li>{% endif %}
                             {% if founder.twitter is defined %}<li><a class="twitter" href="http://twitter.com/#!/{{ founder.twitter }}" title="http://twitter.com/#!/{{ founder.twitter }}">{{ founder.twitter }}</a></li>{% endif %}
                             {% if founder.facebook is defined %}<li><a class="facebook" href="http://facebook.com.com/{{ founder.facebook }}" title="http://facebook.com/{{ founder.facebook }}">{{ founder.facebook }}</li>{% endif %}
                             {% if founder.linkedin is defined %}<li><a class="linkedin" href="http://es.linkedin.com/in/{{ founder.linkedin }}" title="http://es.linkedin.com/in/{{ founder.linkedin }}">{{ founder.github }}</a></li>{% endif %}
@@ -26,7 +26,7 @@
         </section>
         <section id="members">
             <h1>Miembros</h1>
-            <p>He aquí todos los miembros pertenecientes al Club de Symfony Barcelona de Sensio Connect. ¿Aún no eres miembro? ¡Apúntate ya!</p>
+            <p>He aquí todos los miembros pertenecientes al Club de Symfony Barcelona en Sensio Connect. ¿Aún no eres miembro? <a href="https://connect.sensiolabs.com/club/symfony-barcelona">¡Apúntate ya!</a></p>
             <ul>
                 {% for member in members %}
                     <li class="member">
