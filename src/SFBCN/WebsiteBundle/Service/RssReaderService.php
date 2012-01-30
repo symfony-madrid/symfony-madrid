@@ -6,20 +6,28 @@ class RssReaderService
 {
     protected $feedsRss;
     private $urlResource;
-    
 
+    /**
+     * Sets configured RSS Feeds (@see services.yml)
+     * @param array $feeds
+     */
     public function setFeedsRss($feeds)
     {
         $this->feedsRss = $feeds;
     }
     
+    /**
+     * Gets injected RSS Feeds
+     * @return array
+     */
     public function getFeedsRss()
     {
         return $this->feedsRss;
     }
+
     /**
-     * Sets url resource, string is passed via services.yml
-     * @param $url
+     * Sets url resource to be processed in parseRSS
+     * @param string $url
      */
     public function setUrlResource($url)
     {
