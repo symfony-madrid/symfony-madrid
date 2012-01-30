@@ -444,16 +444,12 @@ input[type=submit]:hover {
     width: 32px;
 }
 
-.founder .links a {
-    background-image: url("/bundles/sfbcnwebsite/images/sprites.png")
-}
-
-.founder .twitter  { background-position:    0   -112px }
-.founder .github   { background-position:  -32px -112px }
-.founder .email    { background-position:  -64px -112px }
-.founder .facebook { background-position:  -96px -112px }
-.founder .web      { background-position: -128px -112px }
-.founder .linkedin { background-position: -160px -112px }
+.founder .twitter  { background: url("/bundles/sfbcnwebsite/images/icons/twitter.png"); }
+.founder .github   { background: url("/bundles/sfbcnwebsite/images/icons/github.png"); }
+.founder .email    { background: url("/bundles/sfbcnwebsite/images/icons/google.png"); }
+.founder .facebook { background: url("/bundles/sfbcnwebsite/images/icons/facebook.png"); }
+.founder .web      { background: url("/bundles/sfbcnwebsite/images/icons/wiki.png"); }
+.founder .linkedin { background: url("/bundles/sfbcnwebsite/images/icons/linkedin.png"); }
 
 .founder a:hover {
     background-color: #F6F6F6;
