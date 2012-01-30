@@ -378,7 +378,7 @@ input[type=submit]:hover {
 }
 
 /* EVENTS */
-#next-event { float: left; width: 640px; }
+#next-event { float: left; width: 640px; min-height: 200px; }
 #next-event h2 { font-size: 20px; line-height: 1em; margin: 0; }
 #next-event h3 { font-size: 35px; line-height: 1em; }
 #next-event .map {

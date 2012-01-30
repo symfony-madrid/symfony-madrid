@@ -6,20 +6,28 @@ class RssReaderService
 {
     protected $feedsRss;
     private $urlResource;
-    
 
+    /**
+     * Sets configured RSS Feeds (@see services.yml)
+     * @param array $feeds
+     */
     public function setFeedsRss($feeds)
     {
         $this->feedsRss = $feeds;
     }
     
+    /**
+     * Gets injected RSS Feeds
+     * @return array
+     */
     public function getFeedsRss()
     {
         return $this->feedsRss;
     }
+
     /**
-     * Sets url resource, string is passed via services.yml
-     * @param $url
+     * Sets url resource to be processed in parseRSS
+     * @param string $url
      */
     public function setUrlResource($url)
     {
@@ -32,12 +40,15 @@ class RssReaderService
      */
     public function parseRss()
     {
-        $rss = @simplexml_load_file($this->urlResource);
-        /**
-         * @todo Decide how to handle this exception
-         */
-        if (!$rss) {
-            return array();
+        $apcKey = 'sfbcnrss_' . md5($this->urlResource);
+        if (extension_loaded('apc') && apc_exists($apcKey)) {
+            $rss = simplexml_load_string(apc_fetch($apcKey));
+        } else {
+            $rss = @simplexml_load_file($this->urlResource);
+            if (!$rss) {
+                return array();
+            }
+            apc_store($apcKey, $rss->asXML(), 3600);
         }
 
         return $rss->channel[0]->item;
