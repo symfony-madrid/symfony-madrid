@@ -48,12 +48,15 @@ class DefaultController extends Controller
          */
         shuffle($this->founders);
         $sfConnect = $this->get('sensio_connect')->getGroupInfo();
+        $totalBadges = 0;
+        foreach ($sfConnect['cumulated_badges'] as $badge) $totalBadges += $badge['count'];
 
         return array(
             'current' => 'about',
             'founders' => $this->founders,
             'members' => $sfConnect['members'],
             'badges' => $sfConnect['cumulated_badges'],
+            'totalBadges' => $totalBadges,
         );
     }
 
