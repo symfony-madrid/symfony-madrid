@@ -35,7 +35,7 @@ class RssReaderService
     }
 
     /**
-     * Reads RSS and returns item array
+     * Reads RSS and returns item array. Info is stored in APC during an hour to increase speed
      * @return array
      */
     public function parseRss()

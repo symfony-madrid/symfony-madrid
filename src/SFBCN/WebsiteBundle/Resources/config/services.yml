@@ -3,4 +3,8 @@ services:
         class: SFBCN\WebsiteBundle\Service\RssReaderService
         calls:
             - [setFeedsRss, [%feeds%]]
+    sensio_connect:
+            class: SFBCN\WebsiteBundle\Service\SensioConnectService
+            calls:
+                - [setGroupName, [%sensiogroup%]]
 
