@@ -34,7 +34,7 @@ class SensioConnectService
         if (extension_loaded('apc') && apc_exists($apcKey)) {
             $sfConnect = apc_fetch($apcKey);
         } else {
-            $sfConnect = json_decode(file_get_contents('https://connect.sensiolabs.com/club/symfony-barcelona.json'), true);
+            $sfConnect = json_decode(file_get_contents('https://connect.sensiolabs.com/club/' . $this->getGroupName() . '.json'), true);
             apc_store($apcKey, $sfConnect, 3600);
         }
 
