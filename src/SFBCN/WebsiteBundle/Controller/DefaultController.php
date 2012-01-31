@@ -43,7 +43,7 @@ class DefaultController extends Controller
      */
     public function aboutAction()
     {
-        $members = array(
+        $founders = array(
           array(
             'name' => 'Ricard Clau',
             'description' => "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs.",
@@ -67,15 +67,19 @@ class DefaultController extends Controller
             'foto' => 'http://1.gravatar.com/avatar/4295f5a4b169152d287fc4009d1afb19?size=140',
             'github' => 'adanlobato',
             'twitter' => 'adanlobato',
-            'linkedin' => 'adanlobato',
+            'linkedin' => 'http://es.linkedin.com/in/adanlobato',
           ),
         );
 
-        usort($members, function($a, $b) { return ($a['name'] > $b['name']) ? 1 : -1; });
+        usort($founders, function($a, $b) { return ($a['name'] > $b['name']) ? 1 : -1; });
+        
+        $sfConnect = json_decode(file_get_contents('https://connect.sensiolabs.com/club/symfony-barcelona.json'), true);
 
         return array(
             'current' => 'about',
-            'members' => $members,
+            'founders' => $founders,
+            'members' => $sfConnect['members'],
+            'badges' => $sfConnect['cumulated_badges'],
         );
     }
 
