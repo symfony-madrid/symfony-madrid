@@ -37,7 +37,10 @@ class EventRepository extends EntityRepository
                         ->getSingleResult();
         } catch (\Doctrine\ORM\NoResultException $e) {
             return null;
+        } catch (\Exception $e) {
+            return null;
         }
+
     }
 
     /**
