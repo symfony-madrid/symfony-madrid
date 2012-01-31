@@ -13,9 +13,8 @@
                         <img class="avatar" src="{{ founder.foto|default('https://a248.e.akamai.net/assets.github.com/images/gravatars/gravatar-140.png') }}" alt="{{ founder.name }}" />
                         <p>{{ founder.description|default('') }}</p>
                         <ul class="links">
-                            {% if founder.web is defined %}<li><a class="web" href="{{ founder.web }}" title="{{ founder.web }}">{{ founder.web }}</a></li>{% endif %}
                             {% if founder.email is defined %}<li><a class="email" href="#" title="{{ founder.email }}">{{ founder.email }}</a></li>{% endif %}
-                            {% if founder.github is defined %}<li><a class="github" href="{{ founder.github }}" title="{{ founder.github }}">{{ founder.github }}</a></li>{% endif %}
+                            {% if founder.github is defined %}<li><a class="github" href="http://github.com/{{ founder.github }}" title="{{ founder.github }}">{{ founder.github }}</a></li>{% endif %}
                             {% if founder.twitter is defined %}<li><a class="twitter" href="http://twitter.com/#!/{{ founder.twitter }}" title="http://twitter.com/#!/{{ founder.twitter }}">{{ founder.twitter }}</a></li>{% endif %}
                             {% if founder.facebook is defined %}<li><a class="facebook" href="http://facebook.com.com/{{ founder.facebook }}" title="http://facebook.com/{{ founder.facebook }}">{{ founder.facebook }}</li>{% endif %}
                             {% if founder.linkedin is defined %}<li><a class="linkedin" href="{{ founder.linkedin }}" title="{{ founder.linkedin }}">{{ founder.linkedin }}</a></li>{% endif %}
