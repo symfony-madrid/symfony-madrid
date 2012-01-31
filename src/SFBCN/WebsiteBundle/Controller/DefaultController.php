@@ -44,34 +44,84 @@ class DefaultController extends Controller
     public function aboutAction()
     {
         $founders = array(
-          array(
-            'name' => 'Ricard Clau',
-            'description' => "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs.",
-            'email' => 'ricard.clau[at]gmail[dot]com',
-            'foto' => 'https://secure.gravatar.com/avatar/2d5aaa5bfc55afb812af6693826e382b?s=140&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png',
-            'github' => 'ricardclau',
-            'twitter' => 'ricardclau',
-          ),
-          array(
-            'name' => 'Marcos Quesada',
-            'description' => "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs.",
-          ),
-          array(
-            'name' => 'Berny Cantos',
-            'description' => "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs.",
-          ),
-          array(
-            'name' => 'Adán Lobato',
-            'description' => "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs.",
-            'email' => 'adan.lobato[at]gmail[dot]com',
-            'foto' => 'http://1.gravatar.com/avatar/4295f5a4b169152d287fc4009d1afb19?size=140',
-            'github' => 'adanlobato',
-            'twitter' => 'adanlobato',
-            'linkedin' => 'http://es.linkedin.com/in/adanlobato',
-          ),
+            array(
+                'name' => 'Ricard Clau',
+                'description' => 'PHP Believer, namespaces lover, #rigor is all around',
+                'email' => 'ricard.clau[at]gmail[dot]com',
+                'foto' => 'http://1.gravatar.com/avatar/2d5aaa5bfc55afb812af6693826e382b?size=140',
+                'github' => 'ricardclau',
+                'twitter' => 'ricardclau',
+                'linkedin' => 'http://es.linkedin.com/pub/ricard-clau/1/7a0/744',
+            ),
+            array(
+                'name' => 'Marcos Quesada',
+                'description' => "Well, the way they make shows is, they make one show.",
+                'email' => 'marcos.quesadas[at]gmail[dot]com',
+                'foto' => 'http://1.gravatar.com/avatar/2be6fb2856a0b294c3b723bfaced58b1?s=140',
+                'github' => 'marcosquesada',
+                'twitter' => 'marcos_quesada',
+                'linkedin' => 'http://es.linkedin.com/in/marcosquesada',
+            ),
+            array(
+                'name' => 'Berny Cantos',
+                'description' => "Well, the way they make shows is, they make one show.",
+                'email' => 'xphere81[at]gmail[dot]com',
+                'foto' => 'http://1.gravatar.com/avatar/91e6dcf71c768d042917912229786b85?s=140',
+                'github' => 'xphere',
+                'twitter' => 'xphere',
+                'linkedin' => 'http://es.linkedin.com/pub/berny-cantos/37/403/b79',
+            ),
+            array(
+                'name' => 'Adán Lobato',
+                'description' => "Well, the way they make shows is, they make one show.",
+                'email' => 'adan.lobato[at]gmail[dot]com',
+                'foto' => 'http://1.gravatar.com/avatar/4295f5a4b169152d287fc4009d1afb19?size=140',
+                'github' => 'adanlobato',
+                'twitter' => 'adanlobato',
+                'linkedin' => 'http://es.linkedin[dot]com/in/adanlobato',
+            ),
+            array(
+                'name' => 'Alberto Ramírez',
+                'description' => "Well, the way they make shows is, they make one show.",
+                'email' => 'alberto[at]aramirez.es',
+                'foto' => 'http://1.gravatar.com/avatar/93b1e299aefc6100c98d26b93ee987d2?size=140',
+                'github' => 'aramirez-es',
+                'twitter' => 'aramirez_',
+                'linkedin' => 'http://es.linkedin.com/pub/alberto-ramirez-fernandez/17/131/289',
+            ),
+            array(
+                'name' => 'Oriol Jiménez',
+                'description' => "Well, the way they make shows is, they make one show.",
+                'email' => 'oriol[at]phpbsd.net',
+                // 'foto' => '',
+                // 'github' => '',
+                'twitter' => 'orioljimenez',
+                'linkedin' => 'http://es.linkedin.com/in/orioljimenez',
+            ),
+            array(
+                'name' => 'Carlos Iglesias',
+                'description' => "Well, the way they make shows is, they make one show.",
+                'email' => 'carlos[at]runroom[dot]com',
+                // 'foto' => '',
+                // 'github' => '',
+                'twitter' => 'carlosthesailor',
+                'linkedin' => 'http://es.linkedin.com/in/carlosiglesiaspichel',
+            ),
+            array(
+                'name' => 'Christian Soronellas',
+                'description' => "Well, the way they make shows is, they make one show.",
+                'email' => 'theunic[at]gmail[dot]com',
+                'foto' => 'http://1.gravatar.com/avatar/dfdd9fcf3d8e8df633d142fcb986c5fa?size=140',
+                'github' => 'theunic',
+                'twitter' => 'theunic',
+                'linkedin' => 'http://es.linkedin.com/in/christiansoronellas',
+            )
         );
 
-        usort($founders, function($a, $b) { return ($a['name'] > $b['name']) ? 1 : -1; });
+        /**
+         * Better a random order than alphabetical :)
+         */
+        shuffle($founders);
         
         $sfConnect = json_decode(file_get_contents('https://connect.sensiolabs.com/club/symfony-barcelona.json'), true);
 

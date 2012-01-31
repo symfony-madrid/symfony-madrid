@@ -18,7 +18,7 @@
                             {% if founder.github is defined %}<li><a class="github" href="{{ founder.github }}" title="{{ founder.github }}">{{ founder.github }}</a></li>{% endif %}
                             {% if founder.twitter is defined %}<li><a class="twitter" href="http://twitter.com/#!/{{ founder.twitter }}" title="http://twitter.com/#!/{{ founder.twitter }}">{{ founder.twitter }}</a></li>{% endif %}
                             {% if founder.facebook is defined %}<li><a class="facebook" href="http://facebook.com.com/{{ founder.facebook }}" title="http://facebook.com/{{ founder.facebook }}">{{ founder.facebook }}</li>{% endif %}
-                            {% if founder.linkedin is defined %}<li><a class="linkedin" href="http://es.linkedin.com/in/{{ founder.linkedin }}" title="http://es.linkedin.com/in/{{ founder.linkedin }}">{{ founder.github }}</a></li>{% endif %}
+                            {% if founder.linkedin is defined %}<li><a class="linkedin" href="{{ founder.linkedin }}" title="{{ founder.linkedin }}">{{ founder.linkedin }}</a></li>{% endif %}
                         </ul>
                     </li>
                 {% endfor %}
