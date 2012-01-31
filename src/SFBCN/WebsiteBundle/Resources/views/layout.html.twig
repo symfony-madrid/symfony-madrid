@@ -37,7 +37,7 @@
         <header id="header">
             {% image output="images/cabecera.png"
                            "@SFBCNWebsiteBundle/Resources/public/images/sfbcn-logo.png" %}
-                <img src="{{ asset_url }}" alt="{{ block('title') }}"/>
+                <a href="{{ path('home') }}"><img src="{{ asset_url }}" alt="{{ block('title') }}"/></a>
             {% endimage %}
             <nav>
                 {% include 'SFBCNWebsiteBundle::menu.html.twig' %}

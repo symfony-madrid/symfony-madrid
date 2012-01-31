@@ -2,7 +2,7 @@ body {
     background: url("/bundles/sfbcnwebsite/images/background.jpg") repeat-x;
 }
 
-h1, h2, h3 { font-family: 'Quicksand', sans-serif; line-height: 1.35em; margin: 0 0 0.5em; letter-spacing: -0.08em; font-weight: bold; }
+h1, h2, h3 { font-family: 'Quicksand', sans-serif; line-height: 1.35em; margin: 0 0 0.5em; letter-spacing: -0.08em; font-weight: normal; }
 h2 + h3{margin:0px; line-height:120%;}
 h1 { font-size: 40px; }
 h2 { font-size: 30px; }
@@ -415,6 +415,7 @@ input[type=submit]:hover {
 #founders ul { margin: 0; padding: 0; }
 .founder {
     display: inline-block;
+    vertical-align: top;
     margin: 0 15px 15px 0;
     width: 47%;
 }
@@ -478,7 +479,12 @@ input[type=submit]:hover {
     border-radius: 5px;
     margin-bottom: 15px;
 }
+
 #members ul,
 #badges ul { margin: 0; padding: 0; }
+
 #members .member,
-#badges .badge { display: inline-block; list-style: none; margin: 0 10px 10px 0; }
+#badges .badge { display: inline-block; list-style: none; margin: 0 8px 8px 0; }
+
+#members .member a,
+#badges .badge a{ display: block; line-height: 0; }
