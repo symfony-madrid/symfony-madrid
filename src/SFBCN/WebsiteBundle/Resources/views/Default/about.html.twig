@@ -24,7 +24,7 @@
             </ul>
         </section>
         <section id="members">
-            <h1>Miembros</h1>
+            <h1>{{ members|length }} Miembros</h1>
             <p>He aquí todos los miembros pertenecientes al Club de Symfony Barcelona en Sensio Connect. ¿Aún no eres miembro? <a href="https://connect.sensiolabs.com/club/symfony-barcelona">¡Apúntate ya!</a></p>
             <ul>
                 {% for member in members %}
@@ -37,7 +37,7 @@
             </ul>
         </section>
         <section id="badges">
-            <h1>Badges acumulados</h1>
+            <h1>{{ totalBadges }} Badges acumulados</h1>
             <ul>
                 {% for badge in badges %}
                     <li class="badge">
