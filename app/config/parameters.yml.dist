@@ -13,3 +13,5 @@ parameters:
 
   locale: es_ES
   secret: "Symf0nyBCN-T0k3n!"
+
+  ga_tracking: "UA-28844613-1"
