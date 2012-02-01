@@ -1,3 +1,33 @@
+Namespace = {};
+
+
+(function(NS, window){
+
+    var notBlankConstraint = function(input) {
+        return ( typeof input !== "undefined" && input.trim() !== "" );
+    };
+
+    var emailConstraint = function(input) {
+        var emailPattern = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+        return ( notBlankConstraint(input) && emailPattern.test(input) );
+    };
+
+    NS.ValidatorConstraints = {
+        "validateMandatory" : notBlankConstraint,
+        "validateEmail"     : emailConstraint
+    };
+
+})(Namespace, window);
+
+
+function resetForm(contactForm)
+{
+    $(contactForm).find("label").each(function(index, htmlTag){
+        $(htmlTag).removeClass("form-error");
+    });
+}
+
 /**
  * Check for form is successful or not before send data to server.
  *
@@ -6,9 +36,23 @@
 function validateForm(contactForm) {
 
     var formIsValid = true;
+    var inputIsValid = false;
 
-    $(contactForm).find("input[type=text]").each(function(index, input){
-        formIsValid &= ( "" !== $(input).val() );
+    $(contactForm).find(".form-validate").each(function(index, input){
+        if ( $(input).hasClass("validate-mandatory") ) {
+            inputIsValid = Namespace.ValidatorConstraints.validateMandatory($(input).val());
+            formIsValid &= inputIsValid;
+            if (!inputIsValid) {
+                $(input).parent().find("label").addClass("form-error");
+            }
+        }
+        if ( $(input).hasClass("validate-email") ) {
+            inputIsValid = Namespace.ValidatorConstraints.validateEmail($(input).val());
+            formIsValid &= inputIsValid;
+            if (!inputIsValid) {
+                $(input).parent().find("label").addClass("form-error");
+            }
+        }
     });
 
     return ( formIsValid && $(contactForm).find("textarea").val() );
@@ -64,10 +108,15 @@ function attachEventToContactForm(contactForm) {
     $(contactForm).submit(function(e) {
 
         e.preventDefault();
+        resetForm(contactForm);
 
         if (validateForm(contactForm))
         {
             sendForm(e.target);   
+        }
+        else
+        {
+            alert("ERROR");
         }
 
     });
