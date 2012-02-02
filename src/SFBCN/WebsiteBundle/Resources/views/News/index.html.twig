@@ -4,18 +4,23 @@
 {% block content %}
     <section class="page-content news">
         <h1>Noticias</h1>
-        {% for rssnews in rssnewsArray %}
-            {% for rssnew in rssnews %}
-                <article class="hentry">
-                    <h2 class="entry-title">
-                        <a href="{{ rssnew.link }}" target="_blank">{{ rssnew.title }}</a>
-                        <small class="date-header">{{ rssnew.pubDate|date('d/m/Y H:i') }}</small>
-                    </h2>
-                    <p class="entry-content">{{ rssnew.description | replace({'&lt;':'<', '&gt;':'>'}) | striptags | truncate(420) | raw }}</p>
-                </article>
-            {% else %}
-                {{ 'sfbcn.news.empty'|trans|raw }}
-            {% endfor %}
+        {% for feed in feeds %}
+            <div class="feed">
+                <h2>{{ feed.name }}</h2>
+                <div class="feed-posts">
+                    {% for rssnew in feed.posts %}
+                        <article class="hentry">
+                            <h3 class="entry-title">
+                                <a href="{{ rssnew.link }}" target="_blank">{{ rssnew.title }}</a>
+                                <small class="date-header">{{ rssnew.pubDate|date('d/m/Y H:i') }}</small>
+                            </h3>
+                            <p class="entry-content">{{ rssnew.description | replace({'&lt;':'<', '&gt;':'>'}) | striptags | truncate(420) | raw }}</p>
+                        </article>
+                    {% else %}
+                        {{ 'sfbcn.news.empty'|trans|raw }}
+                    {% endfor %}
+                </div>
+            </div>
         {% endfor %}
     </section>
 {% endblock %}

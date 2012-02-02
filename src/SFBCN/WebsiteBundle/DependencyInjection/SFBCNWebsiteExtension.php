@@ -21,6 +21,7 @@ class SFBCNWebsiteExtension extends Extension
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
+        ladybug_dump($config);
 
         $container->setParameter('contactmail', $config['contactmail']);
         $container->setParameter('feeds', $config['feeds']);
