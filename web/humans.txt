@@ -16,11 +16,11 @@ Contact: adan.lobato[at]gmail[dot]com
 Twitter: @adanlobato
 
 Member: Alberto Ramírez
-Contact: alberto[at]aramirez.es
+Contact: alberto[at]aramirez[dot]es
 Twitter: @aramirez_
 
 Member: Oriol Jiménez
-Contact: oriol[at]phpbsd.net
+Contact: oriol[at]phpbsd[dot]net
 Twitter: @orioljimenez
 
 Member: Carlos Iglesias 

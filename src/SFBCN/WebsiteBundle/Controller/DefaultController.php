@@ -175,7 +175,7 @@ class DefaultController extends Controller
             array(
                 'name' => 'Alberto Ramírez',
                 'description' => "Well, the way they make shows is, they make one show.",
-                'email' => 'alberto[at]aramirez.es',
+                'email' => 'alberto[at]aramirez[dot]es',
                 'foto' => 'http://1.gravatar.com/avatar/93b1e299aefc6100c98d26b93ee987d2?size=140',
                 'github' => 'aramirez-es',
                 'twitter' => 'aramirez_',
@@ -184,7 +184,7 @@ class DefaultController extends Controller
             array(
                 'name' => 'Oriol Jiménez',
                 'description' => "Well, the way they make shows is, they make one show.",
-                'email' => 'oriol[at]phpbsd.net',
+                'email' => 'oriol[at]phpbsd[dot]net',
                 'foto' => 'http://1.gravatar.com/avatar/ffe9ce4a6a97b5749e4096a96ceaf495?size=140',
                 // 'github' => '',
                 'twitter' => 'orioljimenez',
