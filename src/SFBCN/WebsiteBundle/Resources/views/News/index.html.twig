@@ -17,7 +17,7 @@
                             <p class="entry-content">{{ rssnew.description | replace({'&lt;':'<', '&gt;':'>'}) | striptags | truncate(420) | raw }}</p>
                         </article>
                     {% else %}
-                        {{ 'sfbcn.news.empty'|trans|raw }}
+                        {{ 'sfbcn.news.empty'|trans|raw }} {{ feed.name }}
                     {% endfor %}
                 </div>
             </div>
