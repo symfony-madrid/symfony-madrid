@@ -1,0 +1,40 @@
+/* TEAM */
+Member: Ricard Clau
+Contact: ricard.clau[at]gmail[dot]com
+Twitter: @ricardclau
+
+Member: Marcos Quesada
+Contact: marcos.quesadas[at]gmail[dot]com
+Twitter: @marcos_quesada
+
+Member: Berny Cantos
+Contact: xphere81[at]gmail[dot]com
+Twitter: @xphere
+
+Member: Adán Lobato
+Contact: adan.lobato[at]gmail[dot]com
+Twitter: @adanlobato
+
+Member: Alberto Ramírez
+Contact: alberto[at]aramirez.es
+Twitter: @aramirez_
+
+Member: Oriol Jiménez
+Contact: oriol[at]phpbsd.net
+Twitter: @orioljimenez
+
+Member: Carlos Iglesias 
+Contact: carlos[at]runroom[dot]com
+Twitter: @carlosthesailor
+
+Member: Christian Soronellas 
+Contact: theunic[at]gmail[dot]com
+Twitter: @theunic
+
+/* THANKS */
+Symfony2 Core Team: www.symfony.com
+
+/* SITE */
+Standards: HTML5, CSS3
+Components: Modernizr, jQuery
+Software: PHP 5.3, Symfony2, Assetic, Doctrine2, Twig, ...
