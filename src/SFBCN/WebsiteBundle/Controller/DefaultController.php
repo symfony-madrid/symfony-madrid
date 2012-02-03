@@ -192,7 +192,7 @@ class DefaultController extends Controller
             ),
             array(
                 'name' => 'Carlos Iglesias',
-                'description' => "Well, the way they make shows is, they make one show.",
+                'description' => 'Consultor de Tecnología Web & Marketing Online. Socio fundador en Runroom.',
                 'email' => 'carlos[at]runroom[dot]com',
                 'foto' => 'http://1.gravatar.com/avatar/7a836ecca82bed330f8faa13a8ec9bb2?size=140',
                 // 'github' => '',
