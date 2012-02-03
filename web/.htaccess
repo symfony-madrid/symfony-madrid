@@ -1,3 +1,7 @@
+<Files "humans.txt">
+    AddCharset UTF-8 .txt
+</Files>
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-f
