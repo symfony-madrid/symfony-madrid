@@ -1,5 +1,10 @@
 sfbcn_website:
-    contactmail: "symfony.barcelona@gmail.com"
-    sensiogroup: symfony-barcelona
-    feeds:
-      symfonyrssurl: http://feeds.feedburner.com/symfony/blog
+  contactmail: "symfony.barcelona@gmail.com"
+  sensiogroup: symfony-barcelona
+  feeds:
+    symfonycom:
+      name: Symfony.com
+      url: http://feeds.feedburner.com/symfony/blog
+    symfonyes:
+      name: Symfony.es
+      url: http://www.symfony.es/feed

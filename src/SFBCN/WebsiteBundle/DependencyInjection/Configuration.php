@@ -33,8 +33,11 @@ class Configuration implements ConfigurationInterface
             ->end()
             ->children()
                 ->arrayNode('feeds')
-                    ->useAttributeAsKey('id')
-                    ->prototype('scalar')                                                       
+                    ->prototype('array')
+                    ->children()
+                        ->scalarNode('name')->end()
+                        ->scalarNode('url')->end()
+                    ->end()
                 ->end()
             ->end()             
             ;
