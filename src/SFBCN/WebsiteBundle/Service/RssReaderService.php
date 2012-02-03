@@ -41,18 +41,16 @@ class RssReaderService
     public function parseRss()
     {
         $apcKey = 'sfbcnrss_' . md5($this->urlResource);
-        /* if (extension_loaded('apc') && apc_exists($apcKey)) {
+        if (extension_loaded('apc') && apc_exists($apcKey)) {
             $rss = simplexml_load_string(apc_fetch($apcKey));
         } else {
-        */
-            $rss = simplexml_load_file($this->urlResource);
-/*
+            $rss = @simplexml_load_file($this->urlResource);
             if (!$rss) {
                 return array();
             }
             apc_store($apcKey, $rss->asXML(), 3600);
         }
-*/
+
         return $rss->channel[0]->item;
     }
 }
