@@ -240,6 +240,17 @@ aside.related p {
     width: 50%;
 }
 
+#form-message-success {
+    position: relative;
+    background-color: #DFF2BF;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    color: #4F8A10;
+}
+
 form {
     background-color: #f6f6f6;
     -moz-border-radius: 5px;
@@ -260,6 +271,11 @@ label.form-error {
     color: red;
 }
 
+.form-label-message {
+    font-size: 10px;
+    display: block;
+}
+
 input[type=submit] {
     border: 0 none;
     -moz-border-radius: 5px;
@@ -272,6 +288,14 @@ input[type=submit] {
 
 input[type=submit]:hover {
     text-decoration: underline;
+}
+
+input[type=submit].form-sending {
+    cursor: default;
+}
+
+input[type=submit]:hover.form-sending {
+    text-decoration: none;
 }
 
 #contact p {
