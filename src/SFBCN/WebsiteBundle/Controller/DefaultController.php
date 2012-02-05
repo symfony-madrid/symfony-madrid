@@ -91,7 +91,34 @@ class DefaultController extends Controller
            'mensaje' => $this->getRequest()->get('mensaje'),
         );
 
-        $this->validateContactData($contactData);
+        try {
+
+            $this->validateContactData($contactData);
+
+        } catch (HttpException $e) {
+            
+            /**
+             * Due to HttpException only accept a text message and we need
+             * a json array, we catching the HttpException to return a new
+             * Response object with message in json format and status code.
+             */
+            return new Response($e->getMessage(), $e->getStatusCode());
+        }
+
+        $this->sendMailOnContactFormSuccess($contactData);
+
+        return new Response(json_encode(
+            array('message' => 'Mail enviado correctamente. En breve contactaremos contigo')
+        ));
+    }
+
+    /**
+     * Extract method to send the email with data receive from contact form.
+     *
+     * @param array $contactData Data given from contact form.
+     */
+    private function sendMailOnContactFormSuccess(Array $contactData)
+    {
         $mailTo = $this->container->getParameter('contactmail');
 
         $message =\Swift_Message::newInstance()
@@ -101,8 +128,6 @@ class DefaultController extends Controller
                     ->setBody($contactData['mensaje']);
 
         $this->container->get('mailer')->send($message);
-
-        return new Response(json_encode(array('message' => 'Mail enviado correctamente. En breve contactaremos contigo')));
     }
 
     /**
@@ -128,8 +153,23 @@ class DefaultController extends Controller
 
         $errors = $this->container->get('validator')->validateValue($contactData, $collectionConstraint);
         if (count($errors) !== 0) {
-            throw new HttpException(400, $errors[0]->getPropertyPath() . ':' . $this->container->get('translator')->trans($errors[0]->getMessage(), array(), 'validators'));
+            throw new HttpException(400, $this->parseErrors($errors));
         }
+    }
+
+    private function parseErrors($errors) {
+
+        $translator = $this->container->get('translator');
+        $parsedErrors = array();
+
+        foreach($errors as $error) {
+
+            $translatedError = $translator->trans($error->getMessage(), array(), 'validators');
+            $parsedErrors[substr($error->getPropertyPath(), 1, -1)] = $translatedError;
+
+        }
+
+        return json_encode($parsedErrors);
     }
 
     /**
