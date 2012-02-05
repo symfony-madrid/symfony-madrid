@@ -44,7 +44,10 @@ class RssReaderService
         if (extension_loaded('apc') && apc_exists($apcKey)) {
             $rss = simplexml_load_string(apc_fetch($apcKey));
         } else {
-            $rss = @simplexml_load_file($this->urlResource);
+            /**
+             * Symfony.es did not work with simplexml_load_file in PHP5.3.6
+             */
+            $rss = simplexml_load_string(file_get_contents($this->urlResource));
             if (!$rss) {
                 return array();
             }
