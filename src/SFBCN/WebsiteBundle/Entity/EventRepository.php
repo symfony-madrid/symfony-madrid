@@ -14,12 +14,13 @@ class EventRepository extends EntityRepository
 {
     /**
      * Gets past events
+     * @param integer $max
      * @return array
      */
-    public function getPastEvents()
+    public function getPastEvents($max = 15)
     {
         return $this->_em->createQuery('SELECT e from SFBCNWebsiteBundle:Event e WHERE e.datetime < :datetime ORDER BY e.datetime DESC')
-                    ->setMaxResults(15)
+                    ->setMaxResults($max)
                     ->setParameter('datetime', new \DateTime())
                     ->getResult();
     }
@@ -38,13 +39,14 @@ class EventRepository extends EntityRepository
 
     /**
      * Gets future event excluding immediate next one
+     * @param integer $max
      * @return array
      */
-    public function getFutureEvents()
+    public function getFutureEvents($max = 15)
     {
         return $this->_em->createQuery('SELECT e from SFBCNWebsiteBundle:Event e WHERE e.datetime > :datetime ORDER BY e.datetime ASC')
                     ->setFirstResult(1)
-                    ->setMaxResults(15)
+                    ->setMaxResults($max)
                     ->setParameter('datetime', new \DateTime())
                     ->getResult();
     }

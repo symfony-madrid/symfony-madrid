@@ -11,6 +11,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
  */
 class EventsController extends Controller
 {
+    private $eventRepository;
+
     /**
      * Renders latest events
      *
@@ -20,10 +22,9 @@ class EventsController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getEntityManager();
-        $nextEvent = $em->getRepository('SFBCNWebsiteBundle:Event')->getNextEvent();
-        $pastEvents = $em->getRepository('SFBCNWebsiteBundle:Event')->getPastEvents();
-        $futureEvents = $em->getRepository('SFBCNWebsiteBundle:Event')->getFutureEvents();
+        $nextEvent = $this->getEventRepository()->getNextEvent();
+        $pastEvents = $this->getEventRepository()->getPastEvents(5);
+        $futureEvents = $this->getEventRepository()->getFutureEvents(5);
 
         return array(
             'nextEvent' => $nextEvent,
@@ -43,12 +44,23 @@ class EventsController extends Controller
      */
     public function showAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
-        $event = $em->getRepository('SFBCNWebsiteBundle:Event')->find($id);
+        $event = $this->getEventRepository()->find($id);
 
         return array(
             'event' => $event,
             'current' => 'events',
         );
+    }
+
+    /**
+     * @return \SFBCN\WebsiteBundle\Entity\EventRepository
+     */
+    private function getEventRepository()
+    {
+        if (null === $this->eventRepository) {
+            $this->eventRepository = $this->getDoctrine()->getEntityManager()->getRepository('SFBCNWebsiteBundle:Event');
+        }
+
+        return $this->eventRepository;
     }
 }

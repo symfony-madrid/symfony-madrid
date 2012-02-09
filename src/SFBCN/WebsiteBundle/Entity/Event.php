@@ -57,8 +57,7 @@ class Event
     /**
      * @var string $gmaps
      *
-     * @ORM\Column(name="gmaps", type="string", length=512)
-     * @Assert\NotBlank()
+     * @ORM\Column(name="gmaps", type="string", length=512, nullable=true)
      * @Assert\Url()
      */
     private $gmaps;
