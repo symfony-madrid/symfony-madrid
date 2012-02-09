@@ -41,10 +41,10 @@ h1 a:hover, h2 a:hover, h3 a:hover { text-decoration: underline; }
 	background-repeat:no-repeat;
 }
 
-#footer p{font-size:14px; font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;}
+#footer p{font-size:14px; font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; margin-left: 50px;}
 
-.disclaimer{width:768px!important;}
-.rights{width:768px!important;}
+.disclaimer{width:968px!important;}
+.rights{width:968px!important;}
 .main-menu {
     background: #FFF;
     background-image:-moz-linear-gradient(#FFF, #DADADA);
