@@ -7,7 +7,6 @@
             <th>Title</th>
             <th>DateTime</th>
             <th>Location</th>
-            <th>Gmaps</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -18,7 +17,6 @@
             <td>{{ entity.title }}</td>
             <td>{% if entity.datetime %}{{ entity.datetime|date('Y-m-d H:i:s') }}{% endif %}</td>
             <td>{{ entity.location }}</td>
-            <td>{{ entity.gmaps }}</td>
             <td>
                 <ul>
                     <li>
