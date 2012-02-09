@@ -14,6 +14,7 @@
                     <strong>¿Cuándo?</strong> {{ nextEvent.datetime|date('l, d F Y H:i') }}<br />
                     <strong>¿Dónde?</strong> {{ nextEvent.location }}
                 </p>
+                {{ nextEvent.body | truncate(400) | raw }}
                 <div class="map">
                     <iframe width="628" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="{{ nextEvent.gmaps }}&amp;output=embed"></iframe>
                     <br /><a href="{{ nextEvent.gmaps }}">Muestra un mapa más grande</a></small>
