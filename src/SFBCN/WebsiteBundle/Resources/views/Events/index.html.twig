@@ -14,7 +14,7 @@
                     <strong>¿Cuándo?</strong> {{ nextEvent.datetime|date('l, d F Y H:i') }}<br />
                     <strong>¿Dónde?</strong> {{ nextEvent.location }}
                 </p>
-                {{ nextEvent.body | truncate(400) | raw }}
+                {{ nextEvent.body | raw }}
 
                 {% if nextEvent.gmaps is not empty %}
                 <div class="map">
