@@ -15,10 +15,13 @@
                     <strong>¿Dónde?</strong> {{ nextEvent.location }}
                 </p>
                 {{ nextEvent.body | truncate(400) | raw }}
+
+                {% if nextEvent.gmaps is not empty %}
                 <div class="map">
                     <iframe width="628" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="{{ nextEvent.gmaps }}&amp;output=embed"></iframe>
                     <br /><a href="{{ nextEvent.gmaps }}">Muestra un mapa más grande</a></small>
                 </div>
+                {% endif %}
             {% endif %}
         </section>
 
