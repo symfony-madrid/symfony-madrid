@@ -21,12 +21,19 @@ class NewsController extends Controller
     public function indexAction()
     {
         $feeds = array();
+
+        /** @var \SFBCN\WebsiteBundle\Service\RssReaderService $rssReaderService */
         $rssReaderService = $this->get('symfony_rss');
+
         $feedsRss = $rssReaderService->getFeedsRss();
 
         foreach ($feedsRss as $feed) {
-            $rssReaderService->setUrlResource($feed['url']);
-            $feeds[] = array('name' => $feed['name'], 'posts' => $rssReaderService->parseRss());
+            $rssReaderService->setFeedName($feed['name'])
+                             ->setRawFeed(file_get_contents($feed['url']));
+            $feeds[] = array(
+                'name'  => $feed['name'],
+                'posts' => $rssReaderService->parseRss()
+            );
         }
 
         return array(

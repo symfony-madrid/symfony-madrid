@@ -4,8 +4,20 @@ namespace SFBCN\WebsiteBundle\Service;
 
 class RssReaderService
 {
+    /**
+     * @var array
+     */
     protected $feedsRss;
-    private $urlResource;
+
+    /**
+     * @var string
+     */
+    private $rawFeed;
+
+    /**
+     * @var string
+     */
+    private $feedName;
 
     /**
      * Sets configured RSS Feeds (@see services.yml)
@@ -26,12 +38,37 @@ class RssReaderService
     }
 
     /**
-     * Sets url resource to be processed in parseRSS
-     * @param string $url
+     * @param string $rawFeed
      */
-    public function setUrlResource($url)
+    public function setRawFeed($rawFeed)
     {
-        $this->urlResource = $url;
+        $this->rawFeed = $rawFeed;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRawFeed()
+    {
+        return $this->rawFeed;
+    }
+
+    /**
+     * @param string $feedName
+     */
+    public function setFeedName($feedName)
+    {
+        $this->feedName = $feedName;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFeedName()
+    {
+        return $this->feedName;
     }
 
     /**
@@ -40,14 +77,14 @@ class RssReaderService
      */
     public function parseRss()
     {
-        $apcKey = 'sfbcnrss_' . md5($this->urlResource);
+        $apcKey = 'sfbcnrss_' . md5($this->getFeedName());
         if (extension_loaded('apc') && apc_exists($apcKey)) {
             $rss = simplexml_load_string(apc_fetch($apcKey));
         } else {
             /**
              * Symfony.es did not work with simplexml_load_file in PHP5.3.6
              */
-            $rss = simplexml_load_string(file_get_contents($this->urlResource));
+            $rss = simplexml_load_string($this->getRawFeed());
             if (!$rss) {
                 return array();
             }
