@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataset>
+
+    <events id="4"
+            title="Primer taller Symfony-Barcelona"
+            body="Esta reunión servirá para hacer algún taller o presentaciones sobre Symfony. Pendiente montar programa"
+            datetime="2112-03-01 19:45:00"
+            location="Por determinar"
+            gmaps="http://maps.google.es/maps?f=q&amp;source=s_q&amp;hl=es&amp;geocode=&amp;q=barcelona,+la+flauta,+balmes&amp;vps=5&amp;jsv=151e&amp;sll=41.402501,2.161903&amp;sspn=0.016771,0.038452&amp;ie=UTF8&amp;ei=SR7NSZDTAoXsoAOtwMk_&amp;sig2=jlbDNae-UxT_9_IaQvWvhQ&amp;cd=1&amp;dtab=5&amp;cid=41394756,2155491,11093431450005803032&amp;li=lmd&amp;z=14&amp;t=m" />
+
+    <events id="3"
+            title="Presentación en sociedad de Symfony-Barcelona"
+            body="Esta reunión servirá para ver cuánto interés hay por parte de la comunidad. La idea es que sea Beers &amp; Networking pero nunca se sabe... :)"
+            datetime="2012-02-01 19:45:00"
+            location="Por determinar"
+            gmaps="http://maps.google.es/maps?f=q&amp;source=s_q&amp;hl=es&amp;geocode=&amp;q=barcelona,+la+flauta,+balmes&amp;vps=5&amp;jsv=151e&amp;sll=41.402501,2.161903&amp;sspn=0.016771,0.038452&amp;ie=UTF8&amp;ei=SR7NSZDTAoXsoAOtwMk_&amp;sig2=jlbDNae-UxT_9_IaQvWvhQ&amp;cd=1&amp;dtab=5&amp;cid=41394756,2155491,11093431450005803032&amp;li=lmd&amp;z=14&amp;t=m" />
+
+    <events id="2"
+            title="Reunión status y nuevas incorporaciones"
+            body="En esta reunión se unieron nuevos miembros al grupo y parece que por fin la cosa empieza a funcionar"
+            datetime="2012-01-11 19:45:00"
+            location="La Flauta II, Balmes 166, 08008, Barcelona"
+            gmaps="http://maps.google.es/maps?f=q&amp;source=s_q&amp;hl=es&amp;geocode=&amp;q=barcelona,+la+flauta,+balmes&amp;vps=5&amp;jsv=151e&amp;sll=41.402501,2.161903&amp;sspn=0.016771,0.038452&amp;ie=UTF8&amp;ei=SR7NSZDTAoXsoAOtwMk_&amp;sig2=jlbDNae-UxT_9_IaQvWvhQ&amp;cd=1&amp;dtab=5&amp;cid=41394756,2155491,11093431450005803032&amp;li=lmd&amp;z=14&amp;t=m" />
+
+    <events id="1"
+            title="Reunión inicial Symfony Barcelona"
+            body="Esta reunión sirvió para conocernos y sentar las bases de lo que debía ser el grupo Symfony-Barcelona"
+            datetime="2011-10-20 19:45:00"
+            location="La Flauta II, Balmes 166, 08008, Barcelona"
+            gmaps="http://maps.google.es/maps?f=q&amp;source=s_q&amp;hl=es&amp;geocode=&amp;q=barcelona,+la+flauta,+balmes&amp;vps=5&amp;jsv=151e&amp;sll=41.402501,2.161903&amp;sspn=0.016771,0.038452&amp;ie=UTF8&amp;ei=SR7NSZDTAoXsoAOtwMk_&amp;sig2=jlbDNae-UxT_9_IaQvWvhQ&amp;cd=1&amp;dtab=5&amp;cid=41394756,2155491,11093431450005803032&amp;li=lmd&amp;z=14&amp;t=m" />
+
+    <events id="5"
+            title="Primer taller Symfony-Barcelona"
+            body="Esta reunión servirá para hacer algún taller o presentaciones sobre Symfony. Pendiente montar programa"
+            datetime="2113-03-01 19:45:00"
+            location="Por determinar"
+            gmaps="http://maps.google.es/maps?f=q&amp;source=s_q&amp;hl=es&amp;geocode=&amp;q=barcelona,+la+flauta,+balmes&amp;vps=5&amp;jsv=151e&amp;sll=41.402501,2.161903&amp;sspn=0.016771,0.038452&amp;ie=UTF8&amp;ei=SR7NSZDTAoXsoAOtwMk_&amp;sig2=jlbDNae-UxT_9_IaQvWvhQ&amp;cd=1&amp;dtab=5&amp;cid=41394756,2155491,11093431450005803032&amp;li=lmd&amp;z=14&amp;t=m" />
+
+    <events id="6"
+            title="Primer taller Symfony-Barcelona"
+            body="Esta reunión servirá para hacer algún taller o presentaciones sobre Symfony. Pendiente montar programa"
+            datetime="2114-03-01 19:45:00"
+            location="Por determinar"
+            gmaps="http://maps.google.es/maps?f=q&amp;source=s_q&amp;hl=es&amp;geocode=&amp;q=barcelona,+la+flauta,+balmes&amp;vps=5&amp;jsv=151e&amp;sll=41.402501,2.161903&amp;sspn=0.016771,0.038452&amp;ie=UTF8&amp;ei=SR7NSZDTAoXsoAOtwMk_&amp;sig2=jlbDNae-UxT_9_IaQvWvhQ&amp;cd=1&amp;dtab=5&amp;cid=41394756,2155491,11093431450005803032&amp;li=lmd&amp;z=14&amp;t=m" />
+
+</dataset>

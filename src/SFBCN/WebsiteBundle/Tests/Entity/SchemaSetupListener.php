@@ -14,7 +14,7 @@ use DoctrineExtensions\PHPUnit\Event\EntityManagerEventArgs,
 
 /**
  * A Doctrine2 event listener responsible to create an in-memory
- * database to be able to do Component Testing
+ * database to be able to execute component tests
  *
  * @category ComponentTests
  * @package SFBCN\WebsiteBundle\Tests

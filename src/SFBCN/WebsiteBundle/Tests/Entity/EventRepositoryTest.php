@@ -33,9 +33,7 @@ class EventRepositoryTest extends OrmTestCase
      */
     protected function getDataSet()
     {
-        return new \PHPUnit_Extensions_Database_DataSet_YamlDataSet(
-            __DIR__ . '/_files/events.yml'
-        );
+        return $this->createFlatXMLDataSet(__DIR__ . '/_files/events.xml');
     }
 
     /**
@@ -54,22 +52,29 @@ class EventRepositoryTest extends OrmTestCase
         return $em;
     }
 
-
     public function testGetPastEvents()
     {
-        $expected = $this->createFlatXMLDataSet(__DIR__ . '/_files/past-events-test.xml')->getTable('events');
+        $expected = $this->createFlatXMLDataSet(__DIR__ . '/_files/past-events.xml')->getTable('events');
+        $now = new \DateTime();
+        $actual = $this->getConnection()->createQueryTable('events', 'SELECT * FROM events WHERE datetime < \'' . $now->format('Y-m-d H:i:s') . '\' ORDER BY datetime DESC LIMIT 15');
 
-        $sql = $this->getEntityManager()->createQuery('SELECT e from SFBCNWebsiteBundle:Event e WHERE e.datetime < :datetime ORDER BY e.datetime DESC')
-                                        ->setMaxResults(15)
-                                        ->setParameter('datetime', new \DateTime())
-                                        ->getSQL();
+        $this->assertTablesEqual($expected, $actual);
+    }
 
-        /** @var \Doctrine\ORM\EntityManager $em  */
-        $em = $this->getEntityManager();
-        var_dump($em->getConnection()->fetchAll($sql));
-        exit;
+    public function testGetNextEvent()
+    {
+        $expected = $this->createFlatXMLDataSet(__DIR__ . '/_files/next-event.xml')->getTable('events');
+        $now = new \DateTime();
+        $actual = $this->getConnection()->createQueryTable('events', 'SELECT * FROM events e WHERE e.datetime > \'' . $now->format('Y-m-d H:i:s') . '\' ORDER BY e.datetime ASC LIMIT 1');
 
-        $actual = $this->getConnection()->createQueryTable('events', $sql);
+        $this->assertTablesEqual($expected, $actual);
+    }
+
+    public function testGetFutureEvents()
+    {
+        $expected = $this->createFlatXMLDataSet(__DIR__ . '/_files/future-events.xml')->getTable('events');
+        $now = new \DateTime();
+        $actual = $this->getConnection()->createQueryTable('events', 'SELECT * FROM events e WHERE e.datetime > \'' . $now->format('Y-m-d H:i:s') . '\' ORDER BY e.datetime ASC LIMIT 15 OFFSET 1');
 
         $this->assertTablesEqual($expected, $actual);
     }
