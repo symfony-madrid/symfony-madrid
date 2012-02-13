@@ -39,8 +39,13 @@ class RssReaderServiceTest extends \PHPUnit_Framework_TestCase
 
     public function testParseRSS()
     {
+        $isApcEnabled = (boolean) ini_get('apc.enable_cli');
         $cacheKey = 'sfbcnrss_' . md5('test');
-        apc_delete($cacheKey);
+
+        if ($isApcEnabled) {
+            apc_delete($cacheKey);
+        }
+
         $this->rssReaderService->setFeedName('test')
                                ->setRawFeed(<<<EOX
 <?xml version="1.0" encoding="utf-8"?>
@@ -55,7 +60,10 @@ EOX
 
         $result = $this->rssReaderService->parseRss();
 
-        $this->assertInstanceOf('SimpleXMlElement', $result);
-        $this->assertTrue(apc_exists($cacheKey));
+        $this->assertInstanceOf('SimpleXMlElement', $result, 'The result isn\'t a SimpleXMLElement instance!');
+
+        if ($isApcEnabled) {
+            $this->assertTrue(apc_exists($cacheKey), '');
+        }
     }
 }

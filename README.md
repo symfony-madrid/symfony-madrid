@@ -110,3 +110,23 @@ Y modificar las líneas siguientes reemplazando www-data por nuestro usuario
 
     $ export APACHE_RUN_USER=[usuario]
     $ export APACHE_RUN_GROUP=[usuario]
+
+2) Ejecutar los tests
+---------------------
+
+Esta app viene con varias test suites: unit, component y functional tests. Por ahora, los
+functional tests no pueden ser ejecutados, debido a que el componente DOM Crawler aún no
+soporta el parseado de documentos HTML 5 (seguramente estará soportado en la versión 2.1)
+
+### Configuración del entorno "travis"
+
+Los component test usan una base de datos de test que se puede configurar a través del entorno
+"travis"
+
+    $ cp app/config/config_travis.yml.dist app/config/config_travis.yml
+
+Posteriormente solo hará falta configurar los parámetros de la base de datos (sección
+```doctrine```) de test en el archivo ```app/config/config_travis.yml```.
+
+Adicionalmente resaltar que para ejecutar todos los tests, habría que habilitar APC por cli
+pues hay el servicio de parseo de RSS que usa APC para cachear los resultados.
