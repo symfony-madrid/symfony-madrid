@@ -4,14 +4,14 @@ php:
   - 5.3
 
 before_script:
-  - cp app/config/parameters.ini.dist app/config/parameters.ini
+  - cp app/config/parameters.yml.dist app/config/parameters.yml
   - cp app/config/security.yml.dist app/config/security.yml
   - cp app/config/config_travis.yml.dist app/config/config_travis.yml
   - mkdir -p app/cache app/logs
   - php bin/vendors install
-  - php app/console doctrine:database:create
-  - php app/console doctrine:migrations:migrate
-  - php app/console doctrine:fixtures:load
+  - php app/console doctrine:database:create --env="travis"
+  - php app/console doctrine:migrations:migrate --env="travis"
+  - php app/console doctrine:fixtures:load --env="travis"
 
 script: "phpunit -c app/"
 
