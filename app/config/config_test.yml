@@ -9,17 +9,3 @@ framework:
 web_profiler:
     toolbar: false
     intercept_redirects: false
-
-swiftmailer:
-    disable_delivery: true
-
-# Doctrine Configuration
-doctrine:
-    dbal:
-        driver:   pdo_sqlite
-        host:     ~
-        port:     ~
-        dbname:   ~
-        user:     ~
-        password: ~
-        memory:   true

@@ -42,8 +42,12 @@ class EventRepositoryTest extends OrmTestCase
     protected function createEntityManager()
     {
         // Boot in test environment
-        $kernel = new \AppKernel('test', true);
-        $kernel->boot();
+        try {
+            $kernel = new \AppKernel('travis', true);
+            $kernel->boot();
+        } catch (\Exception $e) {
+            $this->fail($e->getMessage());
+        }
 
         // Retrieve the EntityManager
         $em = $kernel->getContainer()->get('doctrine')->getEntityManager();

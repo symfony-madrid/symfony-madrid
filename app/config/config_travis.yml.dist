@@ -1,0 +1,12 @@
+imports:
+  - { resource: config_test.yml }
+
+# Doctrine Configuration
+doctrine:
+  dbal:
+    driver:   pdo_mysql
+    host:     0.0.0.0
+    port:     ~
+    dbname:   symfony_barcelona
+    user:     root
+    password: ~

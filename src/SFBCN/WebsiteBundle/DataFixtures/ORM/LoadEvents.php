@@ -41,7 +41,15 @@ class LoadEvents extends AbstractFixture implements OrderedFixtureInterface
         $ev = new Event();
         $ev->setTitle('Primer taller Symfony-Barcelona');
         $ev->setLocation('Por determinar');
-        $ev->setDatetime(new \DateTime('2012-03-01 19:45:00'));
+        $ev->setDatetime(new \DateTime('2112-03-01 19:45:00'));
+        $ev->setBody('Esta reunión servirá para hacer algún taller o presentaciones sobre Symfony. Pendiente montar programa');
+        $ev->setGmaps('http://maps.google.es/maps?f=q&source=s_q&hl=es&geocode=&q=barcelona,+la+flauta,+balmes&vps=5&jsv=151e&sll=41.402501,2.161903&sspn=0.016771,0.038452&ie=UTF8&ei=SR7NSZDTAoXsoAOtwMk_&sig2=jlbDNae-UxT_9_IaQvWvhQ&cd=1&dtab=5&cid=41394756,2155491,11093431450005803032&li=lmd&z=14&t=m');
+        $manager->persist($ev);
+
+        $ev = new Event();
+        $ev->setTitle('Primer taller Symfony-Barcelona');
+        $ev->setLocation('Por determinar');
+        $ev->setDatetime(new \DateTime('2113-03-01 19:45:00'));
         $ev->setBody('Esta reunión servirá para hacer algún taller o presentaciones sobre Symfony. Pendiente montar programa');
         $ev->setGmaps('http://maps.google.es/maps?f=q&source=s_q&hl=es&geocode=&q=barcelona,+la+flauta,+balmes&vps=5&jsv=151e&sll=41.402501,2.161903&sspn=0.016771,0.038452&ie=UTF8&ei=SR7NSZDTAoXsoAOtwMk_&sig2=jlbDNae-UxT_9_IaQvWvhQ&cd=1&dtab=5&cid=41394756,2155491,11093431450005803032&li=lmd&z=14&t=m');
         $manager->persist($ev);

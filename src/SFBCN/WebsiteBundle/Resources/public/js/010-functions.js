@@ -110,7 +110,7 @@ Namespace = {};
  * </code>
  *
  * If we want to add some funcionalities like setters, or other, we should
- * implement fluid api to allow encadenate methods call.
+ * implement fluid api to allow method chaining calls.
  *
  * @param {DOMObject} form The instance of form we can manage.
  */

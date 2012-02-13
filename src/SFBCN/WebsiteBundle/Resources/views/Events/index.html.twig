@@ -10,7 +10,7 @@
                 No hay previsto ningún evento en los próximos días
             {% else %}
                 <h3><a href="{{ path('events_public_show', { 'id': nextEvent.id })  }}">{{ nextEvent.title }}</a></h3>
-                <p>
+                <p class="next-event-details">
                     <strong>¿Cuándo?</strong> {{ nextEvent.datetime|date('l, d F Y H:i') }}<br />
                     <strong>¿Dónde?</strong> {{ nextEvent.location }}
                 </p>
@@ -29,7 +29,7 @@
             <h2>Eventos futuros</h2>
             {% for event in futureEvents %}
                 <h3><a href="{{ path('events_public_show', { 'id': event.id })  }}">{{ event.title }}</a></h3>
-                <p>
+                <p class="future-event-details">
                     <strong>¿Cuándo?</strong> {{ event.datetime|date('d/m/Y H:i') }}<br />
                     <strong>¿Dónde?</strong> {{ event.location }}
                 </p>
@@ -42,7 +42,7 @@
             <h2>Eventos pasados</h2>
             {% for event in pastEvents %}
                 <h3><a href="{{ path('events_public_show', { 'id': event.id })  }}">{{ event.title }}</a></h3>
-                <p>
+                <p class="past-event-details">
                     <strong>¿Cuándo?</strong> {{ event.datetime|date('d/m/Y H:i') }}<br />
                     <strong>¿Dónde?</strong> {{ event.location }}
                 </p>

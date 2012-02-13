@@ -27,3 +27,7 @@ monolog:
 
 assetic:
     use_controller: true
+
+# Swiftmailer Configuration
+swiftmailer:
+    disable_delivery: true
