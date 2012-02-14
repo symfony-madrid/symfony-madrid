@@ -74,6 +74,6 @@ class RssReaderService
         /**
          * Symfony.es did not work with simplexml_load_file in PHP5.3.6
          */
-        return simplexml_load_string(file_get_contents($this->urlResource));
+        return simplexml_load_string(file_get_contents($url));
     }
 }
