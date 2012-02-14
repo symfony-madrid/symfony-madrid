@@ -128,5 +128,5 @@ Los component test usan una base de datos de test que se puede configurar a trav
 Posteriormente solo hará falta configurar los parámetros de la base de datos (sección
 ```doctrine```) de test en el archivo ```app/config/config_travis.yml```.
 
-Adicionalmente resaltar que para ejecutar todos los tests, habría que habilitar APC por cli
-pues hay el servicio de parseo de RSS que usa APC para cachear los resultados.
+Adicionalmente resaltar que para ejecutar el 100% los tests, habría que habilitar APC por
+cli pues hay el servicio de parseo de RSS usa APC para cachear los feeds.
