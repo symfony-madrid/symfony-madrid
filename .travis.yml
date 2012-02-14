@@ -10,7 +10,7 @@ before_script:
   - mkdir -p app/cache app/logs
   - php bin/vendors install
   - php app/console doctrine:database:create
-  - php app/console doctrine:migrations:migrate
+  - php app/console doctrine:migrations:migrate --no-interaction
   - php app/console doctrine:fixtures:load
 
 script: "phpunit -c app/"
