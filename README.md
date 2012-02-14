@@ -1,6 +1,8 @@
 Symfony Barcelona
 ==============
 
+[![Build Status](https://secure.travis-ci.org/theUniC/symfony-barcelona.png)](http://travis-ci.org/theUniC/symfony-barcelona)
+
 1) Instalación
 --------------------------------
 
