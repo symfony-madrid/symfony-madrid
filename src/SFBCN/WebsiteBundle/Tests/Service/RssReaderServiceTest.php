@@ -63,7 +63,7 @@ EOX
         $this->assertInstanceOf('SimpleXMlElement', $result, 'The result isn\'t a SimpleXMLElement instance!');
 
         if ($isApcEnabled) {
-            $this->assertTrue(apc_exists($cacheKey), '');
+            $this->assertTrue(apc_exists($cacheKey), 'RSS feed not cached!!');
         }
     }
 }

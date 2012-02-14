@@ -4,7 +4,6 @@ php:
   - 5.3
 
 before_script:
-  - printf "\n" | pecl install apc
   - pyrus install phpunit/DbUnit
   - cp app/config/parameters.yml.dist app/config/parameters.yml
   - cp app/config/security.yml.dist app/config/security.yml
