@@ -33,6 +33,13 @@ class SchemaSetupListener
         $classes = $cmf->getAllMetadata();
 
         $schemaTool = new SchemaTool($em);
+
+        try {
+            $schemaTool->dropSchema($classes);
+        } catch (\Exception $e) {
+            // Do nothing
+        }
+
         $schemaTool->createSchema($classes);
     }
 }
