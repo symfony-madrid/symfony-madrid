@@ -8,6 +8,7 @@ class EventControllerTest extends WebTestCase
 {
     public function testEventsIndex()
     {
+        $this->markTestSkipped('DOM Crawler has not support for HTML5 yet!');
         $client = static::createClient();
 
         /** @var \Symfony\Component\DomCrawler\Crawler $crawler */
@@ -23,6 +24,7 @@ class EventControllerTest extends WebTestCase
 
     public function testEventDetails()
     {
+        $this->markTestSkipped('DOM Crawler has not support for HTML5 yet!');
         $client = static::createClient();
 
         /** @var \Symfony\Component\DomCrawler\Crawler $crawler */
