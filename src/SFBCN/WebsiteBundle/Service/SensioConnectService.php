@@ -33,13 +33,26 @@ class SensioConnectService
     public function getGroupInfo()
     {
         $apcKey = 'sfbcn_sensioconnect';
-        if (extension_loaded('apc') && apc_exists($apcKey)) {
-            $sfConnect = apc_fetch($apcKey);
+        if (extension_loaded('apc')) {
+            if (apc_exists($apcKey)) {
+                $sfConnect = apc_fetch($apcKey);
+            } else {
+                $sfConnect = $this->getSensioJson();
+                apc_store($apcKey, $sfConnect, 3600);
+            }
         } else {
-            $sfConnect = json_decode(file_get_contents('https://connect.sensiolabs.com/club/' . $this->getGroupName() . '.json'), true);
-            apc_store($apcKey, $sfConnect, 3600);
+            $sfConnect = $this->getSensioJson();
         }
 
         return $sfConnect;
+    }
+
+    /**
+     * Actually connects to Sensio Connect and gets decoded json info
+     * @return array
+     */
+    private function getSensioJson()
+    {
+        return json_decode(file_get_contents('https://connect.sensiolabs.com/club/' . $this->getGroupName() . '.json'), true);
     }
 }
