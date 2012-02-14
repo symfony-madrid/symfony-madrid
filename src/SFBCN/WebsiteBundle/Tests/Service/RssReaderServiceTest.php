@@ -33,7 +33,10 @@ class RssReaderServiceTest extends \PHPUnit_Framework_TestCase
     protected function tearDown()
     {
         // Clear the fixture
-        apc_clear_cache();
+        if ((boolean) ini_get('apc.enable_cli')) {
+            apc_clear_cache();
+        }
+        
         $this->rssReaderService = null;
     }
 
