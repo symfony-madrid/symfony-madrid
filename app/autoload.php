@@ -19,6 +19,7 @@ $loader->registerNamespaces(array(
     'Ladybug'          => __DIR__.'/../vendor/ladybug/lib',
     'RaulFraile'       => __DIR__.'/../vendor/bundles',
     'Stfalcon'         => __DIR__.'/../vendor/bundles',
+    'DoctrineExtensions' => __DIR__.'/../vendor/doctrine-extensions/lib'
 ));
 $loader->registerPrefixes(array(
     'Twig_Extensions_' => __DIR__.'/../vendor/twig-extensions/lib',

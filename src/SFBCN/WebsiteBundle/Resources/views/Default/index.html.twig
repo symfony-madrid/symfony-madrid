@@ -14,8 +14,8 @@
             {% else %}
                 <h3><a href="{{ path('events_public_show', { 'id': nextEvent.id })  }}">{{ nextEvent.title }}</a></h3>
                 <p>
-                    <strong>¿Cuándo?</strong> {{ nextEvent.datetime|date('d/M/Y H:i') }}<br />
-                    <strong>¿Dónde?</strong> {{ nextEvent.location }}
+                    <strong>¿Cuándo?</strong> {% if nextEvent %}<span class="next-event-date"> {{ nextEvent.datetime|date('d/M/Y H:i') }}</span>{% endif %}<br />
+                    <strong>¿Dónde?</strong> {% if nextEvent %}<span class="next-event-location"> {{ nextEvent.location }}</span>{% endif %}
                 </p>
                 {% if nextEvent.gmaps is not empty %}
                 <div class="map">

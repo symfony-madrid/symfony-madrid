@@ -4,8 +4,20 @@ namespace SFBCN\WebsiteBundle\Service;
 
 class RssReaderService
 {
+    /**
+     * @var array
+     */
     protected $feedsRss;
-    private $urlResource;
+
+    /**
+     * @var string
+     */
+    private $rawFeed;
+
+    /**
+     * @var string
+     */
+    private $feedName;
 
     /**
      * Sets configured RSS Feeds (@see services.yml)
@@ -26,27 +38,55 @@ class RssReaderService
     }
 
     /**
-     * Sets url resource to be processed in parseRSS
-     * @param string $url
+     * @param string $rawFeed
+     * @return RssReaderService
      */
-    public function setUrlResource($url)
+    public function setRawFeed($rawFeed)
     {
-        $this->urlResource = $url;
+        $this->rawFeed = $rawFeed;
+        return $this;
     }
 
     /**
-     * Reads RSS and returns item array. Info is stored in APC during an hour to increase speed
+     * @return string
+     */
+    public function getRawFeed()
+    {
+        return $this->rawFeed;
+    }
+
+    /**
+     * @param string $feedName
+     * @return RssReaderService
+     */
+    public function setFeedName($feedName)
+    {
+        $this->feedName = $feedName;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFeedName()
+    {
+        return $this->feedName;
+    }
+
+    /**
+     * Reads RSS and returns item array. Info is stored in APC during an hour to increase
+     * speed
+     *
      * @return array
      */
     public function parseRss()
     {
-        $apcKey = 'sfbcnrss_' . md5($this->urlResource);
+        $apcKey = 'sfbcnrss_' . md5($this->getFeedName());
         if (extension_loaded('apc')) {
             if (apc_exists($apcKey)) {
                 $rss = simplexml_load_string(apc_fetch($apcKey));
             } else {
-                $rss = $this->getRSSInfo($this->urlResource);
-
+                $rss = $this->getRSSInfo();
                 if (!$rss) {
                     apc_store($apcKey, array(), 3600);
                 } else {
@@ -54,7 +94,7 @@ class RssReaderService
                 }
             }
         } else {
-            $rss = $this->getRSSInfo($this->urlResource);
+            $rss = $this->getRSSInfo();
         }
 
         if (!$rss) {
@@ -66,14 +106,13 @@ class RssReaderService
 
     /**
      * Connects to RSS Url resource and obtains info
-     * @param string $url
      * @return \SimpleXMLElement
      */
-    private function getRSSInfo($url)
+    private function getRSSInfo()
     {
         /**
          * Symfony.es did not work with simplexml_load_file in PHP5.3.6
          */
-        return simplexml_load_string(file_get_contents($url));
+        return simplexml_load_string($this->getRawFeed());
     }
 }

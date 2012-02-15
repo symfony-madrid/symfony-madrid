@@ -125,7 +125,7 @@ class Event
     /**
      * Get datetime
      *
-     * @return datetime
+     * @return \DateTime
      */
     public function getDatetime()
     {

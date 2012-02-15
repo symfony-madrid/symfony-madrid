@@ -9,10 +9,12 @@ class SensioConnectService
     /**
      * Sets configured RSS Feeds (@see services.yml)
      * @param string $name
+     * @return \SFBCN\WebsiteBundle\Service\SensioConnectService
      */
     public function setGroupName($name)
     {
         $this->groupName = $name;
+        return $this;
     }
 
     /**

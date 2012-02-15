@@ -241,7 +241,7 @@ class DefaultController extends Controller
             ),
             array(
                 'name' => 'Christian Soronellas',
-                'description' => "Well, the way they make shows is, they make one show.",
+                'description' => 'PHP Ninja & Symfony2 Samurai. Let\'s PHP? ;)',
                 'email' => 'theunic[at]gmail[dot]com',
                 'foto' => 'http://1.gravatar.com/avatar/dfdd9fcf3d8e8df633d142fcb986c5fa?size=140',
                 'github' => 'theunic',

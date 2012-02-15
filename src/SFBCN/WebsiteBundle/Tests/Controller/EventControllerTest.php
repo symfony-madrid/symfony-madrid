@@ -6,49 +6,32 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class EventControllerTest extends WebTestCase
 {
-    /*
-    public function testCompleteScenario()
+    public function testEventsIndex()
     {
-        // Create a new client to browse the application
+        $this->markTestSkipped('DOM Crawler has not support for HTML5 yet!');
         $client = static::createClient();
 
-        // Create a new entry in the database
-        $crawler = $client->request('GET', '/event/');
-        $this->assertTrue(200 === $client->getResponse()->getStatusCode());
-        $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
+        /** @var \Symfony\Component\DomCrawler\Crawler $crawler */
+        $crawler = $client->request('GET', '/eventos');
 
-        // Fill in the form and submit it
-        $form = $crawler->selectButton('Create')->form(array(
-            'event[field_name]'  => 'Test',
-            // ... other fields to fill
-        ));
+        $this->assertTrue(200 == $client->getResponse()->getStatusCode(), 'Events page is not returning a 200 OK!!');
 
-        $client->submit($form);
-        $crawler = $client->followRedirect();
-
-        // Check data in the show view
-        $this->assertTrue($crawler->filter('td:contains("Test")')->count() > 0);
-
-        // Edit the entity
-        $crawler = $client->click($crawler->selectLink('Edit')->link());
-
-        $form = $crawler->selectButton('Edit')->form(array(
-            'event[field_name]'  => 'Foo',
-            // ... other fields to fill
-        ));
-
-        $client->submit($form);
-        $crawler = $client->followRedirect();
-
-        // Check the element contains an attribute with value equals "Foo"
-        $this->assertTrue($crawler->filter('[value="Foo"]')->count() > 0);
-
-        // Delete the entity
-        $client->submit($crawler->selectButton('Delete')->form());
-        $crawler = $client->followRedirect();
-
-        // Check the entity has been delete on the list
-        $this->assertNotRegExp('/Foo/', $client->getResponse()->getContent());
+        $this->assertTrue(1 == $crawler->filter('p.next-event-details')->count(), 'Not found the next event details!!');
+        $this->assertTrue(1 == $crawler->filter('div.map')->count(), 'Not found the next event location map!!');
+        $this->assertTrue(1 == $crawler->filter('p.future-event-details')->count(), 'Not found the future events details!!');
+        $this->assertTrue(3 == $crawler->filter('p.past-event-details')->count(), 'Not found the past event details!!');
     }
-    */
+
+    public function testEventDetails()
+    {
+        $this->markTestSkipped('DOM Crawler has not support for HTML5 yet!');
+        $client = static::createClient();
+
+        /** @var \Symfony\Component\DomCrawler\Crawler $crawler */
+        $crawler = $client->request('GET', '/eventos/show/12');
+
+        $this->assertTrue(200 == $client->getResponse()->getStatusCode(), 'Event details page is not returning a 200 OK!!');
+        $this->assertTrue(1 == $crawler->filter('p.event-details')->count(), 'Event details not found!!');
+        $this->assertTrue(1 == $crawler->filter('div.event-map')->count(), 'Event location map not found!!');
+    }
 }

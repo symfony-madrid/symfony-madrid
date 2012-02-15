@@ -1,0 +1,22 @@
+language: php
+
+php:
+  - 5.3
+
+before_script:
+  - pyrus install phpunit/DbUnit
+  - cp app/config/parameters.yml.dist app/config/parameters.yml
+  - cp app/config/security.yml.dist app/config/security.yml
+  - cp app/config/config_travis.yml.dist app/config/config_travis.yml
+  - mkdir -p app/cache app/logs
+  - php bin/vendors install
+  - php app/console doctrine:database:create
+  - php app/console doctrine:migrations:migrate --no-interaction
+  - php app/console doctrine:fixtures:load
+
+script: "phpunit -c app/"
+
+notifications:
+  email:
+    on_failure: always
+    on_success: change
