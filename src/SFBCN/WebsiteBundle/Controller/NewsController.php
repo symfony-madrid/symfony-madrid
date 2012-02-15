@@ -29,7 +29,7 @@ class NewsController extends Controller
 
         foreach ($feedsRss as $feed) {
             $rssReaderService->setFeedName($feed['name'])
-                             ->setRawFeed(file_get_contents($feed['url']));
+                             ->setRawFeed($rssReaderService->getFeedContents($feed['url']));
 
             $feeds[] = array(
                 'name'  => $feed['name'],

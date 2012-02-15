@@ -8,5 +8,6 @@
 /vendor/
 /app/config/parameters.yml
 /app/config/security.yml
+/app/config/config_travis.yml
 /.idea
 /nbproject
