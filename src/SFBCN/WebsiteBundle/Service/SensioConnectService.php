@@ -10,9 +10,11 @@ class SensioConnectService
      * (@see services.yml)
      * @param string $name
      */
-    public function __construct($name)
+    public function __construct($name = null)
     {
-        $this->setGroupName($name);
+        if (null !== $name) {
+            $this->setGroupName($name);
+        }
     }
 
     /**

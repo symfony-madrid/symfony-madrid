@@ -23,9 +23,11 @@ class RssReaderService
      * (@see services.yml)
      * @param array $feeds
      */
-    public function __construct($feeds)
+    public function __construct($feeds = null)
     {
-        $this->setFeedsRss($feeds);
+        if (null !== $feeds) {
+            $this->setFeedsRss($feeds);
+        }
     }
 
     /**
