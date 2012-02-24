@@ -20,7 +20,16 @@ class RssReaderService
     private $feedName;
 
     /**
-     * Sets configured RSS Feeds (@see services.yml)
+     * (@see services.yml)
+     * @param array $feeds
+     */
+    public function __construct($feeds)
+    {
+        $this->setFeedsRss($feeds);
+    }
+
+    /**
+     * Sets configured RSS Feeds
      * @param array $feeds
      */
     public function setFeedsRss($feeds)

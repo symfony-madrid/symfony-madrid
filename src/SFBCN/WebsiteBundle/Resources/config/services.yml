@@ -1,10 +1,8 @@
 services:
     symfony_rss:
         class: SFBCN\WebsiteBundle\Service\RssReaderService
-        calls:
-            - [setFeedsRss, [%feeds%]]
+        arguments: [%feeds%]
     sensio_connect:
-            class: SFBCN\WebsiteBundle\Service\SensioConnectService
-            calls:
-                - [setGroupName, [%sensiogroup%]]
+        class: SFBCN\WebsiteBundle\Service\SensioConnectService
+        arguments: [%sensiogroup%]
 
