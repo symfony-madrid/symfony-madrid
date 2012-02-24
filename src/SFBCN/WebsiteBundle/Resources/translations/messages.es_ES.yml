@@ -19,7 +19,6 @@ sfbcn:
   footer:
     disclaimer: Esta página pretende dar a conocer el grupo Symfony Barcelona así com servir de ejemplo de proyecto realizado en Symfony2
     thanks: Este proyecto está dedicado a <a href="http://twitter.com/fabpot" target="_blank" rel="nofollow">Fabien Potencier</a> y a toda la comunidad que con su trabajo han creado el que a día de hoy es posiblemente el mejor framework PHP del mundo
-    hosted: Página alojada en
   news:
     empty: No se han encontrado noticias en el RSS de
 
