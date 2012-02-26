@@ -1,15 +1,13 @@
-Symfony Barcelona
+Symfony Madrid
 ==============
-
-[![Build Status](https://secure.travis-ci.org/theUniC/symfony-barcelona.png)](http://travis-ci.org/theUniC/symfony-barcelona)
 
 1) Instalación
 --------------------------------
 
 ### Clonar el repositorio git
 
-    git clone git@github.com:symfony-barcelona/symfony-barcelona.git
-	cd symfony-barcelona
+    git clone git@github.com:symfony-madrid/symfony-madrid.git 
+	cd symfony-madrid
 
 ### Crear el archivo parameters.yml (sustituto de parameters.ini en las próximas versiones)
 
@@ -22,17 +20,19 @@ En el repositorio está commiteado el archivo parameters.ini para que no falle e
     database_driver: pdo_mysql
     database_host: localhost
     database_port: 3306
-    database_name: symfony_barcelona
+    database_name: symfony_madrid
     database_user: root
     database_password: ~
 
-    mailer_transport: smtp
-    mailer_host: localhost
-    mailer_user: ~
-    mailer_password: ~
+	mailer_transport="gmail"
+	mailer_encryption="ssl"
+	mailer_auth_mode="login"
+	mailer_host="smtp.gmail.com"
+	mailer_user="usuario"
+	mailer_password="password"
 
     locale: es_ES
-    secret: "Symf0nyBCN-T0k3n!"
+    secret: "Symf0nyM4dr1d-T0k3n!"
 
 ### Crear el archivo security.yml
 
@@ -48,7 +48,7 @@ En el repositorio está commiteado el archivo parameters.ini para que no falle e
 
 ### Crear base de datos
 
-	mysql -u [usuario] -p [password] -e "create database symfony_barcelona CHARACTER SET utf8 COLLATE utf8_general_ci"
+	mysql -u [usuario] -p [password] -e "create database symfony_madrid CHARACTER SET utf8 COLLATE utf8_general_ci"
 
 o
 
@@ -72,28 +72,28 @@ Editar el archivo hosts:
 
 y añadir la línea siguiente:
 
-	127.0.0.1   www.symfony-barcelona.dev
+	127.0.0.1   www.symfony-madrid.dev
 
-Configuramos un VirtualHost para el nuevo dominio, editando el archivo (nuevo) www.symfony-barcelona.dev del directorio sites-available de apache2:
+Configuramos un VirtualHost para el nuevo dominio, editando el archivo (nuevo) www.symfony-madrid.dev del directorio sites-available de apache2:
 
-	$ sudo gedit /etc/apache2/sites-available/www.symfony-barcelona.dev
+	$ sudo gedit /etc/apache2/sites-available/www.symfony-madrid.dev
 
 con el siguiente contenido:
 
 	<VirtualHost *:80>
-		ServerName www.symfony-barcelona.dev
-		DocumentRoot /home/miusuario/www/symfony-barcelona/web
+		ServerName www.symfony-madrid.dev
+		DocumentRoot /home/miusuario/www/symfony-madrid/web
 		DirectoryIndex app.php
-
-		<Directory "/home/miusuario/www/symfony-barcelona/web">
+ 
+		<Directory "/home/miusuario/www/symfony-madrid/web">
 	  		AllowOverride All
 	  		Allow from All
-		</Directory>
+			</Directory>
 	</VirtualHost>
 
 Habilitamos el nuevo VirtualHost:
 
-	$ sudo a2ensite www.symfony-barcelona.dev
+	$ sudo a2ensite www.symfony-madrid.dev
 
 Reiniciamos apache:
 
@@ -101,17 +101,25 @@ Reiniciamos apache:
 
 ### Configurar los permisos de app/cache y app/logs (Ubuntu)
 
-Para los permisos mucha gente recomienda instalar el paquete ACL.
-Sin embargo, nuestra recomendación es modificar el usuario con el cual se ejecuta Apache para que coincida con nuestro usuario del ordenador donde estemos trabajando.
+Instalar el paquete acl
 
-Para ello, hay que editar el archivo envvars de Apache
+	sudo apt-get install acl
 
-    $ sudo vim /etc/apache/envvars
+Editar el fichero /etc/fstab y añadir la opción "acl" a la partición donde tenemos nuestro proyecto
 
-Y modificar las líneas siguientes reemplazando www-data por nuestro usuario
+	# /home was on /dev/sda7 during installation
+	UUID=d027a8eb-e234-1c9f-aef1-43a7dd9a2345 /home    ext4   defaults,acl   0   2
 
-    $ export APACHE_RUN_USER=[usuario]
-    $ export APACHE_RUN_GROUP=[usuario]
+Reiniciar o volver a montar la partición:
+
+	sudo /bin/mount -o remount /home
+
+Otorgar los permisos a los directorios app/cache y app/logs
+
+	sudo setfacl -R -m u:www-data:rwx -m u:miusuario:rwx app/cache app/logs
+	sudo setfacl -dR -m u:www-data:rwx -m u:miusuario:rwx app/cache app/logs
+ 
+#### Más información en: [Setting up Permissions](http://symfony.com/doc/current/book/installation.html#configuration-and-setup)
 
 2) Ejecutar los tests
 ---------------------
