@@ -1,40 +1,28 @@
+ _______           _______  _______  _______  _                      _______  _______  ______   _______ _________ ______  
+(  ____ \|\     /|(       )(  ____ \(  ___  )( (    /||\     /|     (       )(  ___  )(  __  \ (  ____ )\__   __/(  __  \ 
+| (    \/( \   / )| () () || (    \/| (   ) ||  \  ( |( \   / )     | () () || (   ) || (  \  )| (    )|   ) (   | (  \  )
+| (_____  \ (_) / | || || || (__    | |   | ||   \ | | \ (_) /_____ | || || || (___) || |   ) || (____)|   | |   | |   ) |
+(_____  )  \   /  | |(_)| ||  __)   | |   | || (\ \) |  \   /(_____)| |(_)| ||  ___  || |   | ||     __)   | |   | |   | |
+      ) |   ) (   | |   | || (      | |   | || | \   |   ) (        | |   | || (   ) || |   ) || (\ (      | |   | |   ) |
+/\____) |   | |   | )   ( || )      | (___) || )  \  |   | |        | )   ( || )   ( || (__/  )| ) \ \_____) (___| (__/  )
+\_______)   \_/   |/     \||/       (_______)|/    )_)   \_/        |/     \||/     \|(______/ |/   \__/\_______/(______/ 
+                                                                                                                          
 /* TEAM */
-Member: Ricard Clau
-Contact: ricard.clau[at]gmail[dot]com
-Twitter: @ricardclau
-
-Member: Marcos Quesada
-Contact: marcos.quesadas[at]gmail[dot]com
-Twitter: @marcos_quesada
-
-Member: Berny Cantos
-Contact: xphere81[at]gmail[dot]com
-Twitter: @xphere
-
-Member: Adán Lobato
-Contact: adan.lobato[at]gmail[dot]com
-Twitter: @adanlobato
-
-Member: Alberto Ramírez
-Contact: alberto[at]aramirez[dot]es
-Twitter: @aramirez_
-
-Member: Oriol Jiménez
-Contact: oriol[at]phpbsd[dot]net
-Twitter: @orioljimenez
-
-Member: Carlos Iglesias 
-Contact: carlos[at]runroom[dot]com
-Twitter: @carlosthesailor
-
-Member: Christian Soronellas 
-Contact: theunic[at]gmail[dot]com
-Twitter: @theunic
+	Super Forker: Óscar López
+	Contact: zepolracso[at]gmail[dot]com
+	Twitter: @Osukaru80
 
 /* THANKS */
-Symfony2 Core Team: www.symfony.com
+
+	- Symfony Barcelona Team (@ricardclau, @marcos_quesada, @xphere, @adanlobato, @aramirez_, @orioljimenez, @carlosthesailor, @theunic)
+	- Symfony2 Core Team: www.symfony.com
+	- Iukanet (Web Hosting)
+	- Design based on a free template distributed by http://freehtml5templates.com/
+  	- Ascii Art generator by http://www.network-science.de/ascii/		
 
 /* SITE */
-Standards: HTML5, CSS3
-Components: Modernizr, jQuery
-Software: PHP 5.3, Symfony2, Assetic, Doctrine2, Twig, ...
+	Last update:2012/02/25
+	Language: es_ES
+	Standards: HTML5, CSS3
+	Components: Modernizr, jQuery
+	Software: PHP 5.3, Symfony2, Assetic, Doctrine2, Twig, ...	

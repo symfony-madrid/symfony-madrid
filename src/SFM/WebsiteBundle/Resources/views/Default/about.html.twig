@@ -1,0 +1,51 @@
+{# Default/about.html.twig #}
+{% extends 'SFMWebsiteBundle::layout.html.twig' %}
+
+{% block content %}
+    <div class="page-content about">
+        <section id="founders">
+            <h2>Fundadores</h2>
+            <p>Los fundadores de Symfony Madrid, aquellos lunáticos que un día creyeron posible la creación de este grupo de desarrolladores.</p>
+            <ul>
+                {% for founder in founders %}
+                    <li class="founder">
+                        <h2>{{ founder.name }}</h2>
+                        <img class="avatar" src="{{ founder.foto|default('https://a248.e.akamai.net/assets.github.com/images/gravatars/gravatar-140.png') }}" alt="{{ founder.name }}" />
+                        <p>{{ founder.description|default('') }}</p>
+                        <ul class="links">
+                            {% if founder.email is defined %}<li><a class="email" href="#" title="{{ founder.email }}">{{ founder.email }}</a></li>{% endif %}
+                            {% if founder.github is defined %}<li><a class="github" href="http://github.com/{{ founder.github }}" title="{{ founder.github }}">{{ founder.github }}</a></li>{% endif %}
+                            {% if founder.twitter is defined %}<li><a class="twitter" href="http://twitter.com/#!/{{ founder.twitter }}" title="http://twitter.com/#!/{{ founder.twitter }}">{{ founder.twitter }}</a></li>{% endif %}
+                            {% if founder.betabeers is defined %}<li><a class="betabeers" href="{{ founder.betabeers }}" title="{{ founder.betabeers }}">{{ founder.betabeers }}</a></li>{% endif %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section id="members">
+            <h3>{{ members|length }} Miembros</h3>
+            <p>He aquí todos los miembros pertenecientes al Club de Symfony Madrid en Sensio Connect. ¿Aún no eres miembro? <a href="https://connect.sensiolabs.com/club/symfony-madrid">¡Apúntate ya!</a></p>
+            <ul>
+                {% for member in members %}
+                    <li class="member">
+                        <a href="{{ member.url }}" title="{{ member.display_name }}">
+                            <img class="avatar" src="{{ member.picture_url }}" alt="{{ member.display_name }}" />
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section id="badges">
+            <h3>{{ totalBadges }} Badges acumulados</h3>
+            <ul>
+                {% for badge in badges %}
+                    <li class="badge">
+                        <a href="{{ badge.url }}" title="{{ badge.name }}">
+                            <img class="avatar" src="{{ badge.picture_url }}" alt="{{ badge.name }} (x{{ badge.count }})" />
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
+{% endblock %}

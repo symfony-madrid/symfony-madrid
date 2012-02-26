@@ -1,0 +1,24 @@
+{# Events/index.html.twig #}
+{% extends 'SFMWebsiteBundle::layout.html.twig' %}
+
+{% block content %}
+    <div class="page-content">
+        <section class="event-detail">
+            <h2>Eventos</h2>
+            <div class="event-info">
+                <h3>{{ event.title }}</h3>
+                <p class="event-details">
+                    <strong>¿Cuándo?</strong> {{ event.datetime|date('Y-M-d H:i') }}<br />
+                    <strong>¿Dónde?</strong> {{ event.location }}
+                </p>
+                {{ event.body | raw }}
+            </div>
+            {% if event.gmaps is not empty %}
+            <div class="event-map">
+                <iframe width="300" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="{{ event.gmaps }}&amp;output=embed"></iframe>
+                <br /><small><a href="{{ event.gmaps }}">Muestra un mapa más grande</a></small>
+            </div>
+            {% endif %}
+        </section>
+    </div>
+{% endblock %}

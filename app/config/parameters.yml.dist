@@ -2,7 +2,7 @@ parameters:
   database_driver: pdo_mysql
   database_host: localhost
   database_port: 3306
-  database_name: symfony_barcelona
+  database_name: symfony_madrid
   database_user: root
   database_password: ~
 
@@ -12,6 +12,6 @@ parameters:
   mailer_password: ~
 
   locale: es_ES
-  secret: "Symf0nyBCN-T0k3n!"
+  secret: "Symf0nyM4dr1d-T0k3n!"
 
   ga_tracking: "UA-28844613-1"

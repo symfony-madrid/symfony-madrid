@@ -1,0 +1,21 @@
+sfm:
+  meta:
+    keywords: symfony, Symfony2, asociación, desarrolladores, Madrid, Twig, Doctrine2, Assetic, PHP, PHP5.3
+    description: Página web del grupo Symfony Madrid
+    title: Symfony Madrid | Grupo de desarrolladores apasionados por Symfony
+  links:
+    about: Acerca de
+    contact: Contacto
+    events: Eventos
+    home: Inicio
+    news: Noticias
+  index:
+    whoweare: Symfony Madrid
+    whowearelong: Symfony Madrid es un grupo de personas creativas, innovadoras y entusiastas que han apostado por el framework Symfony para sus desarrollos web y desean reunirse para intercambiar ideas y crear un conocimiento común.
+  footer:
+    disclaimer: Esta página pretende dar a conocer el grupo Symfony Madrid así como servir de ejemplo de proyecto realizado en Symfony2
+    thanks: Este proyecto está dedicado a <a href="http://twitter.com/fabpot" target="_blank" rel="nofollow">Fabien Potencier</a> y a toda la comunidad que con su trabajo han creado el que a día de hoy es posiblemente el mejor framework PHP del mundo
+  news:
+    empty: No se han encontrado noticias en el RSS de
+
+'Bad credentials': Login/Password incorrecto

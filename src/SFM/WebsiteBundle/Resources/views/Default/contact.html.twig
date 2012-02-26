@@ -1,0 +1,24 @@
+{# Default/contact.html.twig #}
+{% extends 'SFMWebsiteBundle::layout.html.twig' %}
+
+{% block content %}
+    <section class="page-content contact">
+        <h2>Contacto</h2>
+        <p>Rellena este formulario para contactar con nosotros</p>
+        <form method="post" id="contact" action="{{ path('contact_post') }}">
+            <fieldset class="contact-name">
+                <label for="nombre">Nombre<em class="form-label-message"></em></label>
+                <input id="nombre" type="text" name="nombre" class="form-validate validate-mandatory" />
+            </fieldset>
+            <fieldset class="contact-email">
+                <label for="email">E-mail<em class="form-label-message"></em></label>
+                <input id="email" type="text" name="email" class="form-validate validate-email" />
+            </fieldset>
+            <fieldset class="contact-message">
+                <label for="mensaje">Mensaje<em class="form-label-message"></em></label>
+                <textarea id="mensaje" name="mensaje" class="form-validate validate-mandatory"></textarea>
+            </fieldset>
+            <input type="submit" name="Enviar" value="Enviar"/>
+        </form>
+    </section>
+{% endblock %}

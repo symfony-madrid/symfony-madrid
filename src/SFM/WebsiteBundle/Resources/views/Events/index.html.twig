@@ -1,0 +1,54 @@
+{# Events/index.html.twig #}
+{% extends 'SFMWebsiteBundle::layout.html.twig' %}
+
+{% block content %}
+    <div class="page-content">
+        <h2>Eventos</h2>
+        <section id="next-event">
+            <h3>Próximo evento</h3>
+            {% if nextEvent == null %}
+                No hay previsto ningún evento en los próximos días
+            {% else %}
+                <h4><a href="{{ path('events_public_show', { 'id': nextEvent.id })  }}">{{ nextEvent.title }}</a></h4>
+                <p class="next-event-details">
+                    <strong>¿Cuándo?</strong> {{ nextEvent.datetime|date('l, d F Y H:i') }}<br />
+                    <strong>¿Dónde?</strong> {{ nextEvent.location }}
+                </p>
+                {{ nextEvent.body | raw }}
+
+                {% if nextEvent.gmaps is not empty %}
+                <div class="map">
+                    <iframe width="628" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="{{ nextEvent.gmaps }}&amp;output=embed"></iframe>
+                    <br /><a href="{{ nextEvent.gmaps }}">Muestra un mapa más grande</a></small>
+                </div>
+                {% endif %}
+            {% endif %}
+        </section>
+
+        <section id="future-events">
+            <h3>Eventos futuros</h3>
+            {% for event in futureEvents %}
+                <h4><a href="{{ path('events_public_show', { 'id': event.id })  }}">{{ event.title }}</a></h4>
+                <p class="future-event-details">
+                    <strong>¿Cuándo?</strong> {{ event.datetime|date('d/m/Y H:i') }}<br />
+                    <strong>¿Dónde?</strong> {{ event.location }}
+                </p>
+            {% else %}
+                No hay definidos eventos futuros
+            {% endfor %}
+        </section>
+
+        <section id="past-events">
+            <h3>Eventos pasados</h3>
+            {% for event in pastEvents %}
+                <h4><a href="{{ path('events_public_show', { 'id': event.id })  }}">{{ event.title }}</a></h4>
+                <p class="past-event-details">
+                    <strong>¿Cuándo?</strong> {{ event.datetime|date('d/m/Y H:i') }}<br />
+                    <strong>¿Dónde?</strong> {{ event.location }}
+                </p>
+            {% else %}
+                No hay definidos eventos pasados
+            {% endfor %}
+        </section>
+    </div>
+{% endblock %}

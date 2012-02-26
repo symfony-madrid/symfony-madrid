@@ -1,5 +1,5 @@
-SFBCNWebsiteBundle:
-    resource: "@SFBCNWebsiteBundle/Controller/"
+SFMWebsiteBundle:
+    resource: "@SFMWebsiteBundle/Controller/"
     type:     annotation
     prefix:   /
 
