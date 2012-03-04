@@ -4,6 +4,7 @@ namespace SFM\WebsiteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use SFM\WebsiteBundle\Feeds\EventFeed;
 
 /**
  * SFM\WebsiteBundle\Entity\Event
@@ -11,7 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="events")
  * @ORM\Entity(repositoryClass="SFM\WebsiteBundle\Entity\EventRepository")
  */
-class Event
+class Event extends EventFeed
 {
     /**
      * @var integer $id
@@ -65,7 +66,7 @@ class Event
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -85,7 +86,7 @@ class Event
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -105,7 +106,7 @@ class Event
     /**
      * Get body
      *
-     * @return text 
+     * @return text
      */
     public function getBody()
     {
@@ -145,7 +146,7 @@ class Event
     /**
      * Get location
      *
-     * @return string 
+     * @return string
      */
     public function getLocation()
     {
@@ -165,7 +166,7 @@ class Event
     /**
      * Get Google Maps
      *
-     * @return string 
+     * @return string
      */
     public function getGmaps()
     {
