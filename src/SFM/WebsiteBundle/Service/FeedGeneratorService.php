@@ -2,6 +2,13 @@
 
 namespace SFM\WebsiteBundle\Service;
 
+/**
+ * FeedGeneratorService to allow generation of multiple feeds
+ *
+ * @package WebsiteBundle
+ * @subpackage Service
+ * @author Eduardo Gulias Davis <me@egulias.com>
+ */
 class FeedGeneratorService
 {
 
@@ -14,15 +21,46 @@ class FeedGeneratorService
         $this->em = $em;
     }
 
-    public function generateEventsFeed($type = 'rss', $max = 0)
+    /**
+     * generateEventsFeed
+     *
+     * @param string $type
+     * @access public
+     * @return void
+     */
+    public function generateEventsFeed($type = 'rss')
     {
+        $newFeeds = FALSE;
         $events = $this->em->getRepository('SFMWebsiteBundle:Event')->findAll();
-        $feed = $this->feedFactory->load('event', 'rss_file');
+        $feed = $this->feedFactory->load('event', $type.'_file');
         foreach ($events as $i => $event) {
-            if (!$feed->offsetExists($i)) {
+            try {
+                $feed->replace($event->getId(),$event);
+            } catch (\InvalidArgumentException $e) {
                 $feed->add($event);
             }
         }
-        $this->feedFactory->render('event', 'rss');
+        $this->feedFactory->render('event', $type);
+    }
+
+    /**
+     * removeEventFromFeed
+     *
+     * @param string $type
+     * @param \SFM\WebsiteBundle\Entity\Event $event
+     * @access public
+     * @return Boolean
+     * @throw \Exception
+     */
+    public function removeEventFromFeed(\SFM\WebsiteBundle\Entity\Event $event, $type = 'rss')
+    {
+        try {
+            $feed = $this->feedFactory->load('event', $type.'_file');
+            $feed->remove((string)$event->getFeedId());
+            $this->feedFactory->render('event', $type);
+        } catch (\Exception $e) {
+            throw $e;
+        }
+        return TRUE;
     }
 }

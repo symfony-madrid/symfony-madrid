@@ -186,8 +186,9 @@ class AdminEventController extends Controller
                 throw $this->createNotFoundException('Unable to find Event entity.');
             }
 
-            $em->remove($entity);
-            $em->flush();
+            $sfm = $this->get('sfm.feed_generator')->removeEventFromFeed($entity);
+            //$em->remove($entity);
+            //$em->flush();
         }
 
         return $this->redirect($this->generateUrl('event'));

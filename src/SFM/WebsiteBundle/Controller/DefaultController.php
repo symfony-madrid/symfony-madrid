@@ -27,6 +27,7 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
         $nextEvent = $em->getRepository('SFMWebsiteBundle:Event')->getNextEvent();
+        $sfm = $this->get('sfm.feed_generator')->generateEventsFeed();
 
         return array(
             'current' => 'home',
