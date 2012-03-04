@@ -5,4 +5,8 @@ services:
     sensio_connect:
         class: SFM\WebsiteBundle\Service\SensioConnectService
         arguments: [%sensiogroup%]
+    sfm.feed_generator:
+        class: SFM\WebsiteBundle\Service\FeedGeneratorService
+        arguments: [@nekland_feed.factory, @doctrine.orm.entity_manager]
+
 

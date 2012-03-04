@@ -27,6 +27,7 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
         $nextEvent = $em->getRepository('SFMWebsiteBundle:Event')->getNextEvent();
+        $sfm = $this->get('sfm.feed_generator')->generateEventsFeed();
 
         return array(
             'current' => 'home',
@@ -96,7 +97,7 @@ class DefaultController extends Controller
             $this->validateContactData($contactData);
 
         } catch (HttpException $e) {
-            
+
             /**
              * Due to HttpException only accept a text message and we need
              * a json array, we catching the HttpException to return a new
@@ -157,12 +158,13 @@ class DefaultController extends Controller
         }
     }
 
-    private function parseErrors($errors) {
+    private function parseErrors($errors)
+    {
 
         $translator = $this->container->get('translator');
         $parsedErrors = array();
 
-        foreach($errors as $error) {
+        foreach ($errors as $error) {
 
             $translatedError = $translator->trans($error->getMessage(), array(), 'validators');
             $parsedErrors[substr($error->getPropertyPath(), 1, -1)] = $translatedError;
