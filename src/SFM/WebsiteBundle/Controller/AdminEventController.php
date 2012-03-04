@@ -90,8 +90,9 @@ class AdminEventController extends Controller
             $em->persist($entity);
             $em->flush();
 
+            $sfm = $this->get('sfm.feed_generator')->generateEventsFeed();
             return $this->redirect($this->generateUrl('event_show', array('id' => $entity->getId())));
-            
+
         }
 
         return array(
