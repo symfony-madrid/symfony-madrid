@@ -11,3 +11,5 @@
 /app/config/config_travis.yml
 /.idea
 /nbproject
+/.vimrc
+/web/feeds/*

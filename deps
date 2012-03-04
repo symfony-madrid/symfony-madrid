@@ -90,3 +90,7 @@
 
 [doctrine-extensions]
     git=https://github.com/beberlei/DoctrineExtensions.git
+
+[FeedBundle]
+    git=http://github.com/Nek-/FeedBundle.git
+    target=/bundles/Nekland/FeedBundle
