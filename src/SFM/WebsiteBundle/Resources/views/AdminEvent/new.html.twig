@@ -1,3 +1,5 @@
+{% extends 'SFMWebsiteBundle::adminlayout.html.twig' %}
+{%block content %}
 <h1>Event creation</h1>
 
 <form action="{{ path('event_create') }}" method="post" {{ form_enctype(form) }}>
@@ -14,3 +16,5 @@
         </a>
     </li>
 </ul>
+{{ tinymce_init() }}
+{% endblock %}
