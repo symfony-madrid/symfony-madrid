@@ -2,7 +2,7 @@
 
 use Symfony\Component\ClassLoader\UniversalClassLoader;
 use Doctrine\Common\Annotations\AnnotationRegistry;
-
+umask(0);
 $loader = new UniversalClassLoader();
 $loader->registerNamespaces(array(
     'Symfony'          => array(__DIR__.'/../vendor/symfony/src', __DIR__.'/../vendor/bundles'),
@@ -19,7 +19,8 @@ $loader->registerNamespaces(array(
     'Ladybug'          => __DIR__.'/../vendor/ladybug/lib',
     'RaulFraile'       => __DIR__.'/../vendor/bundles',
     'Stfalcon'         => __DIR__.'/../vendor/bundles',
-    'DoctrineExtensions' => __DIR__.'/../vendor/doctrine-extensions/lib'
+    'DoctrineExtensions' => __DIR__.'/../vendor/doctrine-extensions/lib',
+    'Nekland'          => __DIR__.'/../vendor/bundles',
 ));
 $loader->registerPrefixes(array(
     'Twig_Extensions_' => __DIR__.'/../vendor/twig-extensions/lib',

@@ -67,6 +67,16 @@ services:
        tags:
            - { name: twig.extension }
 
+
+nekland_feed:
+    feeds:
+        event:
+            class:        SFM\WebsiteBundle\Entity\Event
+            title:       'Eventos de Symfony Madrid'
+            description: 'Listado de eventos de Symfony Madrid'
+            language:    'es'
+            filename:    "eventos.|format|"
+
 stfalcon_tinymce:
     include_jquery: true
     textarea_class: "tinymce"
