@@ -24,12 +24,12 @@ En el repositorio está commiteado el archivo parameters.ini para que no falle e
     database_user: root
     database_password: ~
 
-	mailer_transport="gmail"
-	mailer_encryption="ssl"
-	mailer_auth_mode="login"
-	mailer_host="smtp.gmail.com"
-	mailer_user="usuario"
-	mailer_password="password"
+	mailer_transport: gmail
+	mailer_encryption: ssl
+	mailer_auth_mode: login
+	mailer_host: smtp.gmail.com
+	mailer_user: usuario
+	mailer_password: password
 
     locale: es_ES
     secret: "Symf0nyM4dr1d-T0k3n!"
