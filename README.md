@@ -121,6 +121,11 @@ Otorgar los permisos a los directorios app/cache y app/logs
  
 #### Más información en: [Setting up Permissions](http://symfony.com/doc/current/book/installation.html#configuration-and-setup)
 
+Para la generación de los rss hay que crear un directorio feeds dentro de web y darle permisos;
+
+	mkdir web/feeds
+	chmod +xwr web/feeds
+
 2) Ejecutar los tests
 ---------------------
 
