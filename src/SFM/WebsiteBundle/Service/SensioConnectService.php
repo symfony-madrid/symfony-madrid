@@ -38,7 +38,7 @@ class SensioConnectService
     }
 
     /**
-     * Gets Symfony-Barcelona info from Sensio Connect. Info is stored in APC during an hour to increase speed
+     * Gets Symfony-Madrid info from Sensio Connect. Info is stored in APC during an hour to increase speed
      * @return array
      */
     public function getGroupInfo()

@@ -123,7 +123,7 @@ class DefaultController extends Controller
         $mailTo = $this->container->getParameter('contactmail');
 
         $message =\Swift_Message::newInstance()
-                    ->setSubject('Mensaje recibido desde la web Symfony-Barcelona')
+                    ->setSubject('Mensaje recibido desde la web Symfony-Madrid')
                     ->setFrom(array($contactData['email'] => $contactData['nombre']))
                     ->setTo($mailTo)
                     ->setBody($contactData['mensaje']);
