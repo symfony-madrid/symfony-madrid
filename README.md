@@ -36,7 +36,7 @@ En el repositorio está commiteado el archivo parameters.ini para que no falle e
 
 ### Configurar los usuarios del backoffice
 
-    Editar la parte de providers -> in_memory -> users para crear tantos usuarios admin como se quiera
+    Editar el fichero app/config/security.yml la parte de providers -> in_memory -> users para crear los usuarios que necesites.
 
 ### Actualizar vendors y deployar los assets de los bundles que haya en los vendors
 
