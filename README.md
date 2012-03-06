@@ -34,10 +34,6 @@ En el repositorio está commiteado el archivo parameters.ini para que no falle e
     locale: es_ES
     secret: "Symf0nyM4dr1d-T0k3n!"
 
-### Crear el archivo security.yml
-
-    cp app/config/security.yml.dist app/config/security.yml
-
 ### Configurar los usuarios del backoffice
 
     Editar la parte de providers -> in_memory -> users para crear tantos usuarios admin como se quiera
