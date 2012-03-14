@@ -6,10 +6,12 @@
 /app/cache/*
 /app/logs/*
 /vendor/
-/app/config/parameters.yml
 /app/config/security.yml
+/app/config/parameters.yml
+/app/config/parameters.ini
 /app/config/config_travis.yml
 /.idea
 /nbproject
 /.vimrc
 /web/feeds/*
+*~

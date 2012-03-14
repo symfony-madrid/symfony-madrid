@@ -85,7 +85,7 @@
     target=bundles/RaulFraile/Bundle/LadybugBundle
 
 [TinymceBundle]
-    git=git://github.com/stfalcon/TinymceBundle.git
+    git=http://github.com/stfalcon/TinymceBundle.git
     target=/bundles/Stfalcon/Bundle/TinymceBundle
 
 [doctrine-extensions]
