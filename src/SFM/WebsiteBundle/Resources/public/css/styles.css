@@ -634,3 +634,11 @@ nav ul li.current a{
   bottom: 10px;
   left: 10px;
 }
+
+
+/***************************************************
+				   POLL
+***************************************************/
+
+#form_poll #form_options input{ display: block; float: left; width: 30px;}
+#form_poll #form_options label{ display: block; float: left; width: 565px;}

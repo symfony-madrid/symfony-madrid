@@ -3,8 +3,8 @@
 /web/bundles/
 /web/images/
 /app/bootstrap*
-#/app/cache/*
-#/app/logs/*
+/app/cache/*
+/app/logs/*
 /vendor/
 /app/config/security.yml
 /app/config/parameters.yml
@@ -14,3 +14,4 @@
 /nbproject
 /.vimrc
 /web/feeds/*
+*~

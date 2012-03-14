@@ -10,7 +10,7 @@ use SFM\WebsiteBundle\Feeds\EventFeed;
  * SFM\WebsiteBundle\Entity\Event
  *
  * @ORM\Table(name="events")
- * @ORM\Entity(repositoryClass="SFM\WebsiteBundle\Entity\EventRepository")
+ * @ORM\Entity(repositoryClass="SFM\WebsiteBundle\Repository\EventRepository")
  */
 class Event extends EventFeed
 {
