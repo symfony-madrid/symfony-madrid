@@ -89,7 +89,7 @@
     target=/bundles/Stfalcon/Bundle/TinymceBundle
 
 [doctrine-extensions]
-    git=https://github.com/beberlei/DoctrineExtensions.git
+    git=http://github.com/beberlei/DoctrineExtensions.git
 
 [FeedBundle]
     git=http://github.com/Nek-/FeedBundle.git
