@@ -3,8 +3,8 @@
 /web/bundles/
 /web/images/
 /app/bootstrap*
-#/app/cache/*
-#/app/logs/*
+/app/cache/*
+/app/logs/*
 /vendor/
 /app/config/parameters.yml
 /app/config/security.yml
