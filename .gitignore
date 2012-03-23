@@ -1,5 +1,5 @@
-#/web/css
-#/web/js
+/web/css
+/web/js
 /web/bundles/
 /web/images/
 /app/bootstrap*
