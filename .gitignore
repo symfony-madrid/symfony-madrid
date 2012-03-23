@@ -12,4 +12,4 @@
 /.idea
 /nbproject
 /.vimrc
-/web/feeds/*
+#/web/feeds/*
