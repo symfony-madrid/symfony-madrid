@@ -42,9 +42,17 @@ En el repositorio está commiteado el archivo parameters.ini para que no falle e
 
     Editar la parte de providers -> in_memory -> users para crear tantos usuarios admin como se quiera
 
-### Actualizar vendors y deployar los assets de los bundles que haya en los vendors
+### Actualizar vendors
 
 	php bin/vendors install
+
+### Deployar los assets de los bundles que haya en los vendors
+
+        php app/console assets:install web
+
+Y si tambien quieres tenerlos disponibles para el entorno de producción
+
+        php app/console --env=prod assetic:dump
 
 ### Crear base de datos
 
