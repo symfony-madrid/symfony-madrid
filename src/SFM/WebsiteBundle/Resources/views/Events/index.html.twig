@@ -9,7 +9,7 @@
             {% if nextEvent == null %}
                 No hay previsto ningún evento en los próximos días
             {% else %}
-                <h4><a href="{{ path('events_public_show', { 'id': nextEvent.id })  }}">{{ nextEvent.title }}</a></h4>
+                <h4><a href="{{ path('events_public_show', { 'id': nextEvent.id , 'slug': nextEvent.slug})  }}">{{ nextEvent.title }}</a></h4>
                 <p class="next-event-details">
                     <strong>¿Cuándo?</strong> {{ nextEvent.datetime|date('l, d F Y H:i') }}<br />
                     <strong>¿Dónde?</strong> {{ nextEvent.location }}
@@ -28,7 +28,7 @@
         <section id="future-events">
             <h3>Eventos futuros</h3>
             {% for event in futureEvents %}
-                <h4><a href="{{ path('events_public_show', { 'id': event.id })  }}">{{ event.title }}</a></h4>
+                <h4><a href="{{ path('events_public_show', { 'id': event.id , 'slug': event.slug })  }}">{{ event.title }}</a></h4>
                 <p class="future-event-details">
                     <strong>¿Cuándo?</strong> {{ event.datetime|date('d/m/Y H:i') }}<br />
                     <strong>¿Dónde?</strong> {{ event.location }}
@@ -41,7 +41,7 @@
         <section id="past-events">
             <h3>Eventos pasados</h3>
             {% for event in pastEvents %}
-                <h4><a href="{{ path('events_public_show', { 'id': event.id })  }}">{{ event.title }}</a></h4>
+                <h4><a href="{{ path('events_public_show', { 'id': event.id, 'slug': event.slug  })  }}">{{ event.title }}</a></h4>
                 <p class="past-event-details">
                     <strong>¿Cuándo?</strong> {{ event.datetime|date('d/m/Y H:i') }}<br />
                     <strong>¿Dónde?</strong> {{ event.location }}
@@ -52,3 +52,5 @@
         </section>
     </div>
 {% endblock %}
+
+{% block title %} Fundadores y miembros del grupo {% endblock %}

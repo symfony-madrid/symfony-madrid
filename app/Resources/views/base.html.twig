@@ -1,13 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ app.session.locale }}">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+        {% block head %}
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF8" />
+            <meta content="index,follow" name="robots" />
+            <meta content="{% block description 'sfm.meta.description'|trans %}" name="description"/>
+            <meta content="{% block keywords 'sfm.meta.keywords'|trans %}" name="keywords"/>
+            <meta content="7 days" name="revisit-after"/>
+            <title>{% block title 'sfm.meta.title'|trans %} :: Symfony Madrid</title>
+            {% stylesheets '@SFMWebsiteBundle/Resources/public/css/styles.css' %}
+                <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+            {% endstylesheets %}
+            <link href="http://fonts.googleapis.com/css?family=Quicksand:300,400,700" rel="stylesheet" type="text/css"/>
+            <link rel="author" href="/humans.txt" />
+            <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>             
+        {% endblock %}
+        <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <a href="http://github.com/symfony-madrid/symfony-madrid"><img style="position: absolute; top: 0; right: 0; border: 0;" src={{ asset('bundles/sfmwebsite/images/forkme_on_github.png') }} alt="Fork me on GitHub" /></a>        
+        <div class="bg">
+            <!--start container-->
+            <div id="container">
+                <!--start header-->
+                <header>
+                    <!--start logo-->
+                    <a href="{{ path('home') }}" id="logo"><img src="{{ asset('bundles/sfmwebsite/images/titulo-symfony-madrid.png') }}" width="550" height="150" alt="logo"/></a>
+                    <!--end logo-->
+
+                    <section class="social">
+                        {% include '::social.html.twig' %}                  
+                    </section>
+                    <!--start menu-->
+                    <nav>
+                        {% include 'SFMWebsiteBundle::menu.html.twig' %}
+                    </nav>
+                    <!--end menu-->
+                </header>
+                <!--end header-->
+                <!--start holder-->
+                <div class="holder_content holder_content_separator">
+                    {% block content '' %}
+                </div>
+                <!--end holder-->
+            </div>
+            <!--end container-->
+            <!--start footer-->
+            <footer id="footer">
+                {% include '::footer.html.twig' %}
+            </footer>
+            <!--end footer-->
+        </div>      
+        <!--end bg-->
+        <!-- Free template distributed by http://freehtml5templates.com -->
+        {% block scripts %}
+            {% javascripts '@SFMWebsiteBundle/Resources/public/js/*' %}
+                <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
+        {% block analytics %}
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', '{{ ga_tracking }}']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+        {% endblock %}
     </body>
 </html>
