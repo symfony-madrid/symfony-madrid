@@ -29,8 +29,9 @@ class DefaultController extends Controller {
             'current' => 'home',
             'nextEvent' => $nextEvent,
                 ));        
-        $response->setExpires(new \DateTime('now + 15 minutes'));
-        $response->setMaxAge(15 * 60);
+
+        $response->setCache(array('public' => true, 's_maxage'=> 15 * 60 ));
+        $response->mustRevalidate();        
         
         return $response;       
         
