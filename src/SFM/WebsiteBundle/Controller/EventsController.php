@@ -39,10 +39,10 @@ class EventsController extends Controller
      *
      * @param integer $id
      * @return array
-     * @Route("/show/{id}", name="events_public_show", requirements={"id"="\d+"})
+     * @Route("/ver/{id}/{slug}", name="events_public_show", requirements={"id"="\d+", "slug" = "[\w\d\-]+"}, defaults={ "slug" = "undefined" })
      * @Template()
      */
-    public function showAction($id)
+    public function showAction($id, $slug)
     {
         $event = $this->getEventRepository()->find($id);
 

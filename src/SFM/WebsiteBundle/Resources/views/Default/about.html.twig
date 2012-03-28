@@ -14,17 +14,26 @@
                         <p>{{ founder.description|default('') }}</p>
                         <ul class="links">
                             {% if founder.email is defined %}<li><a class="email" href="#" title="{{ founder.email }}">{{ founder.email }}</a></li>{% endif %}
-                            {% if founder.github is defined %}<li><a class="github" href="http://github.com/{{ founder.github }}" title="{{ founder.github }}">{{ founder.github }}</a></li>{% endif %}
-                            {% if founder.twitter is defined %}<li><a class="twitter" href="http://twitter.com/#!/{{ founder.twitter }}" title="http://twitter.com/#!/{{ founder.twitter }}">{{ founder.twitter }}</a></li>{% endif %}
-                            {% if founder.betabeers is defined %}<li><a class="betabeers" href="{{ founder.betabeers }}" title="{{ founder.betabeers }}">{{ founder.betabeers }}</a></li>{% endif %}
+                            {% if founder.github is defined %}<li><a class="github" target="_blank" href="http://github.com/{{ founder.github }}" title="{{ founder.github }}">{{ founder.github }}</a></li>{% endif %}
+                            {% if founder.twitter is defined %}<li><a class="twitter" target="_blank" href="http://twitter.com/#!/{{ founder.twitter }}" title="http://twitter.com/#!/{{ founder.twitter }}">{{ founder.twitter }}</a></li>{% endif %}
+                            {% if founder.betabeers is defined %}<li><a class="betabeers" target="_blank" href="{{ founder.betabeers }}" title="{{ founder.betabeers }}">{{ founder.betabeers }}</a></li>{% endif %}
                         </ul>
                     </li>
                 {% endfor %}
             </ul>
+            <h2>Sponsors</h3>
+            <p>Las empresas que aparecen a continuación patrocinan el grupo de alguna forma.</p>
+            <ul>
+                <li>
+                    {% image output="images/iukanet.png" "@SFMWebsiteBundle/Resources/public/images/iukanet.png" %}
+                    <a href="http://www.iukanet.com" target="_blank" title="Iukanet"><img src="{{ asset_url }}" alt="Iukanet"></a>
+                    {% endimage %}
+                </li>
+            </ul>
         </section>
         <section id="members">
             <h3>{{ members|length }} Miembros</h3>
-            <p>He aquí todos los miembros pertenecientes al Club de Symfony Madrid en Sensio Connect. ¿Aún no eres miembro? <a href="https://connect.sensiolabs.com/club/symfony-madrid">¡Apúntate ya!</a></p>
+            <p>He aquí todos los miembros pertenecientes al Club de Symfony Madrid en Sensio Connect. ¿Aún no eres miembro? <a href="https://connect.sensiolabs.com/club/symfony-madrid" target="_blank">¡Apúntate ya!</a></p>
             <ul>
                 {% for member in members %}
                     <li class="member">
@@ -46,6 +55,8 @@
                     </li>
                 {% endfor %}
             </ul>
-        </section>
+        </section>       
     </div>
 {% endblock %}
+
+{% block title %} Fundadores y miembros del grupo {% endblock %}

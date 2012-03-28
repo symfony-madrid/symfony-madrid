@@ -172,4 +172,8 @@ class Event extends EventFeed
     {
         return $this->gmaps;
     }
+    
+    public function getSlug(){
+        return preg_replace("#[^\d\w\-]#", '-', strtolower($this->getTitle()));
+    }
 }
