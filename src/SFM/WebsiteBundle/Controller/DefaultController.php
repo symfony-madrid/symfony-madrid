@@ -31,7 +31,6 @@ class DefaultController extends Controller {
                 ));        
 
         $response->setCache(array('public' => true, 's_maxage'=> 15 * 60 ));
-        $response->mustRevalidate();        
         
         return $response;       
         
