@@ -2,6 +2,11 @@ SFMWebsiteBundle:
     resource: "@SFMWebsiteBundle/Controller/"
     type:     annotation
     prefix:   /
+    
+PollBundle:
+    resource: "@PollBundle/Controller/"
+    type:     annotation
+    prefix:   /
 
 login_check:
     pattern:   /admin/login_check

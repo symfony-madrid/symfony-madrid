@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Symfony\Bundle\DoctrineMigrationsBundle\DoctrineMigrationsBundle(),
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
             new Nekland\FeedBundle\NeklandFeedBundle(),
+            new Desarrolla2\PollBundle\PollBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test', 'travis'))) {

@@ -12,8 +12,8 @@ use SFM\WebsiteBundle\Feeds\EventFeed;
  * @ORM\Table(name="events")
  * @ORM\Entity(repositoryClass="SFM\WebsiteBundle\Entity\EventRepository")
  */
-class Event extends EventFeed
-{
+class Event extends EventFeed {
+
     /**
      * @var integer $id
      *
@@ -68,8 +68,7 @@ class Event extends EventFeed
      *
      * @return integer
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -78,8 +77,7 @@ class Event extends EventFeed
      *
      * @param string $title
      */
-    public function setTitle($title)
-    {
+    public function setTitle($title) {
         $this->title = $title;
     }
 
@@ -88,8 +86,7 @@ class Event extends EventFeed
      *
      * @return string
      */
-    public function getTitle()
-    {
+    public function getTitle() {
         return $this->title;
     }
 
@@ -98,8 +95,7 @@ class Event extends EventFeed
      *
      * @param text $body
      */
-    public function setBody($body)
-    {
+    public function setBody($body) {
         $this->body = $body;
     }
 
@@ -108,8 +104,7 @@ class Event extends EventFeed
      *
      * @return text
      */
-    public function getBody()
-    {
+    public function getBody() {
         return $this->body;
     }
 
@@ -118,8 +113,7 @@ class Event extends EventFeed
      *
      * @param datetime $datetime
      */
-    public function setDatetime($datetime)
-    {
+    public function setDatetime($datetime) {
         $this->datetime = $datetime;
     }
 
@@ -128,8 +122,7 @@ class Event extends EventFeed
      *
      * @return \DateTime
      */
-    public function getDatetime()
-    {
+    public function getDatetime() {
         return $this->datetime;
     }
 
@@ -138,8 +131,7 @@ class Event extends EventFeed
      *
      * @param string $location
      */
-    public function setLocation($location)
-    {
+    public function setLocation($location) {
         $this->location = $location;
     }
 
@@ -148,8 +140,7 @@ class Event extends EventFeed
      *
      * @return string
      */
-    public function getLocation()
-    {
+    public function getLocation() {
         return $this->location;
     }
 
@@ -158,8 +149,7 @@ class Event extends EventFeed
      *
      * @param string $gmaps
      */
-    public function setGmaps($gmaps)
-    {
+    public function setGmaps($gmaps) {
         $this->gmaps = $gmaps;
     }
 
@@ -168,12 +158,17 @@ class Event extends EventFeed
      *
      * @return string
      */
-    public function getGmaps()
-    {
+    public function getGmaps() {
         return $this->gmaps;
     }
-    
-    public function getSlug(){
+
+    /**
+     * Get title in slug format
+     * 
+     * @return string
+     */
+    public function getSlug() {
         return preg_replace("#[^\d\w\-]#", '-', strtolower($this->getTitle()));
     }
+
 }

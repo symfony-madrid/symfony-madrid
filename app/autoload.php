@@ -21,6 +21,7 @@ $loader->registerNamespaces(array(
     'Stfalcon'         => __DIR__.'/../vendor/bundles',
     'DoctrineExtensions' => __DIR__.'/../vendor/doctrine-extensions/lib',
     'Nekland'          => __DIR__.'/../vendor/bundles',
+    'Desarrolla2'          => __DIR__.'/../vendor/bundles',
 ));
 $loader->registerPrefixes(array(
     'Twig_Extensions_' => __DIR__.'/../vendor/twig-extensions/lib',
