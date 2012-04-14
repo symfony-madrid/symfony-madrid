@@ -1,0 +1,12 @@
+<div>
+<ul>
+{% for thread in feed.channel.item %}
+  <li><a href="{{thread.link}}">{{thread.title}}</a>
+    <ul>
+      <li>{{thread.author}}</li>
+      <li>{{thread.pubDate}}</li>
+    </ul>
+  </li>
+{% endfor %}
+</ul>
+</div>
