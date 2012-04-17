@@ -6,8 +6,9 @@
 /app/cache/*
 /app/logs/*
 /vendor/
-/app/config/parameters.yml
 /app/config/security.yml
+/app/config/parameters.ini
+/app/config/parameters.yml
 /app/config/config_travis.yml
 /.idea
 /nbproject
