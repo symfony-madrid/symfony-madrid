@@ -1,0 +1,21 @@
+<div>
+<ul>
+{% for thread in feed.channel.item %}
+  {% if loop.index < 6 %}
+    <li><a href="{{thread.link}}">{{thread.title}}</a>
+      <ul>
+        <li>por
+          {% set author = thread.author | split('(')%}
+          {% set author = author[1] | split(')') %}
+          {{author[0]}}
+        </li>
+        <li>
+          {% set created = thread.pubDate | split(' UT')%}
+          el {{created[0] | date('d/m/Y', 'UTC')}}
+        </li>
+      </ul>
+    </li>
+  {%endif%}
+{% endfor %}
+</ul>
+</div>
