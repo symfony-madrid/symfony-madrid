@@ -9,9 +9,10 @@ Symfony Madrid
     git clone git@github.com:symfony-madrid/symfony-madrid.git 
 	cd symfony-madrid
 
-### Crear el archivo parameters.yml (sustituto de parameters.ini en las próximas versiones)
+### Crear el archivo parameters.yml (sustituto de parameters.ini en las próximas versiones) y parameters.ini
 
 	cp app/config/parameters.yml.dist app/config/parameters.yml
+        cp app/config/parameters.ini.dist app/config/parameters.ini
 
 En el repositorio está commiteado el archivo parameters.ini para que no falle el bundle SensioDistributionBundle, usado por ejemplo para regenerar el bootstrap.php.cache en actualizaciones de Symfony2
 

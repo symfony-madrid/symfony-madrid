@@ -20,7 +20,8 @@ class DefaultController extends Controller {
      * @return array
      * @Route("/", name="home")
      */
-    public function indexAction() {
+    public function indexAction()
+    {
         $em = $this->getDoctrine()->getEntityManager();
         $nextEvent = $em->getRepository('SFMWebsiteBundle:Event')->getNextEvent();
         $sfm = $this->get('sfm.feed_generator')->generateEventsFeed();
@@ -43,7 +44,8 @@ class DefaultController extends Controller {
      * @Route("/acerca-de", name="about")
      * @Template()
      */
-    public function aboutAction() {
+    public function aboutAction()
+    {
         /**
          * Better a random order than alphabetical :)
          */
@@ -70,7 +72,8 @@ class DefaultController extends Controller {
      * @Method("get")
      * @Template()
      */
-    public function contactAction() {
+    public function contactAction()
+    {
         return array(
             'current' => 'contact',
         );
@@ -84,7 +87,8 @@ class DefaultController extends Controller {
      * @Method("post")
      * @Template()
      */
-    public function sendMailAction() {
+    public function sendMailAction()
+    {
         $contactData = array(
             'nombre' => $this->getRequest()->get('nombre'),
             'email' => $this->getRequest()->get('email'),
@@ -116,7 +120,8 @@ class DefaultController extends Controller {
      *
      * @param array $contactData Data given from contact form.
      */
-    private function sendMailOnContactFormSuccess(Array $contactData) {
+    private function sendMailOnContactFormSuccess(Array $contactData)
+    {
         $mailTo = $this->container->getParameter('contactmail');
 
         $message = \Swift_Message::newInstance()
@@ -134,7 +139,8 @@ class DefaultController extends Controller {
      * @param array $contactData
      * @throws \Symfony\Component\HttpKernel\Exception\HttpException
      */
-    private function validateContactData(array $contactData) {
+    private function validateContactData(array $contactData)
+    {
         $collectionConstraint = new Collection(array(
                     'nombre' => array(
                         new NotBlank()
@@ -154,7 +160,8 @@ class DefaultController extends Controller {
         }
     }
 
-    private function parseErrors($errors) {
+    private function parseErrors($errors)
+    {
 
         $translator = $this->container->get('translator');
         $parsedErrors = array();
