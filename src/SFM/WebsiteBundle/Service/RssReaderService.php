@@ -2,8 +2,8 @@
 
 namespace SFM\WebsiteBundle\Service;
 
-class RssReaderService
-{
+class RssReaderService {
+
     /**
      * @var array
      */
@@ -23,8 +23,7 @@ class RssReaderService
      * (@see services.yml)
      * @param array $feeds
      */
-    public function __construct($feeds = null)
-    {
+    public function __construct($feeds = null) {
         if (null !== $feeds) {
             $this->setFeedsRss($feeds);
         }
@@ -34,17 +33,15 @@ class RssReaderService
      * Sets configured RSS Feeds
      * @param array $feeds
      */
-    public function setFeedsRss($feeds)
-    {
+    public function setFeedsRss($feeds) {
         $this->feedsRss = $feeds;
     }
-    
+
     /**
      * Gets injected RSS Feeds
      * @return array
      */
-    public function getFeedsRss()
-    {
+    public function getFeedsRss() {
         return $this->feedsRss;
     }
 
@@ -52,8 +49,7 @@ class RssReaderService
      * @param string $rawFeed
      * @return RssReaderService
      */
-    public function setRawFeed($rawFeed)
-    {
+    public function setRawFeed($rawFeed) {
         $this->rawFeed = $rawFeed;
         return $this;
     }
@@ -61,8 +57,7 @@ class RssReaderService
     /**
      * @return string
      */
-    public function getRawFeed()
-    {
+    public function getRawFeed() {
         return $this->rawFeed;
     }
 
@@ -70,8 +65,7 @@ class RssReaderService
      * @param string $feedName
      * @return RssReaderService
      */
-    public function setFeedName($feedName)
-    {
+    public function setFeedName($feedName) {
         $this->feedName = $feedName;
         return $this;
     }
@@ -79,8 +73,7 @@ class RssReaderService
     /**
      * @return string
      */
-    public function getFeedName()
-    {
+    public function getFeedName() {
         return $this->feedName;
     }
 
@@ -89,8 +82,7 @@ class RssReaderService
      * @param string $url
      * @return string
      */
-    public function getFeedContents($url)
-    {
+    public function getFeedContents($url) {
         $apcKey = 'sfmrss_' . md5($this->getFeedName());
         if (extension_loaded('apc')) {
             if (apc_exists($apcKey)) {
@@ -114,15 +106,18 @@ class RssReaderService
      * Reads RSS and returns item array.
      * @return array
      */
-    public function parseRss()
-    {
+    public function parseRss() {
         $rssString = $this->getRawFeed();
         if (empty($rssString)) {
             return array();
         } else {
-            $rss = simplexml_load_string($rssString);
-
-            return $rss->channel[0]->item;
+            try {
+                $rss = simplexml_load_string($rssString);
+                return $rss->channel[0]->item;
+            } catch (Exception $e) {
+                return array();
+            }
         }
     }
+
 }

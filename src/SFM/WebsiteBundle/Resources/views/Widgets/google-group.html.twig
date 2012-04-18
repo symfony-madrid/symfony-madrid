@@ -1,8 +1,8 @@
 <div>
 <ul>
-{% for thread in feed.channel.item %}
+{% for thread in feed %}
   {% if loop.index < 6 %}
-    <li><a href="{{thread.link}}">{{thread.title}}</a>
+        <li><a href="{{thread.link}}" target="_blank">{{thread.title}}</a>
       <ul>
         <li>por
           {% set author = thread.author | split('(')%}

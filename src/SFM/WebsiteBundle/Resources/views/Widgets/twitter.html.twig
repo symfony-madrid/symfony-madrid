@@ -1,0 +1,12 @@
+<div>
+    <ul>
+{% for thread in feed %}
+  {% if loop.index < 6 %}
+            <li>
+                <a href="{{thread.link}}" target="_blank">@symfony_madrid:</a>
+                {{thread.description}} el {{thread.pubDate | date('d/m/Y', 'UTC')}}
+            </li>
+  {%endif%}
+{% endfor %}
+        </ul>
+    </div>

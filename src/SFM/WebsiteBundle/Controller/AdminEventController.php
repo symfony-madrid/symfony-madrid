@@ -90,7 +90,7 @@ class AdminEventController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            $sfm = $this->get('sfm.feed_generator')->generateEventsFeed();
+            $sfm = $this->get('sfm_feed_generator')->generateEventsFeed();
             return $this->redirect($this->generateUrl('event_show', array('id' => $entity->getId())));
 
         }
@@ -186,7 +186,7 @@ class AdminEventController extends Controller
                 throw $this->createNotFoundException('Unable to find Event entity.');
             }
 
-            $sfm = $this->get('sfm.feed_generator')->removeEventFromFeed($entity);
+            $sfm = $this->get('sfm_feed_generator')->removeEventFromFeed($entity);
             //$em->remove($entity);
             //$em->flush();
         }

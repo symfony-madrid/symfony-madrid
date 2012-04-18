@@ -19,17 +19,38 @@ class WidgetsController extends Controller {
      * @Template("SFMWebsiteBundle:Widgets:google-group.html.twig")
      * @Route("/widgets/google-group", name="widgets_google_group")
      */
-    public function googleGroupAction()
-    {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, 'https://groups.google.com/group/symfony_madrid/feed/rss_v2_0_topics.xml');
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    public function googleGroupAction() {
 
-        $feed = new \SimpleXMLElement(curl_exec($ch));
+        $feeds = array();
 
-        curl_close($ch);
+        /** @var \SFM\WebsiteBundle\Service\RssReaderService $rssReaderService */
+        $rssReaderService = $this->get('symfony_rss');
+        $rssReaderService->setFeedName('google_group')
+                ->setRawFeed($rssReaderService->getFeedContents('https://groups.google.com/group/symfony_madrid/feed/rss_v2_0_topics.xml'));
 
-        return array('feed' => $feed);
 
+
+        return array('feed' => $rssReaderService->parseRss());
     }
+    
+        /**
+     * Twitter group widget
+     *
+     * @return Response
+     *
+     * @Template("SFMWebsiteBundle:Widgets:twitter.html.twig")
+     * @Route("/widgets/twitter", name="widgets_twitter")
+     */
+    public function twitterAction() {
+
+        $feeds = array();
+
+        /** @var \SFM\WebsiteBundle\Service\RssReaderService $rssReaderService */
+        $rssReaderService = $this->get('symfony_rss');
+        $rssReaderService->setFeedName('google_group')
+                ->setRawFeed($rssReaderService->getFeedContents('http://api.twitter.com/1/statuses/user_timeline.rss?screen_name=symfony_madrid'));
+
+        return array('feed' => $rssReaderService->parseRss());
+    }
+
 }
