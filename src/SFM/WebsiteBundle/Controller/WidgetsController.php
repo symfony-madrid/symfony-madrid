@@ -11,6 +11,14 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class WidgetsController extends Controller {
 
+    private function getFeedForUrl($url) {
+        /** @var \SFM\WebsiteBundle\Service\RssReaderService $rssReaderService */
+        $rssReaderService = $this->get('symfony_rss');
+        $rssReaderService->setFeedName(md5($url));
+        $rssReaderService->setRawFeed($rssReaderService->getFeedContents($url));
+        return $rssReaderService->parseRss();
+    }
+
     /**
      * Google group widget
      *
@@ -20,20 +28,10 @@ class WidgetsController extends Controller {
      * @Route("/widgets/google-group", name="widgets_google_group")
      */
     public function googleGroupAction() {
-
-        $feeds = array();
-
-        /** @var \SFM\WebsiteBundle\Service\RssReaderService $rssReaderService */
-        $rssReaderService = $this->get('symfony_rss');
-        $rssReaderService->setFeedName('google_group')
-                ->setRawFeed($rssReaderService->getFeedContents('https://groups.google.com/group/symfony_madrid/feed/rss_v2_0_topics.xml'));
-
-
-
-        return array('feed' => $rssReaderService->parseRss());
+        return array('feed' => $this->getFeedForUrl('https://groups.google.com/group/symfony_madrid/feed/rss_v2_0_topics.xml'));
     }
-    
-        /**
+
+    /**
      * Twitter group widget
      *
      * @return Response
@@ -42,15 +40,19 @@ class WidgetsController extends Controller {
      * @Route("/widgets/twitter", name="widgets_twitter")
      */
     public function twitterAction() {
+        return array('feed' => $this->getFeedForUrl('http://api.twitter.com/1/statuses/user_timeline.rss?screen_name=symfony_madrid'));
+    }
 
-        $feeds = array();
-
-        /** @var \SFM\WebsiteBundle\Service\RssReaderService $rssReaderService */
-        $rssReaderService = $this->get('symfony_rss');
-        $rssReaderService->setFeedName('google_group')
-                ->setRawFeed($rssReaderService->getFeedContents('http://api.twitter.com/1/statuses/user_timeline.rss?screen_name=symfony_madrid'));
-
-        return array('feed' => $rssReaderService->parseRss());
+    /**
+     * Flickr group widget
+     *
+     * @return Response
+     *
+     * @Template("SFMWebsiteBundle:Widgets:flickr.html.twig")
+     * @Route("/widgets/twitter", name="widgets_flickr")
+     */
+    public function flickrAction() {
+        return array('feed' => $this->getFeedForUrl('http://www.degraeve.com/flickr-rss/rss.php?tags=symfony-live&tagmode=any&sort=interestingness-desc&num=3'));
     }
 
 }
