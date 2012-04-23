@@ -52,7 +52,8 @@ class WidgetsController extends Controller {
      * @Route("/widgets/twitter", name="widgets_flickr")
      */
     public function flickrAction() {
-        return array('feed' => $this->getFeedForUrl('http://www.degraeve.com/flickr-rss/rss.php?tags=symfony-live&tagmode=any&sort=interestingness-desc&num=3'));
+        die(var_dump($this->getFeedForUrl('http://api.flickr.com/services/feeds/photos_public.gne?tags=symfony-live&format=rss_200&lang=es-us')));
+        return array('feed' => $this->getFeedForUrl('http://api.flickr.com/services/feeds/photos_public.gne?tags=symfony-live&format=rss_200&lang=es-us'));
     }
 
 }
