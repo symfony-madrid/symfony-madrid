@@ -1,0 +1,12 @@
+<div>
+    <ul>
+{% for thread in feed %}
+            <li>
+                <a href="{{thread.url}}" target="_blank">
+                <img src="{{thread.thumbnail_large}}" alt="{{thread.title}}" width="270"/>
+                </a>
+                {{thread.title}} el {{thread.upload_date | date('d/m/Y', 'UTC')}}
+            </li>
+{% endfor %}
+        </ul>
+    </div>
