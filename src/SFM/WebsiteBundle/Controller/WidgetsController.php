@@ -49,11 +49,24 @@ class WidgetsController extends Controller {
      * @return Response
      *
      * @Template("SFMWebsiteBundle:Widgets:flickr.html.twig")
-     * @Route("/widgets/twitter", name="widgets_flickr")
+     * @Route("/widgets/flickr", name="widgets_flickr")
      */
     public function flickrAction() {
         die(var_dump($this->getFeedForUrl('http://api.flickr.com/services/feeds/photos_public.gne?tags=symfony-live&format=rss_200&lang=es-us')));
         return array('feed' => $this->getFeedForUrl('http://api.flickr.com/services/feeds/photos_public.gne?tags=symfony-live&format=rss_200&lang=es-us'));
+    }
+    
+        /**
+     * Flickr group widget
+     *
+     * @return Response
+     *
+     * @Template("SFMWebsiteBundle:Widgets:vimeo.html.twig")
+     * @Route("/widgets/vimeo", name="widgets_vimeo")
+     */
+    public function vimeoAction() {
+        die (var_dump($this->getFeedForUrl('http://vimeo.com/api/v2/decharlas/videos.xml')));
+        return array('feed' => $this->getFeedForUrl('http://vimeo.com/api/v2/decharlas/videos.xml'));
     }
 
 }

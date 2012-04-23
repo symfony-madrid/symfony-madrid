@@ -25,7 +25,7 @@ class NewsController extends Controller
         /** @var \SFM\WebsiteBundle\Service\RssReaderService $rssReaderService */
         $rssReaderService = $this->get('symfony_rss');
 
-        $feedsRss = $rssReaderService->getFeedsRss();
+        $feedsRss = $rssReaderService->getFeedsXml();
 
         foreach ($feedsRss as $feed) {
             $rssReaderService->setFeedName($feed['name'])
