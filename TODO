@@ -1,0 +1,30 @@
+Layout:
+	Eliminar contacto
+	Modificar los iconos de Google, Twitter, Github y rss
+
+Rss:
+	Quitar el bundle raro
+
+Twitter:
+	Eliminar symfony_madrid
+
+Google:
+	Aumentar los items
+
+Flickr:
+	Una imagen aleatoria.
+
+General:
+	Quitar APC.
+	Quitar el PollBundle.
+
+Noticias:
+	Ultimas noticias de una fuente.
+
+Eventos:
+	Normalizar las reuniones.
+
+Acerca de:
+	Mostrar miembros de forma aleatoria.
+
+
