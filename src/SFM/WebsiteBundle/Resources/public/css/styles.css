@@ -99,9 +99,9 @@ h3 {
     line-height: 0.9;
     color: #575757;
     text-align: left;
-    margin-bottom: 15px;
+    margin: 10px 0 15px 0;
     padding-bottom: 5px;
-    text-decoration: underline;
+/*    text-decoration: underline;*/
 }
 
 h4 {
@@ -530,9 +530,9 @@ footer a, footer a:visited{
 
 nav {
     position: absolute;
-    width: 525px;
+    width: 425px;
     top: 38px;
-    left: 300px;
+    left: 550px;
     background: transparent;
     border-top: 1px solid #A3A3A3;
     border-bottom: 1px solid #A3A3A3;

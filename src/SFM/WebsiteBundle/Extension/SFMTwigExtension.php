@@ -19,6 +19,7 @@ class SFMTwigExtension extends \Twig_Extension
     {
         return array(
           'split'  => new \Twig_Filter_Method($this, 'split'),
+          'substr' => new \Twig_Filter_Method($this, 'substr'),
         );
     }
 
@@ -26,7 +27,6 @@ class SFMTwigExtension extends \Twig_Extension
      * split
      *
      * @param string $sentence
-     *
      * @param string $expr
      *
      * @return array
@@ -34,6 +34,10 @@ class SFMTwigExtension extends \Twig_Extension
     public function split($sentence, $expr)
     {
         return explode($expr, $sentence);
+    }
+    
+    public function substr($string , $start, $length ){
+        return substr($string , $start, $length );
     }
 
     /**

@@ -19,10 +19,12 @@
     <br /><a href="{{ nextEvent.gmaps }}" target="_blank">Muestra un mapa más grande</a>
         {% endif %}
     {% endif %}
+    <h3>En flicker</h3>
+    {% render "SFMWebsiteBundle:Widgets:flickr" %}
 </section>
 
 <section class="group2">
-    <h3>En la lista de correo</h3>
+    <h3>En la lista</h3>
     {% render "SFMWebsiteBundle:Widgets:googleGroup"%}
 </section>
 
@@ -30,18 +32,7 @@
     <h3>En twitter</h3>
 {% render "SFMWebsiteBundle:Widgets:twitter"%}
 </section>
-<div style="clear: both;"></div>
 
-<section class="group1">
-    <h3>En flicker</h3>
-    {% render "SFMWebsiteBundle:Widgets:flickr"%}
-</section>
-<section class="group2">
-    <h3>En Vimeo</h3>
-    
-</section>
-<section class="group3">
-    <h3>Encuestas</h3>
-</section>
+<div style="clear: both;"></div>
 
 {% endblock %}

@@ -14,6 +14,7 @@ use SFM\WebsiteBundle\Feeds\EventFeed;
  */
 class Event extends EventFeed {
 
+    
     /**
      * @var integer $id
      *
