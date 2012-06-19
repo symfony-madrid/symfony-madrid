@@ -5,6 +5,7 @@
 /app/bootstrap*
 /app/cache/*
 /app/logs/*
+/app/phpunit.xml
 /vendor/
 /app/config/security.yml
 /app/config/parameters.ini

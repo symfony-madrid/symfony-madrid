@@ -5,6 +5,7 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 
 class AppKernel extends Kernel
 {
+
     public function registerBundles()
     {
         $bundles = array(
@@ -20,12 +21,14 @@ class AppKernel extends Kernel
             new SFM\WebsiteBundle\SFMWebsiteBundle(),
             new Symfony\Bundle\DoctrineFixturesBundle\DoctrineFixturesBundle(),
             new Symfony\Bundle\DoctrineMigrationsBundle\DoctrineMigrationsBundle(),
-            new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
-            new Nekland\FeedBundle\NeklandFeedBundle(),
-            new Desarrolla2\PollBundle\PollBundle(),
+            new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(), // ??
+            new Nekland\FeedBundle\NeklandFeedBundle(), // ??
         );
 
-        if (in_array($this->getEnvironment(), array('dev', 'test', 'travis'))) {
+        if (in_array($this->getEnvironment(), array('dev', 'test', 'travis')))
+        {
+            $bundles[] = new Desarrolla2\PollBundle\PollBundle();
+            $bundles[] = new Desarrolla2\Bundle\RSSClientBundle\RSSClientBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
@@ -36,6 +39,7 @@ class AppKernel extends Kernel
 
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
+        $loader->load(__DIR__ . '/config/config_' . $this->getEnvironment() . '.yml');
     }
+
 }
