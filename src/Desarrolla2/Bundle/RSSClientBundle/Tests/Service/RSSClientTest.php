@@ -15,6 +15,7 @@ class RSSClientTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->client = new RSSClient();
+        $this->client->addFeed('http://desarrolla2.com/feed/');
     }
 
     /**
@@ -23,7 +24,7 @@ class RSSClientTest extends \PHPUnit_Framework_TestCase
     public function testAddFeed()
     {
         $this->client->addFeed('feed1');
-        $this->assertEquals(count($this->client->getFeeds()), 1);
+        $this->assertEquals(count($this->client->getFeeds()), 2);
     }
 
     /**
@@ -33,7 +34,7 @@ class RSSClientTest extends \PHPUnit_Framework_TestCase
     {
         $this->client->addFeeds(array('feed1', 'feed2'));
         $this->client->addFeeds(array('feed3', 'feed4'));
-        $this->assertEquals(count($this->client->getFeeds()), 4);
+        $this->assertEquals(count($this->client->getFeeds()), 5);
     }
 
     /**
@@ -45,13 +46,13 @@ class RSSClientTest extends \PHPUnit_Framework_TestCase
         $this->client->clearFeeds();
         $this->assertEquals(count($this->client->getFeeds()), 0);
     }
-    
+
     /**
      * @test
      */
     public function testSetFeeds()
     {
-        $this->client->addFeed('feed1');       
+        $this->client->addFeed('feed1');
         $this->client->setFeeds(array('feed1'));
         $this->assertEquals(count($this->client->getFeeds()), 1);
     }
@@ -61,9 +62,20 @@ class RSSClientTest extends \PHPUnit_Framework_TestCase
      */
     public function testFetch()
     {
-        $this->client->addFeed('http://desarrolla2.com/feed/');
         $this->client->fetch();
-        $this->assertTrue(true);
+        $this->assertEquals(10, $this->client->countNodes());
     }
+
+    /**
+     * @test
+     */
+//    public function testDump()
+//    {
+//        $this->client->addFeed('http://saforas.wordpress.com/feed/');
+//        $this->client->fetch();
+//        $this->client->sort();
+//        $this->client->dump();
+//        $this->assertTrue(true);
+//    }
 
 }

@@ -1,6 +1,7 @@
 {# News/index.html.twig #}
 {% extends 'SFMWebsiteBundle::layout.html.twig' %}
 
+{#
 {% block content %}
     <section class="page-content news">
         <h2>Noticias</h2>
@@ -23,4 +24,27 @@
             </div>
         {% endfor %}
     </section>
+{% endblock %}
+#}
+
+{% block content %}
+<section class="page-content news">
+    <h2>Noticias</h2>
+        <div class="feed">
+        {% for feed in feeds %}            
+            {% if loop.index == 11   %}
+            </div>
+            <div class="feed">
+            {% endif %}
+            <article class="hentry">
+                <h4 class="entry-title">
+                    <a href="{{ feed.link }}" target="_blank">{{ feed.title }}</a>
+                    <small class="date-header">{{ feed.pubDate|date('d/m/Y H:i') }}</small>
+                </h4>
+                <p class="entry-content">{{ feed.desc | replace({'&lt;':'<', '&gt;':'>'}) | striptags | truncate(420) | raw }}</p>
+            </article>
+        {% else %}
+            {{ 'sfm.news.empty'|trans|raw }}
+        {% endfor %}      
+        </section>
 {% endblock %}

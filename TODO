@@ -1,12 +1,20 @@
-Flickr:
-	Una imagen aleatoria.
+-1.- Generador de noticias.
+        Publicar el bundle.
+
+0.- Quitar el GA Traking y revisar todos los ficheros de configuracion
+
+1.- deps
+
+2.- Una imagen aleatoria.
+
+3.- Revisar el sistema de cache.
+
+4.- Quitar el bundle nekland_feed
+
 
 General:
 	Quitar APC.
 	Terminar el PollBundle.
-
-Noticias:
-	Ultimas noticias de una fuente.
 
 Eventos:
 	Normalizar las reuniones.
@@ -16,6 +24,3 @@ Acerca de:
 
 Layout:
 	Modificar los iconos de Google, Twitter, Github y rss
-
-Rss:
-	Quitar el bundle RSS

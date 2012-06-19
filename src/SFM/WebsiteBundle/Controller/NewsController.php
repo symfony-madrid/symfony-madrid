@@ -11,6 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
  */
 class NewsController extends Controller
 {
+
     /**
      * Renders latest news
      *
@@ -20,26 +21,13 @@ class NewsController extends Controller
      */
     public function indexAction()
     {
-        $feeds = array();
-
-        /** @var \SFM\WebsiteBundle\Service\RssReaderService $rssReaderService */
-        $rssReaderService = $this->get('symfony_rss');
-
-        $feedsRss = $rssReaderService->getFeedsXml();
-
-        foreach ($feedsRss as $feed) {
-            $rssReaderService->setFeedName($feed['name'])
-                             ->setRawFeed($rssReaderService->getFeedContents($feed['url']));
-
-            $feeds[] = array(
-                'name'  => $feed['name'],
-                'posts' => $rssReaderService->parseRss()
-            );
-        }
+        $this->client = $this->get('d2.client.rss');
+        $this->client->fetch();
 
         return array(
-            'feeds' => $feeds,
+            'feeds'   => $this->client->getNodes(),
             'current' => 'news',
         );
     }
+
 }
