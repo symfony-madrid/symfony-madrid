@@ -21,10 +21,14 @@ class NewsController extends Controller
         $this->client = $this->get('d2.client.rss');
         $this->client->fetch();
 
-        return array(
+        $response = $this->render('SFMWebsiteBundle:News:index.html.twig', array(
             'feeds'   => $this->client->getNodes(),
             'current' => 'news',
-        );
+                ));
+
+        $response->setCache(array('public'   => true, 's_maxage' => 60 * 60 * 12));
+
+        return $response;
     }
 
 }
