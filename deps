@@ -96,5 +96,5 @@
     target=/bundles/Nekland/FeedBundle
 
 [RSSClientBundle]
-    git=http://github.com:desarrolla2/RSSClientBundle.git
+    git=http://github.com/desarrolla2/RSSClientBundle.git
     target=/bundles/Desarrolla2/Bundle/RSSClientBundle
