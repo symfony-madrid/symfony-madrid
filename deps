@@ -95,6 +95,6 @@
     git=http://github.com/Nek-/FeedBundle.git
     target=/bundles/Nekland/FeedBundle
 
-[PollBundle]
-    git=http://github.com/desarrolla2/PollBundle.git
-    target=/bundles/Desarrolla2/PollBundle
+[RSSClientBundle]
+    git=git@github.com:desarrolla2/RSSClientBundle.git
+    target=/bundles/Desarrolla2/Bundle/RSSClientBundle

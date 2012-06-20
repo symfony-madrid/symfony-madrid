@@ -23,12 +23,12 @@ class AppKernel extends Kernel
             new Symfony\Bundle\DoctrineMigrationsBundle\DoctrineMigrationsBundle(),
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(), // ??
             new Nekland\FeedBundle\NeklandFeedBundle(), // ??
+            new Desarrolla2\Bundle\RSSClientBundle\RSSClientBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test', 'travis')))
         {
-            $bundles[] = new Desarrolla2\PollBundle\PollBundle();
-            $bundles[] = new Desarrolla2\Bundle\RSSClientBundle\RSSClientBundle();
+            // $bundles[] = new Desarrolla2\PollBundle\PollBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();

@@ -1,7 +1,7 @@
-PollBundle:
-    resource: "@PollBundle/Controller/"
-    type:     annotation
-    prefix:   /
+#PollBundle:
+#    resource: "@PollBundle/Controller/"
+#    type:     annotation
+#    prefix:   /
    
 _assetic:
     resource: .
