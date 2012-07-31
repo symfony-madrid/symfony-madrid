@@ -1,17 +1,8 @@
 parameters:
-  database_driver: pdo_mysql
-  database_host: localhost
-  database_port: 3306
-  database_name: symfony_madrid
-  database_user: root
-  database_password: ~
-
-  mailer_transport: smtp
-  mailer_host: localhost
-  mailer_user: ~
-  mailer_password: ~
-
-  locale: es_ES
-  secret: "Symf0nyM4dr1d-T0k3n!"
-
-  ga_tracking: "UA-28844613-1"
+  d2.client.rss.feeds:
+    - 'http://codeup.net/feed/'
+    - 'http://www.osukaru.es/feed/'
+    - 'http://feeds.feedburner.com/moidev?format=xml'
+    - 'http://desarrolla2.com/feed/'
+    - 'http://feeds.feedburner.com/symfony/blog'
+    - 'http://www.symfony.es/feed/'
