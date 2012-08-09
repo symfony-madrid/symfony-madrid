@@ -14,8 +14,6 @@
     mailer_user       =
     mailer_password   =
 
-    locale            = 'es_ES'
-
     ga_tracking       = ''
     secret            = 'Symf0nyM4dr1d-T0k3n!'
 

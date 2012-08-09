@@ -12,11 +12,15 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 class WidgetsController extends Controller {
 
     private function getFeedForUrl($url) {
+        
+        return array();
         /** @var \SFM\WebsiteBundle\Service\RssReaderService $rssReaderService */
         $rssReaderService = $this->get('symfony_rss');
         $rssReaderService->setFeedName(md5($url));
         $rssReaderService->setRawFeed($rssReaderService->getFeedContents($url));
         return $rssReaderService->parseRss();
+        
+        
     }
 
     /**

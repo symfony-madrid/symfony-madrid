@@ -5,6 +5,7 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 
 class AppKernel extends Kernel
 {
+
     public function registerBundles()
     {
         $bundles = array(
@@ -13,23 +14,22 @@ class AppKernel extends Kernel
             new Symfony\Bundle\TwigBundle\TwigBundle(),
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
+            new Symfony\Bundle\DoctrineBundle\DoctrineBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
-            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new JMS\AopBundle\JMSAopBundle(),
-            new JMS\DiExtraBundle\JMSDiExtraBundle($this),
-            new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),            
+            new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new SFM\WebsiteBundle\SFMWebsiteBundle(),
+            //new Symfony\Bundle\DoctrineFixturesBundle\DoctrineFixturesBundle(),
+            new Symfony\Bundle\DoctrineMigrationsBundle\DoctrineMigrationsBundle(),
             new Desarrolla2\Bundle\RSSClientBundle\RSSClientBundle(),
         );
 
-        if (in_array($this->getEnvironment(), array('dev', 'test'))) {
-            //$bundles[] = new Acme\DemoBundle\AcmeDemoBundle();
+        if (in_array($this->getEnvironment(), array('dev', 'test', 'travis')))
+        {
+            // $bundles[] = new Desarrolla2\PollBundle\PollBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
-            //$bundles[] =new Symfony\Bundle\DoctrineFixturesBundle\DoctrineFixturesBundle();
-            //$bundles[] =new Symfony\Bundle\DoctrineMigrationsBundle\DoctrineMigrationsBundle();
         }
 
         return $bundles;
@@ -37,6 +37,7 @@ class AppKernel extends Kernel
 
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
+        $loader->load(__DIR__ . '/config/config_' . $this->getEnvironment() . '.yml');
     }
+
 }

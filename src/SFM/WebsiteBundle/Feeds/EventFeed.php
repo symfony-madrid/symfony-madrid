@@ -2,9 +2,7 @@
 
 namespace SFM\WebsiteBundle\Feeds;
 
-use Nekland\FeedBundle\Item\ItemInterface;
-
-abstract class EventFeed implements ItemInterface
+abstract class EventFeed
 {
 
     public function getFeedTitle()
@@ -32,4 +30,5 @@ abstract class EventFeed implements ItemInterface
     {
         return $this->getDatetime();
     }
+
 }

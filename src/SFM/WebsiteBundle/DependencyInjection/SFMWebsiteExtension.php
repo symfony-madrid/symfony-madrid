@@ -21,11 +21,6 @@ class SFMWebsiteExtension extends Extension
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
-
-        $container->setParameter('contactmail', $config['contactmail']);
-        $container->setParameter('feeds', $config['feeds']);
-        $container->setParameter('sensiogroup', $config['sensiogroup']);
-
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
     }

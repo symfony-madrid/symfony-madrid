@@ -1,12 +1,3 @@
 services:
-    symfony_rss:
-        class: SFM\WebsiteBundle\Service\RssReaderService
-        arguments: [%feeds%]
-    sensio_connect:
-        class: SFM\WebsiteBundle\Service\SensioConnectService
-        arguments: [%sensiogroup%]
-    sfm_feed_generator:
-        class: SFM\WebsiteBundle\Service\FeedGeneratorService
-        arguments: ['@nekland_feed.factory', '@doctrine.orm.entity_manager']
 
 

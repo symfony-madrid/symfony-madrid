@@ -15,3 +15,4 @@
 /.vimrc
 /web/feeds/*
 /composer.phar
+composer.phar
