@@ -23,6 +23,7 @@
         "jms/di-extra-bundle": "1.1.*",
         
         "doctrine/doctrine-fixtures-bundle": "dev-master" ,
+        "desarrolla2/twitter-client-bundle": "dev-master",
         "raulfraile/ladybug-bundle": "dev-master",
         "desarrolla2/rss-client-bundle": "dev-master" 
     },

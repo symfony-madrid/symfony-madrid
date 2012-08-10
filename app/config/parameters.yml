@@ -6,3 +6,6 @@ parameters:
     - 'http://desarrolla2.com/feed/'
     - 'http://feeds.feedburner.com/symfony/blog'
     - 'http://www.symfony.es/feed/'
+    
+  d2.client.twitter.screen_name: 'symfony_madrid'
+  d2.client.twitter.search_query: ~    

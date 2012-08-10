@@ -19,10 +19,9 @@ class NewsController extends Controller
     public function indexAction()
     {
         $this->client = $this->get('d2.client.rss');
-        $this->client->fetch();
 
         $response = $this->render('SFMWebsiteBundle:News:index.html.twig', array(
-            'feeds'   => $this->client->getNodes(),
+            'feeds'   =>  $this->client->fetch(),
             'current' => 'news',
                 ));
 

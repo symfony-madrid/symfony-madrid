@@ -1,11 +1,17 @@
 {
-    "hash": "31ddeae9f508be12ae60f7b560ad2a0c",
+    "hash": "fb7fd4da290f97f8b016d604a12af769",
     "packages": [
         {
             "package": "desarrolla2/rss-client-bundle",
             "version": "dev-master",
             "source-reference": "3a0a6f811bbab8775a5ea6370a4736045584aa03",
             "commit-date": "1344470653"
+        },
+        {
+            "package": "desarrolla2/twitter-client-bundle",
+            "version": "dev-master",
+            "source-reference": "dfca779a8d1ba467465d9a1ee0f2266ccdfd24e8",
+            "commit-date": "1344471052"
         },
         {
             "package": "doctrine/common",
@@ -122,20 +128,8 @@
         {
             "package": "sensio/framework-extra-bundle",
             "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "sensio/framework-extra-bundle",
-            "version": "dev-master",
             "source-reference": "ade2d53b20a9fc3428f04c863b3fd4fca0b62181",
             "commit-date": "1344072374"
-        },
-        {
-            "package": "sensio/generator-bundle",
-            "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
         },
         {
             "package": "sensio/generator-bundle",
@@ -158,32 +152,14 @@
         {
             "package": "symfony/assetic-bundle",
             "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "symfony/assetic-bundle",
-            "version": "dev-master",
             "source-reference": "ec3a65d3eab342af9e93a3c21af0ac7b78e01c17",
             "commit-date": "1344507386"
         },
         {
             "package": "symfony/monolog-bundle",
             "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "symfony/monolog-bundle",
-            "version": "dev-master",
             "source-reference": "v2.1.0-BETA4",
             "commit-date": "1341078487"
-        },
-        {
-            "package": "symfony/swiftmailer-bundle",
-            "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
         },
         {
             "package": "symfony/swiftmailer-bundle",
@@ -237,6 +213,7 @@
         "sensio/framework-extra-bundle": 20,
         "sensio/generator-bundle": 20,
         "doctrine/doctrine-fixtures-bundle": 20,
+        "desarrolla2/twitter-client-bundle": 20,
         "raulfraile/ladybug-bundle": 20,
         "desarrolla2/rss-client-bundle": 20
     }

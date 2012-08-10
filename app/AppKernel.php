@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),            
             new SFM\WebsiteBundle\SFMWebsiteBundle(),
             new Desarrolla2\Bundle\RSSClientBundle\RSSClientBundle(),
+            new Desarrolla2\Bundle\TwitterClientBundle\TwitterClientBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
