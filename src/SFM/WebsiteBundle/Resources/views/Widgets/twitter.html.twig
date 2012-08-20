@@ -1,9 +1,7 @@
 <div>
     <ul>
-{% for thread in feed %}
-            <li>
-                {{thread.text | raw}} el {{thread.pubDate | date('d/m/Y', 'UTC')}}
-                </li>
-{% endfor %}
-            </ul>
-        </div>
+        {% for thread in feed %}
+            <li>{{thread.text | raw}} el {{thread.pubDate | date('d/m/Y', 'UTC')}}</li>
+        {% endfor %}
+    </ul>
+</div>
