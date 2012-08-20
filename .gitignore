@@ -8,11 +8,9 @@
 /app/phpunit.xml
 /vendor/
 /app/config/security.yml
-/app/config/parameters.ini
-/app/config/config_travis.yml
+/app/config/parameters.yml
 /.idea
 /nbproject
 /.vimrc
 /web/feeds/*
-/composer.phar
 composer.phar
