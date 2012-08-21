@@ -4,7 +4,7 @@ imports:
 
 framework:
     #esi:             ~
-    translator:      { fallback:  %locale% }
+    translator:      { fallback:  es_ES }
     secret:          %secret%
     router:          { resource: "%kernel.root_dir%/config/routing.yml" }
     form:            true
@@ -64,4 +64,22 @@ services:
        class: SFM\WebsiteBundle\Extension\SFMTwigExtension
        tags:
            - { name: twig.extension }
-                      
+           
+
+rss_client:
+   channels:
+     
+      symfony_madrid_guys:
+         - 'http://codeup.net/feed/'
+         - 'http://www.osukaru.es/feed/'
+         - 'http://feeds.feedburner.com/moidev?format=xml'
+         - 'http://desarrolla2.com/feed/'
+         - 'http://feeds.feedburner.com/symfony/blog'
+         - 'http://www.symfony.es/feed/'
+         
+      google_groups:       
+         - 'https://groups.google.com/group/symfony_madrid/feed/rss_v2_0_topics.xml'
+
+    
+twitter_client:
+   screen_name: 'symfony_madrid'

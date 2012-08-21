@@ -1,21 +1,12 @@
 <div>
-<ul>
-{% for thread in feed %}
-  {% if loop.index < 8 %}
-        <li><a href="{{thread.link}}" target="_blank">{{thread.title}}</a>
-      <ul>
-        <li>por
-          {% set author = thread.author | split('(')%}
-          {% set author = author[1] | split(')') %}
-          {{author[0]}}
-        </li>
+    <ul>
+    {% for thread in feeds %}
         <li>
-          {% set created = thread.pubDate | split(' UT')%}
-          el {{created[0] | date('d/m/Y', 'UTC')}}
+            <p>
+                <a href="{{ thread.link }}" target="_blank">{{ thread.title }}</a> 
+                {{ thread.desc | truncate(160) |raw  }} <small> el {{ thread.pubDate | date('d/m/Y', 'Europe/Madrid')}}</small>
+                    
         </li>
-      </ul>
-    </li>
-  {%endif%}
-{% endfor %}
-</ul>
+    {%endfor%}
+    </ul>
 </div>

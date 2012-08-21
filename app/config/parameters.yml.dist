@@ -11,13 +11,7 @@ parameters:
   mailer_user:       ~
   mailer_password:   ~
 
-  locale:            en
+  locale:            es_ES
   secret:            ThisTokenIsNotSoSecretChangeIt  
-
-  d2.client.rss.feeds:
-    - 'http://codeup.net/feed/'
-    - 'http://www.osukaru.es/feed/'
-    - 'http://feeds.feedburner.com/moidev?format=xml'
-    - 'http://desarrolla2.com/feed/'
-    - 'http://feeds.feedburner.com/symfony/blog'
-    - 'http://www.symfony.es/feed/'
+  
+  sensiogroup:       'symfony-madrid'

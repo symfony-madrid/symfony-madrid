@@ -12,7 +12,8 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Collection;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
-class DefaultController extends Controller {
+class DefaultController extends Controller
+{
 
     /**
      * Renders Home page
@@ -22,18 +23,18 @@ class DefaultController extends Controller {
      */
     public function indexAction()
     {
+
         $em = $this->getDoctrine()->getEntityManager();
         $nextEvent = $em->getRepository('SFMWebsiteBundle:Event')->getNextEvent();
 
         $response = $this->render('SFMWebsiteBundle:Default:index.html.twig', array(
-            'current' => 'home',
+            'current'   => 'home',
             'nextEvent' => $nextEvent,
-                ));        
+                ));
 
-        $response->setCache(array('public' => true, 's_maxage'=> 15 * 60 ));
-        
-        return $response;       
-        
+        $response->setCache(array('public'   => true, 's_maxage' => 15 * 60));
+
+        return $response;
     }
 
     /**
@@ -55,10 +56,10 @@ class DefaultController extends Controller {
             $totalBadges += $badge['count'];
 
         return array(
-            'current' => 'about',
-            'founders' => $this->founders,
-            'members' => $sfConnect['members'],
-            'badges' => $sfConnect['cumulated_badges'],
+            'current'     => 'about',
+            'founders'    => $this->founders,
+            'members'     => $sfConnect['members'],
+            'badges'      => $sfConnect['cumulated_badges'],
             'totalBadges' => $totalBadges,
         );
     }
@@ -89,15 +90,16 @@ class DefaultController extends Controller {
     public function sendMailAction()
     {
         $contactData = array(
-            'nombre' => $this->getRequest()->get('nombre'),
-            'email' => $this->getRequest()->get('email'),
+            'nombre'  => $this->getRequest()->get('nombre'),
+            'email'   => $this->getRequest()->get('email'),
             'mensaje' => $this->getRequest()->get('mensaje'),
         );
 
         try {
 
             $this->validateContactData($contactData);
-        } catch (HttpException $e) {
+        }
+        catch (HttpException $e) {
 
             /**
              * Due to HttpException only accept a text message and we need
@@ -179,57 +181,57 @@ class DefaultController extends Controller {
      */
     private $founders = array(
         array(
-            'name' => 'Óscar López',
+            'name'        => 'Óscar López',
             'description' => 'Web Developer en Blaffin.com',
-            'email' => 'zepolracso[at]gmail[dot]com',
-            'foto' => 'http://1.gravatar.com/avatar/30b1c6544fe3993f4c4bc5d2c3cc1998?size=140',
-            'github' => 'Osukaru',
-            'twitter' => 'Osukaru80',
-            'betabeers' => 'http://dir.betabeers.com/user/oscar-lopez-carazo-59/',
+            'email'       => 'zepolracso[at]gmail[dot]com',
+            'foto'        => 'http://1.gravatar.com/avatar/30b1c6544fe3993f4c4bc5d2c3cc1998?size=140',
+            'github'      => 'Osukaru',
+            'twitter'     => 'Osukaru80',
+            'betabeers'   => 'http://dir.betabeers.com/user/oscar-lopez-carazo-59/',
         ),
         array(
-            'name' => 'Moisés Gallego',
+            'name'        => 'Moisés Gallego',
             'description' => 'Programador, sysadmin, CEO, CTO, SEO, ABC ... XYZ en Picmnt.com',
-            'email' => 'moisesgallego[at]gmail[dot]com',
-            'foto' => 'http://1.gravatar.com/avatar/0fbb80757bb88d09cb11a069d2f00282?s=140',
-            'github' => 'mgallego',
-            'twitter' => 'moisesgallego',
-            'betabeers' => 'http://dir.betabeers.com/user/moises-gallego-138/',
+            'email'       => 'moisesgallego[at]gmail[dot]com',
+            'foto'        => 'http://1.gravatar.com/avatar/0fbb80757bb88d09cb11a069d2f00282?s=140',
+            'github'      => 'mgallego',
+            'twitter'     => 'moisesgallego',
+            'betabeers'   => 'http://dir.betabeers.com/user/moises-gallego-138/',
         ),
         array(
-            'name' => 'Daniel González',
+            'name'        => 'Daniel González',
             'description' => 'Developer & Team manager en RadMas',
-            'email' => 'daniel.gonzalez[at]freelancemadrid[dot]es',
-            'foto' => 'http://1.gravatar.com/avatar/e31141ecebae853059760217e1c7d8c3?s=140',
-            'github' => 'desarrolla2',
-            'twitter' => 'desarrolla2',
+            'email'       => 'daniel.gonzalez[at]freelancemadrid[dot]es',
+            'foto'        => 'http://1.gravatar.com/avatar/e31141ecebae853059760217e1c7d8c3?s=140',
+            'github'      => 'desarrolla2',
+            'twitter'     => 'desarrolla2',
         //'betabeers' => '',
         ),
         array(
-            'name' => 'Moisés Macia',
+            'name'        => 'Moisés Macia',
             'description' => 'Senior software developer en ideup!',
-            'email' => 'mmacia[at]gmail[dot]com',
-            'foto' => 'http://1.gravatar.com/avatar/bda8302cf8bb9867e4732740d8a125f5?size=140',
-            'github' => 'mmacia',
-            'twitter' => 'moises_macia',
-            'betabeers' => 'http://dir.betabeers.com/user/moises-macia-205/',
+            'email'       => 'mmacia[at]gmail[dot]com',
+            'foto'        => 'http://1.gravatar.com/avatar/bda8302cf8bb9867e4732740d8a125f5?size=140',
+            'github'      => 'mmacia',
+            'twitter'     => 'moises_macia',
+            'betabeers'   => 'http://dir.betabeers.com/user/moises-macia-205/',
         ),
         array(
-            'name' => 'Eduardo Gulias',
+            'name'        => 'Eduardo Gulias',
             'description' => 'Arquitecto de Software en ideup!',
-            'email' => 'eduardomgulias[at]gmail[dot]com',
-            'foto' => 'http://1.gravatar.com/avatar/48640daa8e9f07f94c8ca44805cd98eb?size=140',
-            'github' => 'egulias',
-            'twitter' => 'egulias',
-            'betabeers' => 'http://dir.betabeers.com/user/eduardo-gulias-davis-854/',
+            'email'       => 'eduardomgulias[at]gmail[dot]com',
+            'foto'        => 'http://1.gravatar.com/avatar/48640daa8e9f07f94c8ca44805cd98eb?size=140',
+            'github'      => 'egulias',
+            'twitter'     => 'egulias',
+            'betabeers'   => 'http://dir.betabeers.com/user/eduardo-gulias-davis-854/',
         ),
         array(
-            'name' => 'Francisco Javier Aceituno',
+            'name'        => 'Francisco Javier Aceituno',
             'description' => 'Software Engineer en ideup!',
-            'email' => 'fco.javier.aceituno[at]gmail[dot]com',
-            'foto' => 'http://1.gravatar.com/avatar/7e99009a0d6c0c0d2da13e4f83b9bd5d?size=140',
-            'github' => 'javiacei',
-            'twitter' => 'javiacei',
+            'email'       => 'fco.javier.aceituno[at]gmail[dot]com',
+            'foto'        => 'http://1.gravatar.com/avatar/7e99009a0d6c0c0d2da13e4f83b9bd5d?size=140',
+            'github'      => 'javiacei',
+            'twitter'     => 'javiacei',
         //'betabeers' => '',
         )
     );

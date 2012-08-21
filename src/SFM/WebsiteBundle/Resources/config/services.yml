@@ -1,3 +1,7 @@
 services:
+    sensio_connect:
+        class: SFM\WebsiteBundle\Service\SensioConnectService
+        arguments: [%sensiogroup%]  
+  
 
 
