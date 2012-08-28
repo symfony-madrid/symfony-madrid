@@ -27,8 +27,6 @@ set :use_sudo,              false
 
 ssh_options[:forward_agent] = true
 
-logger.level = Logger::INFO
-
 role :web,                  domain
 role :app,                  domain
 role :db,                   domain, :primary => true
@@ -45,4 +43,4 @@ namespace :composer do
   end
 end
 
-
+logger.level = Logger::IMPORTANT
