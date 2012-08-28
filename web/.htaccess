@@ -1,9 +1,15 @@
 <Files "humans.txt">
     AddCharset UTF-8 .txt
 </Files>
-
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^(.*)$ app.php [QSA,L]
 </IfModule>
+<FilesMatch "\.(flv|gif|jpg|jpeg|png|ico|swf|woff)$">
+        Header set Cache-Control "max-age=2592000"
+</FilesMatch>
+
+<FilesMatch "\.(css|js)$">
+        Header set Cache-Control "max-age=604800"
+</FilesMatch>
