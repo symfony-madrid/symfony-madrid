@@ -25,7 +25,7 @@ class WidgetsController extends Controller
         $rssClient = $this->get('d2_client_rss');
 
         return array(
-            'feeds' => $rssClient->fetch('google_groups',4),
+            'feeds' => $rssClient->fetch('google_groups',5),
         );
     }
 
