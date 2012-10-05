@@ -15,3 +15,19 @@ parameters:
   secret:            ThisTokenIsNotSoSecretChangeIt  
   
   sensiogroup:       'symfony-madrid'
+
+  d2.client.rss.feeds: ~
+  
+  d2.client.rss.channels:
+    - default:
+      - 'http://codeup.net/feed/'
+      - 'http://www.osukaru.es/feed/'
+      - 'http://feeds.feedburner.com/moidev?format=xml'
+      - 'http://desarrolla2.com/feed/'
+      - 'http://feeds.feedburner.com/symfony/blog'
+      - 'http://www.symfony.es/feed/'
+    - google.groups:
+      - 'https://groups.google.com/group/symfony_madrid/feed/rss_v2_0_topics.xml'
+    
+  d2.client.twitter.screen_name: 'symfony_madrid'
+  d2.client.twitter.search_query: ~   
