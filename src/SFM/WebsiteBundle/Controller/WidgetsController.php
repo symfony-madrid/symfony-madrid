@@ -22,10 +22,10 @@ class WidgetsController extends Controller
      */
     public function googleGroupAction()
     {
-        $rssClient = $this->get('d2_client_rss');
+        $rssClient = $this->get('rss_client');
 
         return array(
-            'feeds' => $rssClient->fetch('google_groups',5),
+            'feeds' => $rssClient->fetch('google_groups', 5),
         );
     }
 
@@ -39,11 +39,11 @@ class WidgetsController extends Controller
      */
     public function twitterAction()
     {
-        $twitterClient = $this->container->get('d2_client_twitter');
-        
+        $twitterClient = $this->container->get('twitter_client');
+
         return array(
             'feeds' => $twitterClient->fetch(6)
-                );
+        );
     }
 
 }

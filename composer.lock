@@ -7,18 +7,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/desarrolla2/Cache.git",
-                "reference": "55f33af1db965114c251e0eab12df1af31e6ba6c"
+                "reference": "e68acb9a3268fb438bd47119f0fa0abd8e67055a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/desarrolla2/Cache/zipball/55f33af1db965114c251e0eab12df1af31e6ba6c",
-                "reference": "55f33af1db965114c251e0eab12df1af31e6ba6c",
+                "url": "https://github.com/desarrolla2/Cache/zipball/e68acb9a3268fb438bd47119f0fa0abd8e67055a",
+                "reference": "e68acb9a3268fb438bd47119f0fa0abd8e67055a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
-            "time": "1349370819",
+            "time": "1349799952",
             "type": "library",
             "installation-source": "source",
             "autoload": {
@@ -90,19 +90,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/desarrolla2/RSSClientBundle.git",
-                "reference": "4380a3c3bc828ccd4cb135d0154945cbd3150500"
+                "reference": "7d4d6da7e0dfa3f450b1bf16258bb178c7b82bb2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/desarrolla2/RSSClientBundle/zipball/4380a3c3bc828ccd4cb135d0154945cbd3150500",
-                "reference": "4380a3c3bc828ccd4cb135d0154945cbd3150500",
+                "url": "https://github.com/desarrolla2/RSSClientBundle/zipball/7d4d6da7e0dfa3f450b1bf16258bb178c7b82bb2",
+                "reference": "7d4d6da7e0dfa3f450b1bf16258bb178c7b82bb2",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
-                "desarrolla2/rss-client": "dev-master"
+                "desarrolla2/rss-client": "dev-master",
+                "symfony/framework-bundle": ">=2.0,<2.2-dev"
             },
-            "time": "1349447865",
+            "time": "1349812807",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -126,25 +127,66 @@
             ]
         },
         {
+            "name": "desarrolla2/twitter-client",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/desarrolla2/TwitterClient.git",
+                "reference": "3ca035d9cd32f057bd4fe7def77274462bebf15b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/desarrolla2/TwitterClient/zipball/3ca035d9cd32f057bd4fe7def77274462bebf15b",
+                "reference": "3ca035d9cd32f057bd4fe7def77274462bebf15b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "desarrolla2/rss-client": "dev-master"
+            },
+            "time": "1349821754",
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Desarrolla2\\TwitterClient\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel González",
+                    "homepage": "http://desarrolla2.com/"
+                }
+            ],
+            "description": "A independent Twitter client library to retrieve Twits.",
+            "keywords": [
+                "client",
+                "twitter"
+            ]
+        },
+        {
             "name": "desarrolla2/twitter-client-bundle",
             "version": "dev-master",
             "target-dir": "Desarrolla2/Bundle/TwitterClientBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/desarrolla2/TwitterClientBundle.git",
-                "reference": "345c7f089b95cf7607ed19cd603341ce15b852a6"
+                "reference": "afbb3b1fdc904c7fa708f11defda1e9add171094"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/desarrolla2/TwitterClientBundle/zipball/345c7f089b95cf7607ed19cd603341ce15b852a6",
-                "reference": "345c7f089b95cf7607ed19cd603341ce15b852a6",
+                "url": "https://github.com/desarrolla2/TwitterClientBundle/zipball/afbb3b1fdc904c7fa708f11defda1e9add171094",
+                "reference": "afbb3b1fdc904c7fa708f11defda1e9add171094",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
-                "desarrolla2/rss-client-bundle": "dev-master"
+                "desarrolla2/twitter-client": "dev-master"
             },
-            "time": "1349041518",
+            "time": "1349821730",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -283,19 +325,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal",
-                "reference": "fdc866a37959e43620e4f7ec519dc7dd8e30fc5b"
+                "reference": "219d96a1592e9e23087eb6861b4f8233d06c6463"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/dbal/zipball/fdc866a37959e43620e4f7ec519dc7dd8e30fc5b",
-                "reference": "fdc866a37959e43620e4f7ec519dc7dd8e30fc5b",
+                "url": "https://github.com/doctrine/dbal/zipball/219d96a1592e9e23087eb6861b4f8233d06c6463",
+                "reference": "219d96a1592e9e23087eb6861b4f8233d06c6463",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
                 "doctrine/common": "2.3.*"
             },
-            "time": "1348120597",
+            "time": "1349518912",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -415,21 +457,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineFixturesBundle.git",
-                "reference": "186d605aa6b592bd577e07e0e9a2c420b02b2492"
+                "reference": "1e2c7af26f9f7ac9110d47cee8133d700fb99ae1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/DoctrineFixturesBundle/zipball/186d605aa6b592bd577e07e0e9a2c420b02b2492",
-                "reference": "186d605aa6b592bd577e07e0e9a2c420b02b2492",
+                "url": "https://github.com/doctrine/DoctrineFixturesBundle/zipball/1e2c7af26f9f7ac9110d47cee8133d700fb99ae1",
+                "reference": "1e2c7af26f9f7ac9110d47cee8133d700fb99ae1",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
                 "doctrine/data-fixtures": "*",
-                "symfony/doctrine-bridge": "2.1.*",
-                "doctrine/doctrine-bundle": "1.0.*"
+                "doctrine/doctrine-bundle": "1.0.*",
+                "symfony/doctrine-bridge": ">=2.1.0,<2.3-dev"
             },
-            "time": "1345465418",
+            "time": "1349789605",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -443,21 +485,15 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": null,
-                    "role": null
+                    "email": "fabien@symfony.com"
                 },
                 {
                     "name": "Symfony Community",
-                    "email": null,
-                    "homepage": "http://symfony.com/contributors",
-                    "role": null
+                    "homepage": "http://symfony.com/contributors"
                 },
                 {
                     "name": "Doctrine Project",
-                    "email": null,
-                    "homepage": "http://www.doctrine-project.org",
-                    "role": null
+                    "homepage": "http://www.doctrine-project.org"
                 }
             ],
             "description": "Symfony DoctrineFixturesBundle",
@@ -473,12 +509,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/doctrine/doctrine2.git",
-                "reference": "c60e6523e90a8d4ccf301456b50c5d351a9d27bf"
+                "reference": "564ec1ee2a6a439312ee9105a2a076af7c992e5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/doctrine2/zipball/c60e6523e90a8d4ccf301456b50c5d351a9d27bf",
-                "reference": "c60e6523e90a8d4ccf301456b50c5d351a9d27bf",
+                "url": "https://github.com/doctrine/doctrine2/zipball/564ec1ee2a6a439312ee9105a2a076af7c992e5b",
+                "reference": "564ec1ee2a6a439312ee9105a2a076af7c992e5b",
                 "shasum": ""
             },
             "require": {
@@ -490,7 +526,7 @@
             "suggest": {
                 "symfony/yaml": "If you want to use YAML Metadata Mapping Driver"
             },
-            "time": "1349373510",
+            "time": "1349472005",
             "bin": [
                 "bin/doctrine",
                 "bin/doctrine.php"
@@ -1105,19 +1141,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensio/SensioFrameworkExtraBundle",
-                "reference": "bf2ea090d602e02b975d1bf1d8ffca8f02ef8bdb"
+                "reference": "53a2a5e5ba052b2ae281f3b8bd9b530947a328b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/sensio/SensioFrameworkExtraBundle/zipball/bf2ea090d602e02b975d1bf1d8ffca8f02ef8bdb",
-                "reference": "bf2ea090d602e02b975d1bf1d8ffca8f02ef8bdb",
+                "url": "https://github.com/sensio/SensioFrameworkExtraBundle/zipball/53a2a5e5ba052b2ae281f3b8bd9b530947a328b4",
+                "reference": "53a2a5e5ba052b2ae281f3b8bd9b530947a328b4",
                 "shasum": ""
             },
             "require": {
                 "symfony/framework-bundle": "2.1.*",
                 "doctrine/common": ">=2.1,<2.4-dev"
             },
-            "time": "1349361259",
+            "time": "1349786071",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1421,12 +1457,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/symfony/symfony.git",
-                "reference": "8062031a0a5143086f2ff864925dada9614f2ead"
+                "reference": "85dd3c20a3b3905bae6ee7a18085d23eceaff724"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/symfony/zipball/8062031a0a5143086f2ff864925dada9614f2ead",
-                "reference": "8062031a0a5143086f2ff864925dada9614f2ead",
+                "url": "https://github.com/symfony/symfony/zipball/85dd3c20a3b3905bae6ee7a18085d23eceaff724",
+                "reference": "85dd3c20a3b3905bae6ee7a18085d23eceaff724",
                 "shasum": ""
             },
             "require": {
@@ -1475,7 +1511,7 @@
                 "propel/propel1": "dev-master",
                 "monolog/monolog": "dev-master"
             },
-            "time": "1349381694",
+            "time": "1349788762",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1561,18 +1597,18 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/fabpot/Twig.git",
-                "reference": "515f34abc31ae9109d1d901a8444494672d64d73"
+                "reference": "347bc81d6ed8e2bb793236aa9917c7e83f81c2b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/fabpot/Twig/zipball/515f34abc31ae9109d1d901a8444494672d64d73",
-                "reference": "515f34abc31ae9109d1d901a8444494672d64d73",
+                "url": "https://github.com/fabpot/Twig/zipball/347bc81d6ed8e2bb793236aa9917c7e83f81c2b3",
+                "reference": "347bc81d6ed8e2bb793236aa9917c7e83f81c2b3",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "1349372505",
+            "time": "1349702400",
             "type": "library",
             "extra": {
                 "branch-alias": {
