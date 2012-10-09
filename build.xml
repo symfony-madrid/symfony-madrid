@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Symfony Madrid Web Site" default="build">
+
+    <target name="build" depends="install,cache,assets,permissions" description="Run all tests and build everything" />
+    
+    <target name="install" depends="composer" description="Prepare for execution" />
+
+    <target name="composer" description="Composer install">
+        <echo msg="Installing vendors ..."/>
+        <exec executable="composer">
+            <arg value="install" />
+        </exec>
+    </target>
+
+    <target name="cache" description="Clean up and create cache directories">
+        <echo msg="Cleaning garbage files..."/>
+        <delete dir="app/cache"/>
+        <mkdir dir="app/cache"/>
+        <chmod file="app/cache" mode="777"/>
+    </target>
+    
+    <target name="assets" description="Publish css, js and images">
+        <echo msg="Publishing assets..."/>
+        <exec passthru="true" checkreturn="true" command="./app/console assets:install web --symlink"/>
+        <exec passthru="true" checkreturn="true" command="./app/console assetic:dump"/>        
+        <phingcall target="cache"/>
+    </target>
+    
+    <target name="permissions" description="Setting up directiores permissions">
+        <echo msg="Setting permissions..."/>
+        <chmod file="app/cache" mode="777"/>
+        <chmod file="app/logs" mode="777"/>
+    </target>
+
+</project>
