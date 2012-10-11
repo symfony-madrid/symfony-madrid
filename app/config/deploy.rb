@@ -32,7 +32,7 @@ set :group_writable,                    true
 set :permission_method,                 :chown
 set :use_sudo,                          false
 set :writable_dirs,                     ['app/cache', 'app/logs']
-set :shared_files,                      ['app/config/parameters.yml']
+set :shared_files,                      ['app/config/parameters.yml','app/config/security.yml']
 set :shared_children,                   [ app_path + '/logs']
 
 ssh_options[:forward_agent] =           true
