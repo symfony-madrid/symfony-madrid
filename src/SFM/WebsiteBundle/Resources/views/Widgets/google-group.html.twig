@@ -4,7 +4,7 @@
         <li>
             <p>
                 <a href="{{ thread.link }}" target="_blank">{{ thread.title }}</a> 
-                {{ thread.desc | truncate(160) |raw  }} <small> el {{ thread.pubDate | date('d/m/Y', 'Europe/Madrid')}}</small>
+                {{ thread.desc | striptags | truncate(160)  }} <small> el {{ thread.pubDate | date('d/m/Y', 'Europe/Madrid')}}</small>
                     
         </li>
     {%endfor%}
